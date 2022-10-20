@@ -19,7 +19,9 @@
   },
   "dependencies": {
     "handlebars": "^4.7.7",
+    "json-transformer-js": "^4.0.2",
     "modern-normalize": "^1.1.0",
+    "simplelightbox": "^2.10.4",
     "swiper": "^8.4.4"
   },
   "devDependencies": {

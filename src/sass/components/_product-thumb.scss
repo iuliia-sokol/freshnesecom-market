@@ -17,10 +17,15 @@
     height: 180px;
     margin-bottom: 16px;
     border-radius: 12px;
-    background-image: url("../images/image-light.jpg");
+    // background-image: url('../images/image-light.jpg');
     background-color: $thumb-border-grey;
     position: relative;
   }
+  // &__image {
+  //   width: 237px;
+  //   height: 180px;
+  //   // position: absolute;
+  // }
 
   &__discount {
     position: absolute;
@@ -28,12 +33,14 @@
     left: 12px;
     max-width: 54px;
     max-height: 18px;
+    padding: 0 8px;
     background-color: $discount-bg-green;
     border-radius: 12px;
     font-weight: 600;
     font-size: 12px;
     line-height: 1.5;
     color: $accent-green;
+    z-index: 100;
   }
 
   &__title {
@@ -44,7 +51,7 @@
   }
   &__description {
     margin-bottom: 16px;
-    font-family: "Open Sans";
+    font-family: 'Open Sans';
     font-size: 12px;
     line-height: 1.33;
     color: $text-secondary;

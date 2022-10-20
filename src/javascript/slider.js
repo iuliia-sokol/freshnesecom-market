@@ -44,7 +44,6 @@ const swiper = new Swiper('.swiper', {
     lastSlideMessage: 'This is the last slide',
   },
 });
-console.log(swiper);
 
 let sliderBlock = document.querySelector('.swiper');
 sliderBlock.addEventListener('mouseleave', function (e) {

@@ -1,7 +1,7 @@
 import './javascript/search_select';
-
+import './javascript/sale-markup-creator';
 import './javascript/slider';
-// import './javascript/products-modal-1';
+
 // import './javascript/products-modal-2';
 // import './javascript/products-modal-3';
 // import './javascript/about-modal';
