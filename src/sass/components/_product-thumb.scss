@@ -21,11 +21,9 @@
     background-color: $thumb-border-grey;
     position: relative;
   }
-  // &__image {
-  //   width: 237px;
-  //   height: 180px;
-  //   // position: absolute;
-  // }
+  &__image {
+    border-radius: 12px;
+  }
 
   &__discount {
     position: absolute;
