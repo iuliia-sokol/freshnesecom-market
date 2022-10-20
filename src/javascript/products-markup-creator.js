@@ -1,14 +1,18 @@
 import { saleItems } from './data/sale';
 import { farmItems } from './data/farm-products';
+import { bestSellersItems } from './data/best-sellers';
 
 const onSaleCardsEl = document.getElementById('sale-cards');
 const farmProductsCardsEl = document.getElementById('farm-cards');
+const bestSellersCardsEl = document.getElementById('best-sellers-cards');
 
 const onSaleCardsMarkUp = createQuatroGallery(saleItems);
 const farmProductsCardsMarkUp = createTrioGallery(farmItems);
+const bestSellersCardsMarkUp = createTrioGallery(bestSellersItems);
 
 onSaleCardsEl.insertAdjacentHTML('afterbegin', onSaleCardsMarkUp);
 farmProductsCardsEl.insertAdjacentHTML('afterbegin', farmProductsCardsMarkUp);
+bestSellersCardsEl.insertAdjacentHTML('afterbegin', bestSellersCardsMarkUp);
 
 function createQuatroGallery(items) {
   return items
