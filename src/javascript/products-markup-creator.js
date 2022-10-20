@@ -31,7 +31,7 @@ function createQuatroGallery(items) {
 <li class="cards__item cards__item--quatro">
 <article class="product">
 <div class="product__thumb">
-<a href="" class="links-general product__link">
+
 <div class="product__img-wrapper">
 <span class="product__discount animate__animated animate__heartBeat"
 >${discount}</span>
@@ -44,9 +44,10 @@ function createQuatroGallery(items) {
   width="237"
   height="180" />
 </div>
+<a href="" class="links-general product__link">
  <h3 class="product__title">${title}</h3>
-</a>
 <p class="product__description">${description}</p>
+</a>
 <div class="product__price-tag">
 <div class="product__price-wrapper">
 <p class="product__new-price">${newPrice}</p>
@@ -80,7 +81,7 @@ function createTrioGallery(items) {
 <li class="cards__item">
 <article class="product">
 <div class="product__thumb">
-<a href="" class="links-general product__link">
+
 <div class="product__img-wrapper">
 <span class="product__discount animate__animated animate__heartBeat"
 >${discount}</span>
@@ -93,9 +94,10 @@ function createTrioGallery(items) {
   width="237"
   height="180" />
 </div>
+<a href="" class="links-general product__link">
  <h3 class="product__title">${title}</h3>
-</a>
 <p class="product__description">${description}</p>
+</a>
 <div class="product__price-tag">
 <div class="product__price-wrapper">
 <p class="product__new-price">${newPrice}</p>

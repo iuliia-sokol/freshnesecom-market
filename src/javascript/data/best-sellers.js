@@ -11,7 +11,8 @@ export const bestSellersItems = [
     img: 'https://cdn.pixabay.com/photo/2018/10/03/21/57/cabbage-3722498_960_720.jpg',
     srcset:
       'https://cdn.pixabay.com/photo/2018/10/03/21/57/cabbage-3722498_960_720.jpg 1x, https://cdn.pixabay.com/photo/2018/10/03/21/57/cabbage-3722498_1280.jpg 2x',
-    tags: ['fruits-vegetables', 'cabbages', 'fresh-food'],
+    tags: ['fruits-vegetables', 'cabbages', 'savoy-cabbage', 'fresh-food'],
+    category: 'fruits-vegetables',
     isOnSale: false,
     isBestSeller: true,
   },
@@ -28,6 +29,7 @@ export const bestSellersItems = [
     srcset:
       'https://cdn.pixabay.com/photo/2016/12/04/11/58/salmon-1881522_960_720.jpg 1x, https://cdn.pixabay.com/photo/2016/12/04/11/58/salmon-1881522_1280.jpg 2x',
     tags: ['meat-fish', 'seafood', 'fresh-food', 'salmon', 'fish'],
+    category: 'meat-fish',
     isOnSale: true,
     isBestSeller: true,
   },
@@ -44,7 +46,8 @@ export const bestSellersItems = [
     img: 'https://cdn.pixabay.com/photo/2018/05/29/15/52/fruit-3439189_960_720.jpg',
     srcset:
       'https://cdn.pixabay.com/photo/2018/05/29/15/52/fruit-3439189_960_720.jpg 1x, https://cdn.pixabay.com/photo/2018/05/29/15/52/fruit-3439189_1280.jpg 2x',
-    tags: ['meat-fish', 'pork', 'fresh-food', 'farm-products'],
+    tags: ['fruits-vegetables', 'fruit-basket', 'fresh-food'],
+    category: 'fruits-vegetables',
     isOnSale: false,
     isBestSeller: true,
   },
@@ -60,7 +63,8 @@ export const bestSellersItems = [
   //     img: 'https://cdn.pixabay.com/photo/2014/08/06/20/32/potatoes-411975_960_720.jpg',
   //     srcset:
   //       'https://cdn.pixabay.com/photo/2014/08/06/20/32/potatoes-411975_960_720.jpg 1x, https://cdn.pixabay.com/photo/2014/08/06/20/32/potatoes-411975_1280.jpg 2x',
-  //     tags: ['fruits-vegetables', 'potatoes', 'fresh food', 'farm-products'],
+  //     tags: ['fruits-vegetables', 'bananas', 'fresh food'],
+  //     category: 'fruits-vegetables',
   //     isOnSale: true,
   //     isBestSeller: false,
   //   },

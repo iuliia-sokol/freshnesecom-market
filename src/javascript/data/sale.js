@@ -11,6 +11,7 @@ export const saleItems = [
     srcset:
       'https://cdn.pixabay.com/photo/2017/02/05/12/31/lemons-2039830_960_720.jpg 1x, https://cdn.pixabay.com/photo/2017/02/05/12/31/lemons-2039830_1280.jpg 2x',
     tags: ['fruits-vegetables', 'lemons', 'fresh-food'],
+    category: 'fruits-vegetables',
     isOnSale: true,
     isBestSeller: false,
   },
@@ -27,6 +28,7 @@ export const saleItems = [
     srcset:
       'https://cdn.pixabay.com/photo/2017/02/26/12/27/oranges-2100108_960_720.jpg 1x, https://cdn.pixabay.com/photo/2017/02/26/12/27/oranges-2100108_1280.jpg 2x',
     tags: ['fruits-vegetables', 'oranges', 'fresh-food'],
+    category: 'fruits-vegetables',
     isOnSale: true,
     isBestSeller: false,
   },
@@ -43,6 +45,7 @@ export const saleItems = [
     srcset:
       'https://cdn.pixabay.com/photo/2011/03/16/16/01/tomatoes-5356_960_720.jpg 1x, https://cdn.pixabay.com/photo/2011/03/16/16/01/tomatoes-5356_1280.jpg 2x',
     tags: ['fruits-vegetables', 'tomatoes', 'fresh-food'],
+    category: 'fruits-vegetables',
     isOnSale: true,
     isBestSeller: false,
   },
@@ -58,6 +61,7 @@ export const saleItems = [
     srcset:
       'https://cdn.pixabay.com/photo/2014/08/06/20/32/potatoes-411975_960_720.jpg 1x, https://cdn.pixabay.com/photo/2014/08/06/20/32/potatoes-411975_1280.jpg 2x',
     tags: ['fruits-vegetables', 'potatoes', 'fresh-food'],
+    category: 'fruits-vegetables',
     isOnSale: true,
     isBestSeller: false,
   },
