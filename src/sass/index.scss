@@ -1,2 +1,32 @@
-@import './common';
-@import './example';
+@import './utils/variables';
+@import './base/initial-settings';
+@import './components/common-styles';
+@import './utils/visually-hidden';
+@import './utils/placeholders';
+@import './utils/mixins';
+
+@import './layout/header/header__top-bar';
+@import './layout/header/header__middle-bar';
+@import './layout/header/header__menu';
+
+@import './components/sidebars';
+@import './components/more-btn';
+@import './pages/hero-section';
+@import './components/read-btn';
+
+@import './pages/best-sellers-section';
+@import './components/section-cards';
+@import './components/product-thumb';
+@import './components/buy-btn';
+@import './components/discount-tag';
+
+@import './pages/farm-products-section';
+
+@import './pages/feedback-section';
+@import './components/top-btn';
+@import './components/feedback-slider';
+
+@import './pages/sale-section';
+@import './pages/blog-section';
+
+@import './layout/footer/footer';

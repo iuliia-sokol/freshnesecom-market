@@ -1,0 +1,13 @@
+.discount {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  max-width: 54px;
+  max-height: 18px;
+  background-color: $discount-bg-green;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.5;
+  color: $accent-green;
+}

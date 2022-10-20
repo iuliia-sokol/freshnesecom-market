@@ -1,0 +1,19 @@
+.cards {
+  flex-basis: 870px;
+
+  &__list {
+    display: flex;
+    column-gap: 32px;
+  }
+  &__item {
+    display: block;
+    width: calc((100% - 64px) / 3);
+    padding: 16px;
+    margin-bottom: 9px;
+    border: 1px solid $thumb-border-grey;
+    border-radius: 12px;
+  }
+  &__item--quatro {
+    width: calc((100% - 96px) / 4);
+  }
+}

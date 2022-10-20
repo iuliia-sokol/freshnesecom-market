@@ -1,0 +1,15 @@
+/* FEEDBACK SECTION*/
+
+.feedback {
+  &__container {
+    padding-top: 64px;
+    padding-bottom: 64px;
+    overflow: hidden;
+  }
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+  }
+}

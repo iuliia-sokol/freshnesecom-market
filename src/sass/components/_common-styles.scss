@@ -1,0 +1,23 @@
+.container {
+  width: 1260px;
+  margin: 0 auto;
+  padding: 0 45px;
+}
+.list-general {
+  list-style: none;
+  padding-left: 0;
+}
+
+.links-general {
+  color: inherit;
+  text-decoration: none;
+}
+
+.image-display {
+  display: block;
+}
+
+.animate__heartBeat {
+  animation-iteration-count: infinite;
+  animation-duration: 2000ms;
+}

@@ -1,0 +1,10 @@
+/* BEST SELLERS SECTION */
+
+.best-sellers {
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+}
