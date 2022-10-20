@@ -1,5 +1,5 @@
 import './javascript/search_select';
-import './javascript/sale-markup-creator';
+import './javascript/products-markup-creator';
 import './javascript/slider';
 
 // import './javascript/products-modal-2';
