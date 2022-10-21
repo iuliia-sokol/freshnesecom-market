@@ -1,6 +1,6 @@
-import { allProducts } from './data/all-products';
-import * as Products from './data/all-products';
+import { allProducts } from './all-products';
 import debounce from 'lodash.debounce';
+// console.log(allProducts);
 
 const onSaleCardsEl = document.getElementById('sale-cards');
 const farmProductsCardsEl = document.getElementById('farm-cards');
