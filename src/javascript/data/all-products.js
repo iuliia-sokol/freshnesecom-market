@@ -4,8 +4,8 @@ const productsData = [
     title: 'Juicy lemons',
     description:
       'Add a citrus kick to sweet or savory recipes with a small fresh lemon. Extremely handy in both cooking and baking, they’re juicy, tart and ideal as slices or wedges.',
-    newPrice: '2.20 USD',
-    oldPrice: '6.40 USD',
+    newPrice: '2.20',
+    oldPrice: '6.40',
     discount: '',
     link: '#',
     img: 'https://cdn.pixabay.com/photo/2017/02/05/12/31/lemons-2039830_960_720.jpg',
@@ -22,8 +22,8 @@ const productsData = [
     title: 'Extra-sweet navel oranges',
     description:
       'Bright, tangy-sweet and delicious, this classic winter orange is the world’s most popular citrus fruit, and no wonder – its rich, flavorful and seedless flesh makes it perfect for snacking!',
-    newPrice: '10 USD',
-    oldPrice: '15.50 USD',
+    newPrice: '10',
+    oldPrice: '15.50',
     discount: '',
     link: '#',
     img: 'https://cdn.pixabay.com/photo/2017/02/26/12/27/oranges-2100108_960_720.jpg',
@@ -40,8 +40,8 @@ const productsData = [
     title: 'Home-grown tomatoes',
     description:
       'Fresh tomatoes are rich in vitamins and antioxidants, making them very good for improving skin health, strengthening the immune system and protecting cardiovascular system.',
-    newPrice: '12 USD',
-    oldPrice: '20 USD',
+    newPrice: '12',
+    oldPrice: '20',
     discount: '',
     link: '#',
     img: 'https://cdn.pixabay.com/photo/2011/03/16/16/01/tomatoes-5356_960_720.jpg',
@@ -57,8 +57,8 @@ const productsData = [
     title: 'Potatoes from eco-farm',
     description:
       'The skin on white potatoes is thin so you can wash without peeling. they are also creamy and subtly sweet. Grill them to bring out their full flavor.',
-    newPrice: '5 USD',
-    oldPrice: '10 USD',
+    newPrice: '5',
+    oldPrice: '10',
     discount: '',
     link: '#',
     img: 'https://cdn.pixabay.com/photo/2014/08/06/20/32/potatoes-411975_960_720.jpg',
@@ -75,7 +75,7 @@ const productsData = [
     title: 'Fresh carrots',
     description:
       'Crunchy and nutritious, carrots are an excellent source of Vitamin A. Peel, coat in oil and seasoning and roast in the oven, or use cook into stews, soups and more.',
-    newPrice: '1.48 USD',
+    newPrice: '1.48',
     oldPrice: '',
     discount: '',
     link: '#',
@@ -93,8 +93,8 @@ const productsData = [
     title: 'Chicken breast',
     description:
       'Chicken breast is one of the meatier cuts of a chicken. This cut is skinless and has a supple texture. A good source of vitamins and minerals. Freshness guaranteed',
-    newPrice: '11.12 USD',
-    oldPrice: '12.48 USD',
+    newPrice: '11.12',
+    oldPrice: '12.48',
     discount: '',
     link: '#',
     img: 'https://cdn.pixabay.com/photo/2018/03/09/17/41/chicken-3212144_960_720.jpg',
@@ -111,8 +111,8 @@ const productsData = [
     title: 'Pork ribs',
     description:
       'Fresh, humanely raised pork ribs from eco-farms. Our farms deliver to us daily, ensuring you only eat the absolute best. 100% risk-free.',
-    newPrice: '17 USD',
-    oldPrice: '20 USD',
+    newPrice: '17',
+    oldPrice: '20',
     discount: '',
     link: '#',
     img: 'https://cdn.pixabay.com/photo/2018/03/31/09/16/pig-3277645_960_720.jpg',
@@ -129,7 +129,7 @@ const productsData = [
     title: 'Sweet red apples',
     description:
       'Red Delicious is one of the most famous American apples, and one of the most widely grown apple varieties.',
-    newPrice: '2.2 USD',
+    newPrice: '2.2',
     oldPrice: '',
     discount: '',
     link: '#',
@@ -147,7 +147,7 @@ const productsData = [
     title: 'Fresh savoy cabbage',
     description:
       'Savoy cabbage tender deep green crinkled leaves are perfect for soups and stir-fries.',
-    newPrice: '1.20 USD',
+    newPrice: '1.20',
     oldPrice: '',
     discount: '',
     link: '#',
@@ -171,8 +171,8 @@ const productsData = [
     title: 'Fresh salmon',
     description:
       'Premium quality, frozen wild caught Alaskan salmon. From the sea to your table.',
-    newPrice: '31.90 USD',
-    oldPrice: '45.40 USD',
+    newPrice: '31.90',
+    oldPrice: '45.40',
     discount: '',
     link: '#',
     img: 'https://cdn.pixabay.com/photo/2016/12/04/11/58/salmon-1881522_960_720.jpg',
@@ -189,7 +189,7 @@ const productsData = [
     title: 'Assorted fruit basket (medium)',
     description:
       'Shop our premium selection of mixed fruit gift basket delivered right to your door.',
-    newPrice: '35 USD',
+    newPrice: '35',
     oldPrice: '',
     discount: '',
     link: '#',
@@ -207,13 +207,31 @@ const productsData = [
     title: 'Ecuadorian bananas',
     description:
       'These organic bananas are a perfectly healthy on-the-go snack or a naturally sweet base to your morning smoothie.',
-    newPrice: '1.9 USD',
-    oldPrice: '2 USD',
+    newPrice: '1.9',
+    oldPrice: '2',
     discount: '',
     link: '#',
     img: 'https://cdn.pixabay.com/photo/2014/08/06/20/32/potatoes-411975_960_720.jpg',
     srcset:
       'https://cdn.pixabay.com/photo/2018/09/24/20/12/bananas-3700718_960_720.jpg 1x, https://cdn.pixabay.com/photo/2018/09/24/20/12/bananas-3700718_1280.jpg 2x',
+    tags: ['fruits-vegetables', 'bananas', 'fresh food'],
+    category: 'fruits-vegetables',
+    isOnSale: true,
+    isBestSeller: false,
+  },
+
+  {
+    id: '',
+    title: 'Ecuadorian bananas',
+    description:
+      'These organic bananas are a perfectly healthy on-the-go snack or a naturally sweet base to your morning smoothie.',
+    newPrice: '9,2',
+    oldPrice: '',
+    discount: '',
+    link: '#',
+    img: 'https://cdn.pixabay.com/photo/2016/03/26/23/44/grapes-1281918_960_720.jpg',
+    srcset:
+      'https://cdn.pixabay.com/photo/2016/03/26/23/44/grapes-1281918_960_720.jpg 1x, https://cdn.pixabay.com/photo/2016/03/26/23/44/grapes-1281918_1280.jpg 2x',
     tags: ['fruits-vegetables', 'bananas', 'fresh food'],
     category: 'fruits-vegetables',
     isOnSale: true,
@@ -230,6 +248,20 @@ const generateId = array => {
   return array;
 };
 
+const addCurrency = array => {
+  for (product of array) {
+    let oldPrice = product.oldPrice;
+    let newPrice = product.newPrice;
+    console.log(product.newPrice);
+    console.log(newPrice);
+    if (oldPrice) {
+      product.newPrice = `${newPrice} USD`;
+      product.oldPrice = `${oldPrice} USD`;
+    }
+    product.newPrice = `${newPrice} USD`;
+  }
+  return array;
+};
 const countDiscount = array => {
   for (product of array) {
     let oldPrice = parseFloat(product.oldPrice);
@@ -242,8 +274,17 @@ const countDiscount = array => {
   return array;
 };
 
-const productsDataCopy = [...productsData];
-const productsDataWithID = generateId(productsDataCopy);
-export const allProducts = countDiscount(productsDataWithID);
+const modifyData = array => {
+  generateId(array);
+  addCurrency(array);
+  countDiscount(array);
+  return array;
+};
 
-console.log(productsData);
+//    console.log(productsData);
+
+const productsDataCopy = [...productsData];
+export const allProducts = modifyData(productsDataCopy);
+
+//     const productsDataWithID = generateId(productsDataCopy);
+//     export const allProducts = countDiscount(productsDataWithID);
