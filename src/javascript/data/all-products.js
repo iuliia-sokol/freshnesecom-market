@@ -239,14 +239,14 @@ const productsData = [
   },
 ];
 
-export function generateId(products) {
-  let counter = 0;
-  for (product of products) {
-    counter++;
-    product.id = counter.toString();
-  }
-  return products;
-}
+// export function generateId(products) {
+//   let counter = 0;
+//   for (product of products) {
+//     counter++;
+//     product.id = counter.toString();
+//   }
+//   return products;
+// }
 
 export function addCurrency(products) {
   for (product of products) {
@@ -274,13 +274,13 @@ export function countDiscount(products) {
 }
 
 export function modifyData(products) {
-  generateId(products);
+  //   generateId(products);
   addCurrency(products);
   countDiscount(products);
   return products;
 }
 
-// console.log(productsData);
+console.log(productsData);
 
 export const productsDataCopy = [...productsData];
 export const allProducts = modifyData(productsDataCopy);
