@@ -1,3 +1,4 @@
+import { productsDataCopy } from '././all-products';
 import { allProducts } from '././all-products';
 import debounce from 'lodash.debounce';
 // console.log(allProducts);

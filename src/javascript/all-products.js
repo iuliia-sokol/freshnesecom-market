@@ -1,29 +1,29 @@
 import { productsData } from '././data/items-data';
 
-export function generateId(products) {
+function generateId(products) {
   let counter = 0;
-  for (product of products) {
+  for (let product of products) {
     counter++;
     product.id = counter.toString();
   }
-  return products;
 }
 
-export function addCurrency(products) {
-  for (product of products) {
+function addCurrency(products) {
+  for (let product of products) {
     let oldPrice = product.oldPrice;
     let newPrice = product.newPrice;
     if (oldPrice) {
       product.newPrice = `${newPrice} USD`;
       product.oldPrice = `${oldPrice} USD`;
     }
-    product.newPrice = `${newPrice} USD`;
+    if (!oldPrice) {
+      product.newPrice = `${newPrice} USD`;
+    }
   }
-  return products;
 }
 
-export function countDiscount(products) {
-  for (product of products) {
+function countDiscount(products) {
+  for (let product of products) {
     let oldPrice = parseFloat(product.oldPrice);
     let newPrice = parseFloat(product.newPrice);
     if (oldPrice && newPrice) {
@@ -31,20 +31,17 @@ export function countDiscount(products) {
       product.discount = `${discount}%`;
     }
   }
-  return products;
 }
 
-export function modifyData(products) {
+function modifyData(products) {
   generateId(products);
   addCurrency(products);
   countDiscount(products);
   return products;
 }
 
-// console.log(productsData);
-
 export const productsDataCopy = [...productsData];
-export const allProducts = modifyData(productsDataCopy);
+export const allProducts = modifyData(productsData);
 
 // const productsDataWithID = generateId(productsDataCopy);
 // const productsWithCurrency = addCurrency(productsDataWithID);
