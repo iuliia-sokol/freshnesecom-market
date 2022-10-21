@@ -1,5 +1,6 @@
 .cards {
   flex-basis: 870px;
+  overflow-x: hidden;
 
   &__list {
     display: flex;

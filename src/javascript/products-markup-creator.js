@@ -1,14 +1,31 @@
-import { saleItems } from './data/sale';
-import { farmItems } from './data/farm-products';
-import { bestSellersItems } from './data/best-sellers';
+import { allProducts } from './data/all-products';
+import throttle from 'lodash.throttle';
+import debounce from 'lodash.debounce';
 
 const onSaleCardsEl = document.getElementById('sale-cards');
 const farmProductsCardsEl = document.getElementById('farm-cards');
 const bestSellersCardsEl = document.getElementById('best-sellers-cards');
+// console.log(onSaleCardsEl.children);
 
-const onSaleCardsMarkUp = createQuatroGallery(saleItems);
-const farmProductsCardsMarkUp = createTrioGallery(farmItems);
-const bestSellersCardsMarkUp = createTrioGallery(bestSellersItems);
+onSaleCardsEl.addEventListener('mouseleave', throttle(shiftItems, 500));
+
+function shiftItems(event) {
+  let productList = event.currentTarget;
+  let productCards = event.currentTarget.children;
+  for (let i = productCards.length; i >= 0; i--) {
+    productList.appendChild(productCards[(Math.random() * i) | 0]);
+  }
+}
+
+const onSaleCardsMarkUp = createQuatroGallery(
+  allProducts.filter(item => item.isOnSale)
+);
+const farmProductsCardsMarkUp = createTrioGallery(
+  allProducts.filter(item => item.tags.includes('farm-products'))
+);
+const bestSellersCardsMarkUp = createTrioGallery(
+  allProducts.filter(item => item.isBestSeller)
+);
 
 onSaleCardsEl.insertAdjacentHTML('afterbegin', onSaleCardsMarkUp);
 farmProductsCardsEl.insertAdjacentHTML('afterbegin', farmProductsCardsMarkUp);
