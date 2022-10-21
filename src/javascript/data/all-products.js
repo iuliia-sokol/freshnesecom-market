@@ -252,8 +252,6 @@ const addCurrency = array => {
   for (product of array) {
     let oldPrice = product.oldPrice;
     let newPrice = product.newPrice;
-    console.log(product.newPrice);
-    console.log(newPrice);
     if (oldPrice) {
       product.newPrice = `${newPrice} USD`;
       product.oldPrice = `${oldPrice} USD`;
