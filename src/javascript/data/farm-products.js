@@ -2,7 +2,8 @@ export const farmItems = [
   {
     id: '5',
     title: 'Fresh carrots',
-    description: 'Space for a small product description',
+    description:
+      'Crunchy and nutritious, carrots are an excellent source of Vitamin A. Peel, coat in oil and seasoning and roast in the oven, or use cook into stews, soups and more.',
     newPrice: '1.48 USD',
     oldPrice: '',
     discount: '',
@@ -19,7 +20,8 @@ export const farmItems = [
   {
     id: '6',
     title: 'Chicken breast',
-    description: 'Space for a small product description',
+    description:
+      'Chicken breast is one of the meatier cuts of a chicken. This cut is skinless and has a supple texture. A good source of vitamins and minerals. Freshness guaranteed',
     newPrice: '11.12 USD',
     oldPrice: '12.48 USD',
     discount: '-11%',
@@ -36,7 +38,8 @@ export const farmItems = [
   {
     id: '7',
     title: 'Pork ribs',
-    description: 'Space for a small product description',
+    description:
+      'Fresh, humanely raised pork ribs from eco-farms. Our farms deliver to us daily, ensuring you only eat the absolute best. 100% risk-free.',
     newPrice: '17 USD',
     oldPrice: '20 USD',
     discount: '-15%',

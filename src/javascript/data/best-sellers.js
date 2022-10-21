@@ -20,7 +20,8 @@ export const bestSellersItems = [
   {
     id: '10',
     title: 'Fresh salmon',
-    description: 'Premium quality, frozen wild caught Alaskan salmon',
+    description:
+      'Premium quality, frozen wild caught Alaskan salmon. From the sea to your table.',
     newPrice: '31.90 USD',
     oldPrice: '45.40 USD',
     discount: '-30%',

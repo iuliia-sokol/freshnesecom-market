@@ -44,7 +44,7 @@ function createQuatroGallery(items) {
   width="237"
   height="180" />
 </div>
-<a href="" class="links-general product__link">
+<a href="${link}" class="links-general product__link">
  <h3 class="product__title">${title}</h3>
 <p class="product__description">${description}</p>
 </a>
@@ -94,7 +94,7 @@ function createTrioGallery(items) {
   width="237"
   height="180" />
 </div>
-<a href="" class="links-general product__link">
+<a href="${link}" class="links-general product__link">
  <h3 class="product__title">${title}</h3>
 <p class="product__description">${description}</p>
 </a>

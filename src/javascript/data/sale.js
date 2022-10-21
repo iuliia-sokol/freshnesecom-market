@@ -2,7 +2,8 @@ export const saleItems = [
   {
     id: '1',
     title: 'Juicy lemons',
-    description: 'Space for a small product description',
+    description:
+      'Add a citrus kick to sweet or savory recipes with a small fresh lemon. Extremely handy in both cooking and baking, they’re juicy, tart and ideal as slices or wedges.',
     newPrice: '2.20 USD',
     oldPrice: '6.40 USD',
     discount: '-65%',
@@ -18,8 +19,9 @@ export const saleItems = [
 
   {
     id: '2',
-    title: 'Extra-sweet oranges',
-    description: 'Space for a small product description',
+    title: 'Extra-sweet navel oranges',
+    description:
+      'Bright, tangy-sweet and delicious, this classic winter orange is the world’s most popular citrus fruit, and no wonder – its rich, flavorful and seedless flesh makes it perfect for snacking!',
     newPrice: '10 USD',
     oldPrice: '15.50 USD',
     discount: '-35%',
@@ -36,7 +38,8 @@ export const saleItems = [
   {
     id: '3',
     title: 'Home-grown tomatoes',
-    description: 'Space for a small product description',
+    description:
+      'Fresh tomatoes are rich in vitamins and antioxidants, making them very good for improving skin health, strengthening the immune system and protecting cardiovascular system.',
     newPrice: '12 USD',
     oldPrice: '20 USD',
     discount: '-40%',
@@ -52,7 +55,8 @@ export const saleItems = [
   {
     id: '4',
     title: 'Potatoes from eco-farm',
-    description: 'Space for a small product description',
+    description:
+      'The skin on white potatoes is thin so you can wash without peeling. they are also creamy and subtly sweet. Grill them to bring out their full flavor.',
     newPrice: '5 USD',
     oldPrice: '10 USD',
     discount: '-50%',
