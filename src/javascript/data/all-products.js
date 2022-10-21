@@ -239,16 +239,16 @@ const productsData = [
   },
 ];
 
-const generateId = array => {
+function generateId(array) {
   let counter = 0;
   for (product of array) {
     counter++;
     product.id = counter.toString();
   }
   return array;
-};
+}
 
-const addCurrency = array => {
+function addCurrency(array) {
   for (product of array) {
     let oldPrice = product.oldPrice;
     let newPrice = product.newPrice;
@@ -259,8 +259,9 @@ const addCurrency = array => {
     product.newPrice = `${newPrice} USD`;
   }
   return array;
-};
-const countDiscount = array => {
+}
+
+function countDiscount(array) {
   for (product of array) {
     let oldPrice = parseFloat(product.oldPrice);
     let newPrice = parseFloat(product.newPrice);
@@ -270,14 +271,14 @@ const countDiscount = array => {
     }
   }
   return array;
-};
+}
 
-const modifyData = array => {
+function modifyData(array) {
   generateId(array);
   addCurrency(array);
   countDiscount(array);
   return array;
-};
+}
 
 //    console.log(productsData);
 
