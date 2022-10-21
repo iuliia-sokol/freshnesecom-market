@@ -239,7 +239,7 @@ const productsData = [
   },
 ];
 
-function generateId(products) {
+export function generateId(products) {
   let counter = 0;
   for (product of products) {
     counter++;
@@ -248,7 +248,7 @@ function generateId(products) {
   return products;
 }
 
-function addCurrency(products) {
+export function addCurrency(products) {
   for (product of products) {
     let oldPrice = product.oldPrice;
     let newPrice = product.newPrice;
@@ -261,7 +261,7 @@ function addCurrency(products) {
   return products;
 }
 
-function countDiscount(products) {
+export function countDiscount(products) {
   for (product of products) {
     let oldPrice = parseFloat(product.oldPrice);
     let newPrice = parseFloat(product.newPrice);
@@ -273,7 +273,7 @@ function countDiscount(products) {
   return products;
 }
 
-function modifyData(products) {
+export function modifyData(products) {
   generateId(products);
   addCurrency(products);
   countDiscount(products);
@@ -282,10 +282,9 @@ function modifyData(products) {
 
 // console.log(productsData);
 
-const productsDataCopy = [...productsData];
+export const productsDataCopy = [...productsData];
+export const allProducts = modifyData(productsDataCopy);
 
-const productsDataWithID = generateId(productsDataCopy);
-const productsWithCurrency = addCurrency(productsDataWithID);
-export const allProducts = countDiscount(productsWithCurrency);
-
-// export const allProducts = modifyData(productsDataCopy);
+// const productsDataWithID = generateId(productsDataCopy);
+// const productsWithCurrency = addCurrency(productsDataWithID);
+// export const allProducts = countDiscount(productsDataWithID);

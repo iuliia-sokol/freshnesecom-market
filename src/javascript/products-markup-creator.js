@@ -1,4 +1,5 @@
 import { allProducts } from './data/all-products';
+import * as Products from './data/all-products';
 import debounce from 'lodash.debounce';
 
 const onSaleCardsEl = document.getElementById('sale-cards');
