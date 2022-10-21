@@ -283,7 +283,9 @@ function modifyData(products) {
 // console.log(productsData);
 
 const productsDataCopy = [...productsData];
-export const allProducts = modifyData(productsDataCopy);
 
-//     const productsDataWithID = generateId(productsDataCopy);
-//     export const allProducts = countDiscount(productsDataWithID);
+const productsDataWithID = generateId(productsDataCopy);
+const productsWithCurrency = addCurrency(productsDataWithID);
+export const allProducts = countDiscount(productsWithCurrency);
+
+// export const allProducts = modifyData(productsDataCopy);
