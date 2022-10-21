@@ -5,13 +5,14 @@ import debounce from 'lodash.debounce';
 const onSaleCardsEl = document.getElementById('sale-cards');
 const farmProductsCardsEl = document.getElementById('farm-cards');
 const bestSellersCardsEl = document.getElementById('best-sellers-cards');
-// console.log(onSaleCardsEl.children);
 
-onSaleCardsEl.addEventListener('mouseleave', throttle(shiftItems, 500));
+bestSellersCardsEl.addEventListener('mouseleave', debounce(shiftItems, 5000));
+farmProductsCardsEl.addEventListener('mouseleave', debounce(shiftItems, 4000));
+onSaleCardsEl.addEventListener('mouseleave', debounce(shiftItems, 3000));
 
 function shiftItems(event) {
-  let productList = event.currentTarget;
-  let productCards = event.currentTarget.children;
+  let productList = event.target;
+  let productCards = event.target.children;
   for (let i = productCards.length; i >= 0; i--) {
     productList.appendChild(productCards[(Math.random() * i) | 0]);
   }
