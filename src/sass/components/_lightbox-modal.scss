@@ -11,7 +11,7 @@
 }
 .basicLightbox__placeholder {
   width: 568px;
-  padding: 32px 60px;
+  padding: 32px 42px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -42,8 +42,7 @@
     z-index: 10;
     background-color: transparent;
     border: none;
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    transition-property: transform;
+    @include transition(transform);
 
     &:hover,
     :focus {
@@ -79,11 +78,6 @@
   }
   &__image {
     border-radius: 12px;
-
-    &:hover,
-    &:focus {
-      transform: scale(1.1);
-    }
   }
 
   &__discount {

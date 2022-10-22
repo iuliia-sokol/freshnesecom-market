@@ -59,7 +59,11 @@ function createQuatroGallery(items) {
   loading="lazy"
   alt="${title}"
   width="237"
-  height="180" />
+  height="180" 
+    data-description="${description}"
+  data-old-price="${oldPrice}"
+  data-new-price="${newPrice}"
+  data-discount='${discount}'/>
 </div>
 <a href="${link}" class="links-general product__link">
  <h3 class="product__title">${title}</h3>
@@ -110,7 +114,11 @@ function createTrioGallery(items) {
   loading="lazy"
   alt="${title}"
   width="237"
-  height="180" />
+  height="180" 
+  data-description="${description}"
+  data-old-price="${oldPrice}"
+  data-new-price="${newPrice}"
+  data-discount='${discount}'/>
   </a>
 </div>
 <a href="${link}" class="links-general product__link">
