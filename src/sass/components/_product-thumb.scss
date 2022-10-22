@@ -8,9 +8,6 @@
     row-gap: 16px;
     justify-content: space-between;
   }
-  &__img-wrapper {
-    @include transition(transform);
-  }
 
   &__link {
     display: block;
@@ -29,6 +26,7 @@
     // background-image: url('../images/image-light.jpg');
     background-color: $thumb-border-grey;
     position: relative;
+    @include transition(transform);
   }
   &__image {
     border-radius: 12px;

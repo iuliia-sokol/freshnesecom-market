@@ -18,13 +18,15 @@
     "url": "https://github.com/goitacademy/parcel-project-template/issues"
   },
   "dependencies": {
+    "basiclightbox": "^5.0.4",
     "handlebars": "^4.7.7",
     "json-transformer-js": "^4.0.2",
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1",
     "modern-normalize": "^1.1.0",
     "simplelightbox": "^2.10.4",
-    "swiper": "^8.4.4"
+    "swiper": "^8.4.4",
+    "tingle.js": "^0.16.0"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",

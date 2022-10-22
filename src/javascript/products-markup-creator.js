@@ -1,11 +1,9 @@
-import { productsDataCopy } from '././all-products';
-import { allProducts } from '././all-products';
+import { allProducts } from './products-data-editor';
 import debounce from 'lodash.debounce';
-// console.log(allProducts);
 
-const onSaleCardsEl = document.getElementById('sale-cards');
-const farmProductsCardsEl = document.getElementById('farm-cards');
-const bestSellersCardsEl = document.getElementById('best-sellers-cards');
+export const onSaleCardsEl = document.getElementById('sale-cards');
+export const farmProductsCardsEl = document.getElementById('farm-cards');
+export const bestSellersCardsEl = document.getElementById('best-sellers-cards');
 
 bestSellersCardsEl.addEventListener('mouseleave', debounce(shiftItems, 5000));
 farmProductsCardsEl.addEventListener('mouseleave', debounce(shiftItems, 4000));
@@ -104,6 +102,7 @@ function createTrioGallery(items) {
 <div class="product__img-wrapper">
 <span class="product__discount animate__animated animate__heartBeat"
 >${discount}</span>
+ <a class="gallery__item" href="${img}">
  <img class="product__image"
   srcset="${srcset}"
   src="${img}"
@@ -112,6 +111,7 @@ function createTrioGallery(items) {
   alt="${title}"
   width="237"
   height="180" />
+  </a>
 </div>
 <a href="${link}" class="links-general product__link">
  <h3 class="product__title">${title}</h3>

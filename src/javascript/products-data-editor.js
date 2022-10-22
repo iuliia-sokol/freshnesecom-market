@@ -1,4 +1,4 @@
-import { productsData } from '././data/items-data';
+import { productsData } from './data/items-data';
 
 function generateId(products) {
   let counter = 0;
