@@ -74,7 +74,7 @@ function createQuatroGallery(items) {
 <p class="product__new-price">${newPrice}</p>
 <p class="product__old-price">${oldPrice}</p>
 </div>
-<button type="button" class="buy-btn">Buy now</button>
+<button type="button" class="buy-btn product__buy-btn">Buy now</button>
 </div>
 </div>
 </article>
@@ -130,7 +130,7 @@ function createTrioGallery(items) {
 <p class="product__new-price">${newPrice}</p>
 <p class="product__old-price">${oldPrice}</p>
  </div>
-<button type="button" class="buy-btn">
+<button type="button" class="buy-btn product__buy-btn">
 Buy now
 </button>
 </div>

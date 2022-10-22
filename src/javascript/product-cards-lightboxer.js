@@ -1,7 +1,7 @@
 import * as basicLightbox from 'basiclightbox';
 
-const lightboxedImage = document.querySelectorAll('.product__img-wrapper');
-lightboxedImage.forEach(image => image.addEventListener('click', openLightbox));
+const lightboxedCard = document.querySelectorAll('.product__img-wrapper');
+lightboxedCard.forEach(image => image.addEventListener('click', openLightbox));
 
 function openLightbox(event) {
   event.preventDefault();
@@ -21,7 +21,7 @@ function openLightbox(event) {
     </button>
 <div class="modal__data">
 <div class="modal__img-wrapper">
-<span class="modal__discount animate__animated animate__heartBeat"
+<span class="modal__discount"
 >${event.target.dataset.discount}</span>
  <img class="modal__image"
   srcset="${event.target.srcset}"
@@ -42,7 +42,12 @@ function openLightbox(event) {
 <p class="modal__new-price">${event.target.dataset.newPrice}</p>
 <p class="modal__old-price">${event.target.dataset.oldPrice}</p>
 </div>
-<button type="button" class="buy-btn">Buy now</button>
+   <div class="counter">
+      <button type="button" class="counter__btn counter__decrement">-1</button>
+      <span class="counter__value">0</span>
+      <button type="button" class="counter__btn counter__increment">+1</button>
+    </div>
+<button type="button" class="buy-btn">Add to cart</button>
 </div>
 </div>`,
     {
@@ -59,4 +64,38 @@ function openLightbox(event) {
     }
   );
   instance.show();
+
+  const counterEl = document.querySelector('.counter__value');
+  const decrementBtn = document.querySelector('.counter__decrement');
+  const incrementBtn = document.querySelector('.counter__increment');
+
+  incrementBtn.addEventListener('click', onIncrementClick);
+  decrementBtn.addEventListener('click', onDecrementClick);
+
+  function onIncrementClick(event) {
+    counterValue.increment();
+    counterEl.textContent = counterValue.value;
+    decrementBtn.disabled = false;
+  }
+
+  function onDecrementClick(event) {
+    counterValue.decrement();
+    counterEl.textContent = counterValue.value;
+    if (counterValue.value <= 0) {
+      decrementBtn.disabled = true;
+    }
+  }
 }
+
+const counterValue = {
+  value: 0,
+  increment() {
+    this.value += 1;
+  },
+  decrement() {
+    if (this.value <= 0) {
+      return;
+    }
+    this.value -= 1;
+  },
+};

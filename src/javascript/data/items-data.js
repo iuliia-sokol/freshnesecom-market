@@ -129,7 +129,7 @@ export const productsData = [
     title: 'Sweet red apples',
     description:
       'Red Delicious is one of the most famous American apples, and one of the most widely grown apple varieties.',
-    newPrice: '3.60',
+    newPrice: '8.60',
     oldPrice: '',
     discount: '',
     link: '#',
