@@ -63,6 +63,9 @@ function openLightbox(event) {
           }
         });
       },
+      onClose: instance => {
+        counterValue.value = 0;
+      },
     }
   );
   instance.show();
