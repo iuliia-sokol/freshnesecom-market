@@ -84,7 +84,8 @@ function openLightbox(event) {
       parseFloat(oldPriceEl.dataset.price) -
       parseFloat(newPriceEl.dataset.price)
     ).toFixed(2);
-    console.log(moneySaved);
+
+    // ADD SAVED MONEY TEASER
     const savedMoneyTeaser = document.createElement('p');
     savedMoneyTeaser.classList.add('modal__money-teaser');
     savedMoneyTeaser.innerHTML =
