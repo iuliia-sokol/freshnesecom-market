@@ -131,6 +131,51 @@
     text-decoration-line: line-through;
     color: $text-pale-grey;
   }
+  &__teaser {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 0 8px;
+    background-color: $discount-bg-green;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 1.5;
+    color: $accent-green;
+    z-index: 100;
+  }
+  &__money-teaser {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 90px;
+    padding: 8px;
+    // background-color: $discount-bg-green;
+
+    background-image: url('/src/images/discount.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    // border: 1px solid $accent-red;
+    text-align: center;
+    font-weight: 700;
+    font-size: 10.5px;
+    line-height: 1.2;
+    color: $accent-red;
+    text-shadow: $main-black;
+    z-index: 100;
+    &--accent {
+      font-weight: 700;
+      font-size: 16px;
+      color: $main-black;
+    }
+  }
 }
 
 .counter {

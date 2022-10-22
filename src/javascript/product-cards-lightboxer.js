@@ -10,6 +10,8 @@ function openLightbox(event) {
     return;
   }
 
+  //  CREATE MODAL
+
   const instance = basicLightbox.create(
     `
    <div class="modal">
@@ -39,8 +41,8 @@ function openLightbox(event) {
 </div>
 <div class="modal__price-tag">
 <div class="modal__price-wrapper">
-<p class="modal__new-price">${event.target.dataset.newPrice}</p>
-<p class="modal__old-price">${event.target.dataset.oldPrice}</p>
+<p class="modal__new-price" data-price="${event.target.dataset.newPrice}">${event.target.dataset.newPrice}</p>
+<p class="modal__old-price" data-price="${event.target.dataset.oldPrice}">${event.target.dataset.oldPrice}</p>
 </div>
    <div class="counter">
       <button type="button" class="counter__btn counter__decrement">-1</button>
@@ -64,6 +66,37 @@ function openLightbox(event) {
     }
   );
   instance.show();
+
+  //  ADDING EXTRA ELEMENTS FOR PRODUCTS ON SALE
+
+  const discount = document.querySelector('.modal__discount');
+  const discountImg = document.querySelector('.modal__img-wrapper');
+  if (discount.textContent !== '') {
+    // ADD TEASER
+    const discountTeaser = document.createElement('span');
+    discountTeaser.classList.add('modal__teaser');
+    discountTeaser.textContent = `Hurry up! Hot offer!`;
+    discountImg.appendChild(discountTeaser);
+    // COUNT SAVED MONEY
+    const oldPriceEl = document.querySelector('.modal__old-price');
+    const newPriceEl = document.querySelector('.modal__new-price');
+    const moneySaved = (
+      parseFloat(oldPriceEl.dataset.price) -
+      parseFloat(newPriceEl.dataset.price)
+    ).toFixed(2);
+    console.log(moneySaved);
+    const savedMoneyTeaser = document.createElement('p');
+    savedMoneyTeaser.classList.add('modal__money-teaser');
+    savedMoneyTeaser.innerHTML =
+      'You save <span class="modal__money-teaser--accent"></span> USD';
+    discountImg.appendChild(savedMoneyTeaser);
+    const savedMoneyAmount = document.querySelector(
+      '.modal__money-teaser--accent'
+    );
+    savedMoneyAmount.textContent = ` ${moneySaved}`;
+  }
+
+  // SET COUNTER
 
   const counterEl = document.querySelector('.counter__value');
   const decrementBtn = document.querySelector('.counter__decrement');
