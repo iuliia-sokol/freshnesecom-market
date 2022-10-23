@@ -1,15 +1,16 @@
 .submenu {
   white-space: nowrap;
-  display: none;
+  //   display: none;
   width: fit-content;
   min-width: 170px;
   position: absolute;
-  top: 100%;
+  //   top: 100%;
   left: -17px;
   transform: translateY(-1px);
   border-top: none;
-  //   right: -9999999999em;
-  //   opacity: 0;
+  top: -9999999999em;
+  visibility: 0;
+  opacity: 0;
   background-color: transparent;
   box-shadow: 14px 43px 54px -1px rgba(102, 143, 79, 0.2);
   z-index: 100;
@@ -17,14 +18,28 @@
   font-size: 14px;
   line-height: 1.467;
   cursor: pointer;
+  @include transition(transform, opacity, visibility);
+  transition-duration: 500ms;
 
   &:hover,
   &:focus {
     display: block;
+    visibility: 1;
+    opacity: 1;
+    top: 100%;
   }
 
   &--visible {
     display: block;
+    opacity: 1;
+    visibility: 1;
+    top: 100%;
+  }
+  &--invisible {
+    display: block;
+    opacity: 0;
+    visibility: 0;
+    top: -9999999999em;
   }
 
   &__item {
@@ -56,28 +71,50 @@
   &__link:hover ~ .sub-submenu,
   &__link:focus ~ .sub-submenu {
     display: block;
-    // left: 0;
-    // opacity: 1;
+    visibility: 1;
+    opacity: 1;
+    left: 100%;
   }
 }
 
 .sub-submenu {
   white-space: nowrap;
-  display: none;
+  //   display: none;
   width: fit-content;
   position: absolute;
   top: 0;
-  left: 100%;
+  left: -9999999999em;
+  //   left: 100%;
   z-index: 1000;
+  opacity: 0;
+  visibility: 0;
   box-shadow: 14px 43px 54px -1px rgba(102, 143, 79, 0.2);
   border-radius: 0px 0px 12px 12px;
   font-size: 14px;
   line-height: 1.467;
   cursor: pointer;
+  @include transition(transform, opacity, visibility);
+  transition-duration: 500ms;
 
   &:hover,
   &:focus {
+    // display: block;
+    opacity: 1;
+    visibility: 1;
+    left: 100%;
+  }
+
+  &--visible {
     display: block;
+    opacity: 1;
+    visibility: 1;
+    left: 100%;
+  }
+  &--invisible {
+    display: block;
+    opacity: 0;
+    visibility: 0;
+    left: -9999999999em;
   }
 
   &__item {

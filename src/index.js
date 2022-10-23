@@ -2,7 +2,7 @@ import './javascript/search_select';
 import './javascript/products-data-editor';
 import './javascript/products-markup-creator';
 import './javascript/product-cards-lightboxer';
-// import './javascript/counter';
+import './javascript/header-dropdown-menus';
 import './javascript/slider';
 
 // import './javascript/slider';

@@ -42,8 +42,9 @@
   }
   &__link:hover ~ .submenu,
   &__link:focus ~ .submenu {
-    display: block;
-    // left: 0;
-    // opacity: 1;
+    // display: block;
+    opacity: 1;
+    visibility: 1;
+    top: 100%;
   }
 }
