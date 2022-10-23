@@ -5,18 +5,23 @@
   &__list {
     display: flex;
     align-items: center;
-    column-gap: 40px;
-    padding-top: 16px;
-    padding-bottom: 16px;
     font-weight: 500;
     font-size: 15px;
     line-height: 1.47;
     color: $main-black;
+    border: none;
+  }
+  &__item {
+    white-space: nowrap;
+    position: relative;
   }
 
   &__link {
     display: inline-flex;
     align-items: center;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-right: 40px;
     @include transition(transform);
   }
 
@@ -34,5 +39,11 @@
   &__link:focus {
     transform: scale(1.2);
     text-shadow: 0px 1px 3px rgba(70, 118, 10, 0.12);
+  }
+  &__link:hover ~ .submenu,
+  &__link:focus ~ .submenu {
+    display: block;
+    // left: 0;
+    // opacity: 1;
   }
 }

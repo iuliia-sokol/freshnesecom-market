@@ -92,7 +92,7 @@ export const productsData = [
     id: '',
     title: 'Chicken breast',
     description:
-      'Chicken breast is one of the meatier cuts of a chicken. This cut is skinless and has a supple texture. A good source of vitamins and minerals. Freshness guaranteed',
+      'Chicken breast is one of the meatier cuts of a chicken. This cut is skinless and has a supple texture. A good source of vitamins and minerals. Freshness guaranteed.',
     newPrice: '11.90',
     oldPrice: '12.80',
     discount: '',
