@@ -2,15 +2,15 @@
   white-space: nowrap;
   display: none;
   width: fit-content;
-  //   min-width: 100%;
+  min-width: 170px;
   position: absolute;
   top: 100%;
   left: -17px;
   transform: translateY(-1px);
   border-top: none;
-
   //   right: -9999999999em;
   //   opacity: 0;
+  background-color: transparent;
   box-shadow: 14px 43px 54px -1px rgba(102, 143, 79, 0.2);
   z-index: 100;
   border-radius: 0px 0px 12px 12px;
@@ -29,13 +29,22 @@
 
   &__item {
     position: relative;
+
+    background-color: $bg-light-grey;
+    border-bottom: 1px solid $thumb-border-grey;
   }
+  &__item:last-child {
+    border-radius: 0px 0px 12px 12px;
+  }
+  //   &__item:first-child {
+  //     border-radius: 12px 12px 0px 0px;
+  //   }
 
   &__link {
     display: block;
+    width: 100%;
     padding: 9px 16px;
-    background-color: $bg-light-grey;
-    border-bottom: 1px solid $thumb-border-grey;
+
     @include transition(color, transform, background-color, border-color);
   }
 
@@ -78,9 +87,11 @@
 
   &__item {
   }
+
   &__link {
     display: block;
     padding: 9px 16px;
+    border-radius: 12px;
     background-color: $bg-light-grey;
     border-bottom: 1px solid $thumb-border-grey;
     @include transition(color, transform, background-color, border-color);
