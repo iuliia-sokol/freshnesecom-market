@@ -2,6 +2,7 @@
   white-space: nowrap;
   display: none;
   width: fit-content;
+  //   min-width: 100%;
   position: absolute;
   top: 100%;
   left: -17px;
@@ -13,7 +14,7 @@
   box-shadow: 14px 43px 54px -1px rgba(102, 143, 79, 0.2);
   z-index: 100;
   border-radius: 0px 0px 12px 12px;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.467;
   cursor: pointer;
 
