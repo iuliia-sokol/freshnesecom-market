@@ -6,7 +6,6 @@
   position: absolute;
   //   top: 100%;
   left: -17px;
-  transform: translateY(-1px);
   border-top: none;
   top: -9999999999em;
   visibility: 0;
@@ -27,6 +26,9 @@
     visibility: 1;
     opacity: 1;
     top: 100%;
+    z-index: 10000;
+    transform: translateY(-5px);
+    // transform: translateY(-45px);
   }
 
   &--visible {
@@ -44,10 +46,10 @@
 
   &__item {
     position: relative;
-
     background-color: $bg-light-grey;
     border-bottom: 1px solid $thumb-border-grey;
   }
+
   &__item:last-child {
     border-radius: 0px 0px 12px 12px;
   }
@@ -98,33 +100,30 @@
 
   &:hover,
   &:focus {
-    // display: block;
+    display: block;
     opacity: 1;
     visibility: 1;
     left: 100%;
   }
 
-  &--visible {
-    display: block;
-    opacity: 1;
-    visibility: 1;
-    left: 100%;
-  }
-  &--invisible {
-    display: block;
-    opacity: 0;
-    visibility: 0;
-    left: -9999999999em;
-  }
+  //   &--visible {
+  //     display: block;
+  //     opacity: 1;
+  //     visibility: 1;
+  //     left: 100%;
+  //   }
+  //   &--invisible {
+  //     display: block;
+  //     opacity: 0;
+  //     visibility: 0;
+  //     left: -9999999999em;
+  //   }
 
   &__item {
     background-color: $bg-light-grey;
     border-bottom: 1px solid $thumb-border-grey;
   }
 
-  //   &__item:first-child {
-  //     border-radius: 0px 12px 0px 0px;
-  //   }
   &__item:last-child {
     border-radius: 0px 0px 12px 12px;
   }
@@ -143,3 +142,47 @@
     transform: scale(1.1);
   }
 }
+
+// .arrow {
+//   display: none;
+//   position: absolute;
+//   right: 0;
+//   top: 12px;
+//   width: 0;
+//   height: 0;
+//   border-top: 10px solid #fff;
+//   border-right: 10px solid transparent;
+//   border-left: 10px solid transparent;
+// }
+// .arrow.active {
+//   transform: rotate(-180deg);
+// }
+
+// body.mouse .menu__link:hover ~ .submenu,
+// body.mouse .menu__link:hover ~ .submenu {
+//   // display: block;
+//   opacity: 1;
+//   visibility: 1;
+//   top: 100%;
+// }
+
+// body.mouse .sub-menu__link:hover .sub-submenu,
+// body.mouse .sub-menu__link:focus .sub-submenu {
+//   // display: block;
+//   opacity: 1;
+//   visibility: 1;
+//   left: 100%;
+// }
+
+// body.touch .submenu.open {
+//   // display: block;
+//   opacity: 1;
+//   visibility: 1;
+//   top: 100%;
+// }
+// body.touch .sub-submenu.open {
+//   // display: block;
+//   opacity: 1;
+//   visibility: 1;
+//   left: 100%;
+// }

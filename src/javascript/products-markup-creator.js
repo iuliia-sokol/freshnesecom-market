@@ -57,6 +57,7 @@ function createQuatroGallery(items) {
   src="${img}"
   data-source="${img}"
   loading="lazy"
+  rel="noopener noreferrer nofollow"
   alt="${title}"
   width="237"
   height="180" 

@@ -2,6 +2,7 @@
 
 .menu {
   background-color: $bg-light-grey;
+
   &__list {
     display: flex;
     align-items: center;
@@ -11,8 +12,8 @@
     color: $main-black;
     border: none;
   }
+
   &__item {
-    white-space: nowrap;
     position: relative;
   }
 
@@ -23,12 +24,24 @@
     padding-bottom: 16px;
     padding-right: 40px;
     @include transition(transform);
+
+    &--active {
+      transform: scale(1.2);
+    }
+
+    &--active .menu__icon {
+      transform: rotate(90deg) translateY(-50%);
+    }
   }
 
   &__icon {
     width: 12px;
     height: 12px;
     transition: transform 300ms linear;
+
+    &--active {
+      transform: rotate(90deg) translateY(-50%);
+    }
   }
 
   &__link:hover &__icon,
@@ -46,5 +59,6 @@
     opacity: 1;
     visibility: 1;
     top: 100%;
+    transform: translateY(-5px);
   }
 }

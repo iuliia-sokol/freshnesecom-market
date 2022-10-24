@@ -30,6 +30,7 @@ function openLightbox(event) {
   src="${event.target.src}"
   data-source="${event.target.src}"
   loading="lazy"
+  rel="noopener noreferrer nofollow"
   alt="${event.target.alt}"
   width="237"
   height="180" />
