@@ -11,10 +11,13 @@
     line-height: 1.47;
     color: $main-black;
     border: none;
+    // backdrop-filter: blur(10px);
   }
 
   &__item {
     position: relative;
+    @include transition(opacity);
+    transition-duration: 500ms;
   }
 
   &__link {
@@ -23,14 +26,18 @@
     padding-top: 16px;
     padding-bottom: 16px;
     padding-right: 40px;
+    transform: scale(1);
     @include transition(transform);
 
     &--active {
       transform: scale(1.2);
+      text-shadow: 0px 1px 3px rgba(70, 118, 10, 0.12);
     }
 
     &--active .menu__icon {
       transform: rotate(90deg) translateY(-50%);
+    }
+    &--active .menu__list {
     }
   }
 
@@ -46,7 +53,7 @@
   }
   &__link:hover,
   &__link:focus {
-    transform: scale(1.2);
+    // transform: scale(1.2);
     text-shadow: 0px 1px 3px rgba(70, 118, 10, 0.12);
   }
   &__link:hover ~ .submenu,
@@ -57,4 +64,9 @@
     top: 100%;
     transform: translateY(-5px);
   }
+}
+.blur-text {
+  opacity: 0.2;
+  // color: transparent;
+  // text-shadow: 0 0 3px #000;
 }
