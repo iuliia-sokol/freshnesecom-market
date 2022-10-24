@@ -9,6 +9,9 @@
   opacity: 1;
   z-index: 100;
 }
+.basicLightbox--visible .basicLightbox__placeholder {
+  transform: translate(-50%, -50%);
+}
 .basicLightbox__placeholder {
   width: 568px;
   padding: 32px 42px;
@@ -16,12 +19,21 @@
   top: 50%;
   left: 50%;
   background-color: $discount-bg-green;
-  border-radius: 10px;
+  border-radius: 12px;
   border: 1px solid $buy-btn-border-green;
-  transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -150%);
+  @include transition(transform);
+  transition-duration: 350ms;
+
+  &--image {
+    min-width: 568px;
+    padding: 0;
+  }
 }
 
-.modal {
+// LIGHTBOX ADD TO CART MODAL
+
+.lightbox-modal {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -40,8 +52,10 @@
     padding: 0;
     margin: 0;
     z-index: 10;
-    background-color: transparent;
-    border: none;
+    background-color: rgba(203, 201, 98, 0.2);
+    border: 0.5px solid rgba(203, 201, 98, 0.7);
+    border-radius: 4px;
+
     @include transition(transform);
 
     &:hover,
@@ -49,18 +63,6 @@
       transform: scale(1.2);
     }
   }
-  //   &__close-icon {
-  //     width: 16px;
-  //     height: 16px;
-  //     @include transition(fill, transform);
-  //     z-index: 15;
-
-  // .modal__close-btn:hover &,
-  // .modal__close-btn:focus & {
-  //   fill: $accent-green;
-  //   transform: scale(1.2);
-  // }
-  //   }
 
   &__data {
     display: flex;
@@ -176,12 +178,66 @@
       color: $main-black;
     }
   }
-}
-
-.counter {
-  &__btn {
+  &__counter {
+  }
+  &__counter-btn {
+    background-color: rgba(203, 201, 98, 0.2);
     padding: 5px 10px;
     border-radius: 12px;
-    border-width: 1px;
+    border: 1px solid rgba(203, 201, 98, 0.7);
+  }
+}
+
+// LIGHTBOX IMAGE
+
+.lightbox-image {
+  display: block;
+
+  &__close-btn {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    @extend %flex-center;
+    padding: 0;
+    margin: 0;
+    z-index: 10;
+    background-color: rgba(203, 201, 98, 0.5);
+    color: $discount-bg-green;
+    border: 0.5px solid $discount-bg-green;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 400;
+    @include transition(transform);
+
+    &:hover,
+    :focus {
+      transform: scale(1.2);
+    }
+  }
+
+  &__img-wrapper {
+    position: relative;
+  }
+  &__image {
+    width: 566px;
+    height: 377px;
+    border-radius: 12px;
+  }
+  &__title {
+    display: block;
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    width: calc(100% - 16px);
+    padding: 8 18px;
+    border-radius: 12px;
+    z-index: 100;
+    background-color: rgba(203, 201, 98, 0.7);
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 1.47;
+    margin-bottom: 4px;
   }
 }

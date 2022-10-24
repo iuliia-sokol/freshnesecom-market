@@ -46,9 +46,16 @@ function createQuatroGallery(items) {
       }) => {
         return `
 <li class="cards__item cards__item--quatro">
-<article class="product">
+<article class="product"
+data-img="${img}" 
+data-srcset="${srcset}" 
+data-title="${title}" 
+data-description="${description}" 
+data-old-price="${oldPrice}"
+data-new-price="${newPrice}"
+data-discount="${discount}"
+data-link="${link}">
 <div class="product__thumb">
-
 <div class="product__img-wrapper">
 <span class="product__discount animate__animated animate__heartBeat"
 >${discount}</span>
@@ -101,14 +108,21 @@ function createTrioGallery(items) {
       }) => {
         return `
 <li class="cards__item">
-<article class="product">
+<article class="product"
+data-img="${img}" 
+data-srcset="${srcset}" 
+data-title="${title}" 
+data-description="${description}" 
+data-old-price="${oldPrice}"
+data-new-price="${newPrice}"
+data-discount="${discount}"
+data-link="${link}">
 <div class="product__thumb">
-
 <div class="product__img-wrapper">
 <span class="product__discount animate__animated animate__heartBeat"
 >${discount}</span>
  <a class="gallery__item" href="${img}">
- <img class="product__image"
+ <img class="image-display product__image"
   srcset="${srcset}"
   src="${img}"
   data-source="${img}"
@@ -116,10 +130,7 @@ function createTrioGallery(items) {
   alt="${title}"
   width="237"
   height="180" 
-  data-description="${description}"
-  data-old-price="${oldPrice}"
-  data-new-price="${newPrice}"
-  data-discount='${discount}'/>
+  />
   </a>
 </div>
 <a href="${link}" class="links-general product__link">
