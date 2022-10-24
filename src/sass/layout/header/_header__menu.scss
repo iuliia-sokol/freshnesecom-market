@@ -38,10 +38,6 @@
     width: 12px;
     height: 12px;
     transition: transform 300ms linear;
-
-    &--active {
-      transform: rotate(90deg) translateY(-50%);
-    }
   }
 
   &__link:hover &__icon,
