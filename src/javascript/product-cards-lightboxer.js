@@ -7,16 +7,22 @@ lightboxedCard.forEach(product =>
 
 function openLightbox(event) {
   event.preventDefault();
-
-  // if (event.target.nodeName !== 'IMG' || event.target.nodeName !== 'BUTTON') {
-  //   return;
-  // }
+  if (event.target.nodeName !== 'IMG' && event.target.nodeName !== 'BUTTON') {
+    return;
+  }
   if (event.target.nodeName === 'IMG') {
-    console.dir(event.currentTarget);
+    onProductImageClick(event);
+  }
 
-    //  CREATE MODAL
-    const instance = basicLightbox.create(
-      `
+  if (event.target.nodeName === 'BUTTON') {
+    onBuyBtnClick(event);
+  }
+}
+
+function onProductImageClick(event) {
+  //  CREATE IMAGE SHOW WINDOW
+  const instance = basicLightbox.create(
+    `
    <div class="lightbox-image">
    <button
       data-map-close
@@ -37,36 +43,33 @@ function openLightbox(event) {
  <h3 class="lightbox-image__title">${event.currentTarget.dataset.title}</h3>
 </div>
 </div>`,
-      {
-        onShow: instance => {
-          instance
-            .element()
-            .querySelector('.lightbox-image__close-btn').onclick =
-            instance.close;
-          window.addEventListener('keydown', event => {
-            if (event.code === 'Escape' || event.code === 'Space') {
-              instance.close();
-              window.removeEventListener;
-            }
-          });
-        },
-        onClose: instance => {},
-      }
-    );
-    instance.show();
+    {
+      onShow: instance => {
+        instance.element().querySelector('.lightbox-image__close-btn').onclick =
+          instance.close;
+        window.addEventListener('keydown', event => {
+          if (event.code === 'Escape' || event.code === 'Space') {
+            instance.close();
+            window.removeEventListener;
+          }
+        });
+      },
+      onClose: instance => {},
+    }
+  );
+  instance.show();
 
-    // ADJUST SIZE OF MODAL WINDOW
+  // ADJUST SIZE OF MODAL WINDOW
+  const basicLightboxContainerEl = document.querySelector(
+    '.basicLightbox__placeholder'
+  );
+  basicLightboxContainerEl.classList.add('basicLightbox__placeholder--image');
+}
 
-    const basicLightboxContainerEl = document.querySelector(
-      '.basicLightbox__placeholder'
-    );
-    basicLightboxContainerEl.classList.add('basicLightbox__placeholder--image');
-  }
-
-  if (event.target.nodeName === 'BUTTON') {
-    //  CREATE MODAL
-    const instance = basicLightbox.create(
-      `
+function onBuyBtnClick(event) {
+  //  CREATE MODAL
+  const instance = basicLightbox.create(
+    `
    <div class="lightbox-modal">
    <button
       data-map-close
@@ -106,81 +109,78 @@ function openLightbox(event) {
 <button type="button" class="buy-btn">Add to cart</button>
 </div>
 </div>`,
-      {
-        onShow: instance => {
-          instance
-            .element()
-            .querySelector('.lightbox-modal__close-btn').onclick =
-            instance.close;
-          window.addEventListener('keydown', event => {
-            if (event.code === 'Escape' || event.code === 'Space') {
-              instance.close();
-              window.removeEventListener;
-            }
-          });
-        },
-        onClose: instance => {
-          counterValue.value = 0;
-        },
-      }
-    );
-    instance.show();
-
-    //  ADDING EXTRA ELEMENTS FOR PRODUCTS ON SALE
-
-    const discount = document.querySelector('.lightbox-modal__discount');
-    const discountImg = document.querySelector('.lightbox-modal__img-wrapper');
-    if (discount.textContent !== '') {
-      // ADD TEASER
-      const discountTeaser = document.createElement('span');
-      discountTeaser.classList.add('lightbox-modal__teaser');
-      discountTeaser.textContent = `Hurry up! Hot offer!`;
-      discountImg.appendChild(discountTeaser);
-      // COUNT SAVED MONEY
-      const oldPriceEl = document.querySelector('.lightbox-modal__old-price');
-      const newPriceEl = document.querySelector('.lightbox-modal__new-price');
-      const moneySaved = (
-        parseFloat(oldPriceEl.dataset.price) -
-        parseFloat(newPriceEl.dataset.price)
-      ).toFixed(2);
-
-      // ADD SAVED MONEY TEASER
-      const savedMoneyTeaser = document.createElement('p');
-      savedMoneyTeaser.classList.add('lightbox-modal__money-teaser');
-      savedMoneyTeaser.innerHTML =
-        'You save <span class="lightbox-modal__money-teaser--accent"></span> USD';
-      discountImg.appendChild(savedMoneyTeaser);
-      const savedMoneyAmount = document.querySelector(
-        '.lightbox-modal__money-teaser--accent'
-      );
-      savedMoneyAmount.textContent = ` ${moneySaved}`;
+    {
+      onShow: instance => {
+        instance.element().querySelector('.lightbox-modal__close-btn').onclick =
+          instance.close;
+        window.addEventListener('keydown', event => {
+          if (event.code === 'Escape' || event.code === 'Space') {
+            instance.close();
+            window.removeEventListener;
+          }
+        });
+      },
+      onClose: instance => {
+        counterValue.value = 0;
+      },
     }
+  );
+  instance.show();
 
-    // SET COUNTER
+  //  ADDING EXTRA ELEMENTS FOR PRODUCTS ON SALE
 
-    const counterEl = document.querySelector('.lightbox-modal__counter-value');
-    const decrementBtn = document.querySelector(
-      '.lightbox-modal__counter-decrement'
+  const discount = document.querySelector('.lightbox-modal__discount');
+  const discountImg = document.querySelector('.lightbox-modal__img-wrapper');
+  if (discount.textContent !== '') {
+    // ADD TEASER
+    const discountTeaser = document.createElement('span');
+    discountTeaser.classList.add('lightbox-modal__teaser');
+    discountTeaser.textContent = `Hurry up! Hot offer!`;
+    discountImg.appendChild(discountTeaser);
+
+    // COUNT SAVED MONEY
+    const oldPriceEl = document.querySelector('.lightbox-modal__old-price');
+    const newPriceEl = document.querySelector('.lightbox-modal__new-price');
+    const moneySaved = (
+      parseFloat(oldPriceEl.dataset.price) -
+      parseFloat(newPriceEl.dataset.price)
+    ).toFixed(2);
+
+    // ADD SAVED MONEY TEASER
+    const savedMoneyTeaser = document.createElement('p');
+    savedMoneyTeaser.classList.add('lightbox-modal__money-teaser');
+    savedMoneyTeaser.innerHTML =
+      'You save <span class="lightbox-modal__money-teaser--accent"></span> USD';
+    discountImg.appendChild(savedMoneyTeaser);
+    const savedMoneyAmount = document.querySelector(
+      '.lightbox-modal__money-teaser--accent'
     );
-    const incrementBtn = document.querySelector(
-      '.lightbox-modal__counter-increment'
-    );
+    savedMoneyAmount.textContent = ` ${moneySaved}`;
+  }
 
-    incrementBtn.addEventListener('click', onIncrementClick);
-    decrementBtn.addEventListener('click', onDecrementClick);
+  // SET COUNTER
+  const counterEl = document.querySelector('.lightbox-modal__counter-value');
+  const decrementBtn = document.querySelector(
+    '.lightbox-modal__counter-decrement'
+  );
+  const incrementBtn = document.querySelector(
+    '.lightbox-modal__counter-increment'
+  );
 
-    function onIncrementClick(event) {
-      counterValue.increment();
-      counterEl.textContent = counterValue.value;
-      decrementBtn.disabled = false;
-    }
+  incrementBtn.addEventListener('click', onIncrementClick);
+  decrementBtn.addEventListener('click', onDecrementClick);
 
-    function onDecrementClick(event) {
-      counterValue.decrement();
-      counterEl.textContent = counterValue.value;
-      if (counterValue.value <= 0) {
-        decrementBtn.disabled = true;
-      }
+  function onIncrementClick(event) {
+    counterValue.increment();
+    counterEl.textContent = counterValue.value;
+    decrementBtn.disabled = false;
+  }
+
+  function onDecrementClick(event) {
+    counterValue.decrement();
+    counterEl.textContent = counterValue.value;
+    if (counterValue.value <= 0) {
+      decrementBtn.disabled = true;
     }
   }
 }
