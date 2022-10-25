@@ -1,4 +1,4 @@
-import { productsData } from './data/items-data';
+// import { productsData } from './data/items-data';
 
 function generateId(products) {
   let counter = 0;
@@ -40,9 +40,5 @@ function modifyData(products) {
   return products;
 }
 
-export const productsDataCopy = [...productsData];
-export const allProducts = modifyData(productsData);
-
-// const productsDataWithID = generateId(productsDataCopy);
-// const productsWithCurrency = addCurrency(productsDataWithID);
-// export const allProducts = countDiscount(productsDataWithID);
+// export const productsDataCopy = [...productsData];
+// export const allProducts = modifyData(productsData);

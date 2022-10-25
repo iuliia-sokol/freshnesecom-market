@@ -238,3 +238,5 @@ export const productsData = [
     isBestSeller: false,
   },
 ];
+
+// console.log(productsData);

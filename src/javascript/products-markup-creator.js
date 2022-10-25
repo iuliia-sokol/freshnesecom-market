@@ -1,4 +1,5 @@
-import { allProducts } from './products-data-editor';
+// import { allProducts } from './products-data-editor';
+import { allProducts } from './product-class-creator';
 import debounce from 'lodash.debounce';
 
 export const onSaleCardsEl = document.getElementById('sale-cards');
@@ -45,6 +46,7 @@ function createGallery(items) {
   return items
     .map(
       ({
+        id,
         title,
         description,
         oldPrice,
@@ -57,6 +59,7 @@ function createGallery(items) {
         return `
 <li class="cards__item">
 <article class="product"
+data-id="${id}"
 data-img="${img}" 
 data-srcset="${srcset}" 
 data-title="${title}" 
