@@ -28,12 +28,433 @@
   <body>
     <include src="./partials/header.html"></include>
     <main>
-      <include src="./partials/main-page/hero.html"></include>
-      <include src="./partials/main-page/best-sellers.html"></include>
-      <include src="./partials/main-page/farm-products.html"></include>
-      <include src="./partials/main-page/feedback.html"></include>
-      <include src="./partials/main-page/sale.html"></include>
-      <include src="./partials/main-page/blog.html"></include>
+      <!-- HERO SECTION -->
+      <section class="hero">
+        <div class="container hero__container">
+          <div class="aside">
+            <h2>Category menu</h2>
+            <ul class="list-general aside__list">
+              <li class="aside__item">
+                <a href="" class="links-general aside__link">Bakery</a>
+              </li>
+              <li class="aside__item">
+                <a
+                  href="./fruit-vegetables.html"
+                  class="links-general aside__link"
+                  >Fruit and vegetables</a
+                >
+              </li>
+              <li class="aside__item">
+                <a href="" class="links-general aside__link">Meat and fish</a>
+              </li>
+              <li class="aside__item">
+                <a href="" class="links-general aside__link">Drinks</a>
+              </li>
+              <li class="aside__item">
+                <a href="" class="links-general aside__link">Kitchen</a>
+              </li>
+            </ul>
+            <a href="" class="links-general more-btn"
+              >More categories
+              <svg class="more-btn__icon">
+                <use href="./images/icons.svg#icon-black-arrow-right"></use>
+              </svg>
+            </a>
+          </div>
+          <div class="hero__card">
+            <p class="hero__subtitle">Banner subfocus</p>
+            <h2 class="hero__title">Space for heading</h2>
+            <a href="" class="links-general read-btn"
+              >Read recepies
+              <svg class="read-btn__icon">
+                <use href="./images/icons.svg#icon-green-arrow-right"></use>
+              </svg>
+            </a>
+          </div>
+          <div class="hero__card">
+            <p class="hero__subtitle">Banner subfocus</p>
+            <h2 class="hero__title">Space for heading</h2>
+            <a href="" class="links-general read-btn"
+              >Read recepies
+              <svg class="read-btn__icon">
+                <use href="./images/icons.svg#icon-green-arrow-right"></use>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+      <!-- BEST-SELLERS SECTION -->
+      <section class="best-sellers">
+        <div class="container best-sellers__container">
+          <div class="aside">
+            <h2>Best selling products</h2>
+            <ul class="list-general aside__list">
+              <li class="aside__item">
+                <a href="" class="links-general aside__link">Kitchen</a>
+              </li>
+              <li class="aside__item">
+                <a href="" class="links-general aside__link">Meat and fish</a>
+              </li>
+              <li class="aside__item">
+                <a href="" class="links-general aside__link"
+                  >Special nutrition</a
+                >
+              </li>
+              <li class="aside__item">
+                <a href="" class="links-general aside__link">Baby</a>
+              </li>
+              <li class="aside__item">
+                <a href="" class="links-general aside__link">Pharmacy</a>
+              </li>
+            </ul>
+            <a href="" class="links-general more-btn"
+              >More products
+              <svg class="more-btn__icon">
+                <use href="./images/icons.svg#icon-black-arrow-right"></use>
+              </svg>
+            </a>
+          </div>
+          <div class="cards">
+            <ul
+              id="best-sellers-cards"
+              class="list-general cards__list gallery"
+            ></ul>
+          </div>
+        </div>
+      </section>
+      <!-- FARM PRODUCTS SECTION -->
+      <section class="farm-products">
+        <div class="container farm-products__container">
+          <div class="aside">
+            <h2>Best from Farmers</h2>
+            <ul class="list-general aside__list">
+              <li class="aside__item">
+                <a href="" class="links-general aside__link">Carrots</a>
+              </li>
+              <li class="aside__item">
+                <a href="" class="links-general aside__link">Tomatoes</a>
+              </li>
+              <li class="aside__item">
+                <a href="" class="links-general aside__link">Potatoes</a>
+              </li>
+              <li class="aside__item">
+                <a href="" class="links-general aside__link">Chicken</a>
+              </li>
+              <li class="aside__item">
+                <a href="" class="links-general aside__link">Pork</a>
+              </li>
+            </ul>
+            <a href="" class="links-general more-btn"
+              >More products
+              <svg class="more-btn__icon">
+                <use href="./images/icons.svg#icon-black-arrow-right"></use>
+              </svg>
+            </a>
+          </div>
+          <div class="cards">
+            <ul id="farm-cards" class="list-general cards__list gallery"></ul>
+          </div>
+        </div>
+      </section>
+      <!-- USER FEEDBACK SECTION -->
+      <section class="feedback">
+        <div class="feedback__container">
+          <div class="container feedback__header">
+            <h2 class="feedback__title">Our customers say</h2>
+            <button class="top-btn" type="button">
+              Write a review
+              <svg class="top-btn__icon">
+                <use href="./images/icons.svg#icon-green-arrow-right"></use>
+              </svg>
+            </button>
+          </div>
+          <!-- SLIDER -->
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <!-- Slide1 -->
+              <div class="swiper-slide">
+                <p class="quote">
+                  “ Best quality and great value fruit and vegatables fantastic
+                  variety.Delivery always on the said date and delivered with a
+                  smile whatever the weather. I have had loads of orders and
+                  have never been disapointed with anything.“
+                </p>
+                <p class="name">Dana Coal</p>
+              </div>
+              <!-- Slide2 -->
+              <div class="swiper-slide">
+                <p class="quote">
+                  “ Just received my first order and wow I was extremely
+                  impressed with the quality of the vegetables, I haven’t seen
+                  veg like this for years , I would highly recommend to anyone,
+                  very happy customer will be back for more! Thanks made my day!
+                  “
+                </p>
+                <p class="name">Jim Lee</p>
+              </div>
+              <!-- Slide3 -->
+              <div class="swiper-slide">
+                <p class="quote">
+                  “ The quality and range is the best I've ever come across,
+                  they're very friendly folks to deal with and will offer advice
+                  on the best things to buy, and supplies are unaffected by
+                  situations around the country. By local, buy the best, from
+                  these excellent folks! “
+                </p>
+                <p class="name">John Anders</p>
+              </div>
+              <!-- Slide4 -->
+              <div class="swiper-slide">
+                <p class="quote">
+                  “ The quality is clearly above supermarket quality and you
+                  save the hassle of selecting it yourself. A bit pricier but
+                  worth it - brings the best of the traditional green-grocer
+                  into the 21st Century. “
+                </p>
+                <p class="name">Pablo Punto</p>
+              </div>
+              <!-- Slide5 -->
+              <div class="swiper-slide">
+                <p class="quote">
+                  “ Excellent . I’ve been using this service at home and have
+                  been pleased with the freshness of the fruit and veg . .. this
+                  week I was on holiday in wales and arranged delivery to
+                  holiday home . It was excellent . Thoroughly recommended “
+                </p>
+                <p class="name">Ann Parker</p>
+              </div>
+              <!-- Slide6 -->
+              <div class="swiper-slide">
+                <p class="quote">
+                  “ Fantastic produce and service - would highly recommend!“
+                </p>
+                <p class="name">Deborah McDonald</p>
+              </div>
+              <!-- Slide7 -->
+              <div class="swiper-slide">
+                <p class="quote">
+                  “ Used the market stall for years. Online delivery is a great
+                  addition to the business and suits our needs. Large selection
+                  of items to pick from. Fruit & veg lasts ages so is clearly
+                  fresh and most importantly it tastes delicious. Highly
+                  recommended. “
+                </p>
+                <p class="name">Ellys Moyle</p>
+              </div>
+              <!-- Slide8 -->
+              <div class="swiper-slide">
+                <p class="quote">
+                  “ We have been using this service since March 2020 and before
+                  then we bought from the market stall. The fruit and veg are
+                  always fresh and appealing. The prices are good as are the
+                  discounts. The people are friendly and cheerful, whatever the
+                  weather. “
+                </p>
+                <p class="name">Chelsea Clarke</p>
+              </div>
+              <!-- Slide9 -->
+              <div class="swiper-slide">
+                <p class="quote">
+                  “ The quality of the fruit and veg is always excellent. The
+                  guys that deliver are always polite, friendly and very
+                  helpful. “
+                </p>
+                <p class="name">Ritchie Hemingway</p>
+              </div>
+              <!-- Slide10 -->
+              <div class="swiper-slide">
+                <p class="quote">
+                  “ Much better than supermarket vegetables, all ways fresh and
+                  not covered in tons of plastice “
+                </p>
+                <p class="name">Ben Parks</p>
+              </div>
+            </div>
+            <button class="swiper-button-prev" aria-label="previous slide">
+              <svg class="btn-prev-icon">
+                <use href="./images/icons.svg#icon-slider-left"></use>
+              </svg>
+            </button>
+            <button class="swiper-button-next" aria-label="next slide">
+              <svg class="btn-next-icon">
+                <use href="./images/icons.svg#icon-slider-right"></use>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- SALE SECTION -->
+      <section class="sale">
+        <div class="container sale__container">
+          <div class="sale__header">
+            <h2 class="sale__title">Hot deals</h2>
+            <button type="button" class="top-btn">
+              See all offers
+              <svg class="top-btn__icon">
+                <use href="./images/icons.svg#icon-green-arrow-right"></use>
+              </svg>
+            </button>
+          </div>
+          <div class="cards">
+            <ul id="sale-cards" class="list-general cards__list gallery"></ul>
+          </div>
+        </div>
+      </section>
+      <!-- BLOG SECTION -->
+      <section class="blog">
+        <div class="container blog__container">
+          <div class="blog__header">
+            <h2 class="blog__title">Read our Blog posts</h2>
+            <button class="top-btn">
+              Go to Blog
+              <svg class="top-btn__icon">
+                <use href="./images/icons.svg#icon-green-arrow-right"></use>
+              </svg>
+            </button>
+          </div>
+          <div class="articles">
+            <ul class="list-general articles__list">
+              <!-- Left block -->
+              <li class="articles__item">
+                <a href="" class="links-general articles__link">
+                  <article class="articles__content">
+                    <p
+                      class="articles__category articles__category--left articles__tip"
+                    >
+                      Dinner tips
+                    </p>
+                    <img
+                      src="./images/blog1.png"
+                      alt="tasty dish"
+                      width="469"
+                      class="image-display articles__img"
+                    />
+                    <div class="articles__meta">
+                      <h3 class="articles__title">
+                        Our chef tips for a great and tasty dinner ready in 20
+                        minutes
+                      </h3>
+                      <div class="articles__content-wrapper">
+                        <img
+                          src="./images/customer1.jpg"
+                          alt="author photo"
+                          class="image-display articles__author-pic"
+                        />
+                        <p class="articles__description">
+                          Tom Cook
+                          <time datetime="2020-06-17" class="articles__time"
+                            >17. 6. 2020</time
+                          >
+                        </p>
+                      </div>
+                    </div>
+                  </article>
+                </a>
+              </li>
+              <!-- Central block -->
+              <li class="articles__item">
+                <a href="" class="links-general articles__link">
+                  <article class="articles__content">
+                    <img
+                      src="./images/blog2.png"
+                      alt="tasty dish"
+                      width="269"
+                      class="image-display articles__img"
+                    />
+                    <p class="articles__category articles__category--center">
+                      Vegetable
+                    </p>
+                    <h3 class="articles__title">
+                      Which vegetable your family will love and want’s eat each
+                      day
+                    </h3>
+                    <p class="articles__description">
+                      Gordon White
+                      <time datetime="2020-06-15" class="articles__time"
+                        >15. 6. 2020</time
+                      >
+                    </p>
+                  </article>
+                </a>
+              </li>
+              <!-- Right block -->
+              <li class="articles__item">
+                <ul class="list-general articles__sublist">
+                  <li class="articles__sublist-item">
+                    <a href="" class="links-general articles__link">
+                      <article class="articles__content">
+                        <img
+                          src="./images/blog3.png"
+                          alt="tasty dish"
+                          width="96"
+                          class="image-display articles__img"
+                        />
+                        <div class="articles__meta">
+                          <h3 class="articles__title">
+                            Salat is kinda good start to your morning routines
+                          </h3>
+                          <p class="articles__description">
+                            Chris Taylor
+                            <time datetime="2020-01-14" class="articles__time"
+                              >14.1.2020</time
+                            >
+                          </p>
+                        </div>
+                      </article>
+                    </a>
+                  </li>
+                  <li class="articles__sublist-item">
+                    <a href="" class="links-general articles__link">
+                      <article class="articles__content">
+                        <img
+                          src="./images/blog4.png"
+                          alt="tasty dish"
+                          width="96"
+                          class="image-display articles__img"
+                        />
+                        <div class="articles__meta">
+                          <h3 class="articles__title">
+                            Our chef tips for a great and healthy breakfast
+                          </h3>
+                          <p class="articles__description">
+                            Nathan Evans
+                            <time datetime="2020-01-14" class="articles__time"
+                              >14.1.2020</time
+                            >
+                          </p>
+                        </div>
+                      </article>
+                    </a>
+                  </li>
+                  <li class="articles__sublist-item">
+                    <a href="" class="links-general articles__link">
+                      <article class="articles__content">
+                        <img
+                          src="./images/blog5.png"
+                          alt="tasty dish"
+                          width="96"
+                          class="image-display articles__img"
+                        />
+                        <div class="articles__meta">
+                          <h3 class="articles__title">
+                            Prepare a simple and delicious breads
+                          </h3>
+                          <p class="articles__description">
+                            Linda Bowley
+                            <time datetime="2020-01-14" class="articles__time"
+                              >14.1.2020</time
+                            >
+                          </p>
+                        </div>
+                      </article>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </main>
     <include src="./partials/footer.html"></include>
   </body>

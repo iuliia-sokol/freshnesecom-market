@@ -9,11 +9,21 @@
   line-height: 1.47;
   color: $main-white;
   text-align: center;
+  opacity: 1;
   @include transition(transform, box-shadow);
 
   &:hover,
   &:focus {
     transform: scale(1.1);
     box-shadow: 0px 1px 3px rgba(70, 118, 10, 0.5);
+  }
+  &--disabled {
+    opacity: 0.7;
+
+    &:hover,
+    &:focus {
+      transform: scale(1);
+      box-shadow: 0px 1px 3px rgba(70, 118, 10, 0.5);
+    }
   }
 }

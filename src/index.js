@@ -7,5 +7,5 @@ import './javascript/product-cards-lightboxer';
 
 import './javascript/slider';
 
-// import './javascript/footer-franchisee';
+import './javascript/shopping-cart';
 // import './javascript/footer-map';

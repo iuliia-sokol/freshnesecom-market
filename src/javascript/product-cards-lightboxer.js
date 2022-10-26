@@ -103,10 +103,20 @@ function onBuyBtnClick(event) {
 </div>
    <div class="lightbox-modal__counter">
       <button type="button" class="lightbox-modal__counter-btn lightbox-modal__counter-decrement">-1</button>
-      <span class="lightbox-modal__counter-value">0</span>
+      <span class="lightbox-modal__counter-value">1</span>
       <button type="button" class="lightbox-modal__counter-btn lightbox-modal__counter-increment">+1</button>
     </div>
-<button type="button" class="buy-btn">Add to cart</button>
+<button type="button" class="buy-btn  add-to-cart-btn "
+data-id="${event.currentTarget.dataset.id}"
+data-img="${event.currentTarget.dataset.img}" 
+data-srcset="${event.currentTarget.dataset.srcset}" 
+data-title="${event.currentTarget.dataset.title}" 
+data-description="${event.currentTarget.dataset.description}" 
+data-old-price="${event.currentTarget.dataset.oldPrice}"
+data-new-price="${event.currentTarget.dataset.newPrice}"
+data-discount="${event.currentTarget.dataset.discount}"
+data-link="${event.currentTarget.dataset.link}"
+data-quantity="1" data-saved-money="">Add to cart</button>
 </div>
 </div>`,
     {
@@ -121,17 +131,11 @@ function onBuyBtnClick(event) {
         });
       },
       onClose: instance => {
-        counterValue.value = 0;
+        counterValue.value = 1;
       },
     }
   );
   instance.show();
-
-  // // ADJUST SIZE OF MODAL WINDOW
-  // const basicLightboxContainerEl = document.querySelector(
-  //   '.basicLightbox__placeholder'
-  // );
-  // basicLightboxContainerEl.classList.add('basicLightbox__placeholder--modal');
 
   //  ADDING EXTRA ELEMENTS FOR PRODUCTS ON SALE
 
@@ -164,6 +168,16 @@ function onBuyBtnClick(event) {
     savedMoneyAmount.textContent = ` ${moneySaved}`;
   }
 
+  // ADD TO CART BTN SET
+  const addToCartBtnEl = document.querySelector('.add-to-cart-btn');
+  addToCartBtnEl.addEventListener('click', onAddToCartBtnClick);
+  function onAddToCartBtnClick(event) {
+    this.dataset.savedMoney = (
+      parseFloat(this.dataset.oldPrice) - parseFloat(this.dataset.newPrice)
+    ).toFixed(2);
+    console.log(this.dataset.quantity);
+  }
+
   // SET COUNTER
   const counterEl = document.querySelector('.lightbox-modal__counter-value');
   const decrementBtn = document.querySelector(
@@ -180,19 +194,25 @@ function onBuyBtnClick(event) {
     counterValue.increment();
     counterEl.textContent = counterValue.value;
     decrementBtn.disabled = false;
+    addToCartBtnEl.disabled = false;
+    addToCartBtnEl.dataset.quantity = counterValue.value;
+    addToCartBtnEl.classList.remove('buy-btn--disabled');
   }
 
   function onDecrementClick(event) {
     counterValue.decrement();
     counterEl.textContent = counterValue.value;
+    addToCartBtnEl.dataset.quantity = counterValue.value;
     if (counterValue.value <= 0) {
       decrementBtn.disabled = true;
+      addToCartBtnEl.disabled = true;
+      addToCartBtnEl.classList.add('buy-btn--disabled');
     }
   }
 }
 
 const counterValue = {
-  value: 0,
+  value: 1,
   increment() {
     this.value += 1;
   },
