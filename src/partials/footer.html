@@ -149,15 +149,49 @@
     </div>
     <p class="footer__copyright">Copyright &#169; 2020 petrbilek.com</p>
   </div>
-  <div class="basket">
-    <button
-      data-map-close
-      class="lightbox-modal__close-btn"
-      aria-label="close basket window"
-    >
-      &#10005;
-    </button>
-    <button type="button" class="buy-btn">Continue shopping</button>
-    <button type="button" class="buy-btn">Go to Checkout</button>
-  </div>
 </footer>
+
+<div class="basket-modal is-hidden">
+  <button
+    data-map-close
+    class="basket-modal__close-btn"
+    aria-label="close basket window"
+  >
+    &#10005;
+  </button>
+  <p class="basket-modal__title">Shopping cart</p>
+  <div class="basket-modal__card-wrapper basket-card">
+    <div class="basket-card__img-wrapper">
+      <img
+        class="image-display basket-card__image"
+        src="https://cdn.pixabay.com/photo/2016/12/04/11/58/salmon-1881522_960_720.jpg"
+        alt="Some pic"
+        width="100"
+        height="67"
+      />
+      <ul class="list-general basket-card__controls-list">
+        <li class="list-general basket-card__controls-item">
+          <button class="basket-card__controls-btn">
+            <svg
+              class="basket-card__controls-icon"
+              aria-label="forward to your customer account"
+            >
+              <use href="./images/icons.svg#heart"></use>
+            </svg>
+            Wishlist
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="basket-modal__bottom-data-wrapper">
+    <div class="basket-modal__total-wrapper">
+      <p class="basket-modal__subtotal">Subtotal</p>
+      <span class="basket-modal__value">73.98 USD</span>
+    </div>
+    <div class="basket-modal__btn-wrapper">
+      <button type="button" class="top-btn">Continue shopping</button>
+      <button type="button" class="buy-btn">Go to Checkout</button>
+    </div>
+  </div>
+</div>

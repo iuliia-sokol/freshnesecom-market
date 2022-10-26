@@ -1,0 +1,104 @@
+.basket-modal {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 24px;
+  width: 400px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 24px 16px;
+  background-color: $main-white;
+  border-radius: 12px;
+  border: 1px solid $buy-btn-border-green;
+  //   transform: translate(-50%, -150%);
+  @include transition(transform);
+  transition-duration: 350ms;
+
+  &__close-btn {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    @extend %flex-center;
+    padding: 0;
+    margin: 0;
+    z-index: 10;
+    background-color: transparent;
+    border: none;
+
+    @include transition(transform);
+
+    &:hover,
+    :focus {
+      transform: scale(1.2);
+    }
+  }
+
+  &__title {
+    display: inline-block;
+    // margin-bottom: 24px;
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 1.5;
+  }
+
+  &__card-wrapper {
+    flex-grow: 2;
+  }
+  &__total-wrapper {
+    // padding: 24px 0px;
+  }
+  &__subtotal {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  &__value {
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 1.5;
+  }
+
+  &__btn-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px;
+    border-top: 1px solid $divider-grey;
+  }
+}
+
+.basket-card {
+  display: flex;
+  flex-direction: row;
+  &__image {
+    width: 100px;
+    height: 67px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+  }
+  &__controls-btn {
+    display: flex;
+    position: relative;
+    padding: 0 0 0 18px;
+    border: none;
+    background-color: transparent;
+    font-family: 'Open Sans';
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.5;
+    color: $text-pale-grey;
+  }
+  &__controls-icon {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    fill: none;
+    stroke: $main-black;
+    stroke-width: 2px;
+  }
+}
