@@ -24,6 +24,10 @@
   @include transition(transform);
   transition-duration: 350ms;
 
+  &--modal {
+    padding: 32px 42px;
+  }
+
   &--image {
     padding: 0;
     display: flex;

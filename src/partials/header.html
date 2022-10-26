@@ -1,0 +1,638 @@
+<header>
+  <div class="header">
+    <ul class="list-general header__list">
+      <li class="header__item">
+        <!-- HEADER TOP BAR -->
+        <section class="top-bar">
+          <h2 class="visually-hidden">header top panel</h2>
+          <div class="container top-bar__wrapper">
+            <ul class="list-general contacts">
+              <li class="contacts__item">
+                <a href="" class="links-general contacts__link">Chat with us</a>
+              </li>
+              <li class="contacts__item">
+                <a href="tel:+380447777666" class="links-general contacts__link"
+                  >+38 044 7777 666</a
+                >
+              </li>
+              <li class="contacts__item">
+                <a
+                  href="mailto:info@freshnesecom.com"
+                  class="links-general contacts__link"
+                  >info@freshnesecom.com</a
+                >
+              </li>
+            </ul>
+            <ul class="list-general nav">
+              <li class="nav__item">
+                <a href="" class="links-general nav__link">Blog</a>
+              </li>
+              <li class="nav__item">
+                <a href="" class="links-general nav__link">About Us</a>
+              </li>
+              <li class="nav__item">
+                <a href="" class="links-general nav__link">Careers</a>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </li>
+      <!-- HEADER MIDDLE BAR -->
+      <li class="header__item">
+        <section class="middle-bar">
+          <h2 class="visually-hidden">header middle panel</h2>
+          <div class="container middle-bar__wrapper">
+            <ul class="list-general middle-bar__list">
+              <!-- Logo -->
+              <li class="middle-bar__item">
+                <a href="./index.html" class="links-general logo">
+                  <svg
+                    class="logo__icon"
+                    aria-label="forward to freshnesecom homepage"
+                  >
+                    <use href="./images/icons.svg#icon-freshnesecom"></use>
+                  </svg>
+                </a>
+              </li>
+              <!-- Search -->
+              <li class="middle-bar__item search">
+                <div class="search__wrapper">
+                  <form
+                    action="javascript:void(0);"
+                    role="search"
+                    class="search__form"
+                  >
+                    <div class="select">
+                      <button
+                        class="select__btn"
+                        aria-expanded="false"
+                        aria-controls="select__list"
+                      >
+                        All categories
+                      </button>
+                      <svg class="select__icon">
+                        <use
+                          href="./images/icons.svg#icon-green-arrow-down"
+                        ></use>
+                      </svg>
+                      <ul
+                        class="list-general select__list"
+                        aria-label="select product category"
+                        id="select__list"
+                      >
+                        <li data-value="all categories" class="select__option">
+                          All categories
+                        </li>
+                        <li data-value="bakery" class="select__option">
+                          Bakery
+                        </li>
+                        <li
+                          data-value="fruits-vegetables"
+                          class="select__option"
+                        >
+                          Fruit and vegetables
+                        </li>
+                        <li data-value="meat-fish" class="select__option">
+                          Meat and fish
+                        </li>
+                        <li data-value="drinks" class="select__option">
+                          Drinks
+                        </li>
+                        <li data-value="kitchen" class="select__option">
+                          Kitchen
+                        </li>
+                        <li
+                          data-value="special-nutrition"
+                          class="select__option"
+                        >
+                          Special nutrition
+                        </li>
+                        <li data-value="baby" class="select__option">Baby</li>
+                        <li data-value="pharmacy" class="select__option">
+                          Pharmacy
+                        </li>
+                      </ul>
+                    </div>
+
+                    <!-- 
+                    <div class="select">
+                    <select
+                    name="categories"
+                    id="categories-list"
+                    class="select__list"
+                    onchange="document.getElementById('search').value= this.value"
+                  >
+                    <option
+                      value="all categories"
+                      selected
+                      class="select__option"
+                    >
+                      All categories
+                    </option>
+                    <option value="bakery" class="select__option">
+                      Bakery
+                    </option>
+                    <option value="fruit and vegetables" class="select__option">
+                      Fruit and vegetables
+                    </option>
+                    <option value="meat and fish" class="select__option">
+                      Meat and fish
+                    </option>
+                    <option value="drinks" class="select__option">
+                      Drinks
+                    </option>
+                    <option value="kitchen" class="select__option">
+                      Kitchen
+                    </option>
+                    <option value="special nutrition" class="select__option">
+                      Special nutrition
+                    </option>
+                    <option value="baby" class="select__option">Baby</option>
+                    <option value="pharmacy" class="select__option">
+                      Pharmacy
+                    </option>
+                  </select>
+                  <svg class="select__icon">
+                    <use href="./images/icons.svg#icon-green-arrow-down"></use>
+                  </svg>
+                </div> -->
+
+                    <div class="search__input-wrapper">
+                      <input
+                        type="text"
+                        id="search"
+                        name="search"
+                        autocomplete="off"
+                        placeholder="Search Products, categories ..."
+                        class="search__input"
+                      />
+                      <button
+                        type="submit"
+                        aria-label="search button"
+                        class="search__btn"
+                      >
+                        <svg class="search__icon">
+                          <use href="./images/icons.svg#icon-search"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </li>
+              <li class="middle-bar__item controls">
+                <ul class="list-general controls__list">
+                  <li class="controls__item">
+                    <a href="" class="links-general controls__link">
+                      <svg
+                        class="controls__icon"
+                        aria-label="forward to your customer account"
+                      >
+                        <use href="./images/icons.svg#icon-user"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="controls__item controls__item--bag">
+                    <a href="" class="links-general controls__link">
+                      <svg
+                        class="controls__icon"
+                        aria-label="forward to your customer trolley"
+                      >
+                        <use href="./images/icons.svg#icon-shopping-bag"></use>
+                      </svg>
+                      <div class="controls__indicator">4</div>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </li>
+      <li class="header__item">
+        <!-- HEADER MENU -->
+        <section class="menu">
+          <div class="container menu__wrapper">
+            <h2 class="visually-hidden">Menu section</h2>
+            <ul class="list-general menu__list">
+              <li class="menu__item">
+                <a href="" class="links-general menu__link" aria-label="bakery"
+                  >Bakery
+                  <svg class="menu__icon">
+                    <use href="./images/icons.svg#icon-green-arrow-down"></use>
+                  </svg>
+                </a>
+                <ul
+                  class="list-general submenu bakery-submenu"
+                  aria-label="bakery"
+                  aria-expanded="false"
+                >
+                  <li class="submenu__item bakery-submenu__item">
+                    <a
+                      href=""
+                      class="links-general submenu__link bakery-submenu__link"
+                      aria-label="savory items"
+                      >Savory</a
+                    >
+                  </li>
+                  <li class="submenu__item bakery-submenu__item">
+                    <a
+                      href=""
+                      class="links-general submenu__link bakery-submenu__link"
+                      aria-label="sweet items"
+                      >Sweet</a
+                    >
+                  </li>
+                  <li class="submenu__item bakery-submenu__item">
+                    <a
+                      href=""
+                      class="links-general submenu__link bakery-submenu__link"
+                      aria-label="gluten free items"
+                      >Gluten-free</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="menu__item">
+                <a
+                  href=""
+                  class="links-general menu__link"
+                  aria-label="fruits and vegetables"
+                  >Fruit and vegetables
+                  <svg class="menu__icon">
+                    <use href="./images/icons.svg#icon-green-arrow-down"></use>
+                  </svg>
+                </a>
+                <ul
+                  class="list-general submenu fv-submenu"
+                  aria-label="fruits and vegetables"
+                  aria-expanded="false"
+                >
+                  <li class="submenu__item fv-submenu__item">
+                    <a
+                      href=""
+                      class="links-general submenu__link fv-submenu__link"
+                      aria-label="fruit"
+                      >Fruit</a
+                    >
+                    <ul
+                      class="list-general sub-submenu fruits-submenu"
+                      aria-label="fruits"
+                      aria-expanded="false"
+                    >
+                      <li class="sub-submenu__item fruits-sub-submenu__item">
+                        <a
+                          href=""
+                          class="links-general sub-submenu__link fruits-sub-submenu__link"
+                          aria-label="seasonal fruits"
+                          >Seasonal fruits</a
+                        >
+                      </li>
+                      <li class="sub-submenu__item fruits-sub-submenu__item">
+                        <a
+                          href=""
+                          class="links-general sub-submenu__link fruits-sub-submenu__link"
+                          aria-label="exotic fruits"
+                          >Exotic fruits</a
+                        >
+                      </li>
+                      <li class="sub-submenu__item fruits-sub-submenu__item">
+                        <a
+                          href=""
+                          class="links-general sub-submenu__link fruits-sub-submenu__link"
+                          aria-label="berries"
+                          >Berries</a
+                        >
+                      </li>
+                      <li class="sub-submenu__item fruits-sub-submenu__item">
+                        <a
+                          href=""
+                          class="links-general sub-submenu__link fruits-sub-submenu__link"
+                          aria-label="gift baskets"
+                          >Gift baskets</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="submenu__item fv-submenu__item">
+                    <a
+                      href=""
+                      class="links-general submenu__link fv-submenu__link"
+                      aria-label="vegetables"
+                      >Vegetables</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="menu__item">
+                <a
+                  href=""
+                  class="links-general menu__link"
+                  aria-label="meat and fish"
+                  >Meat and fish
+                  <svg class="menu__icon">
+                    <use href="./images/icons.svg#icon-green-arrow-down"></use>
+                  </svg>
+                </a>
+                <ul
+                  class="list-general submenu mf-submenu"
+                  aria-label="meat and fish"
+                  aria-expanded="false"
+                >
+                  <li class="submenu__item mf-submenu__item">
+                    <a
+                      href=""
+                      class="links-general submenu__link mf-submenu__link"
+                      aria-label="meat"
+                      >Meat</a
+                    >
+                  </li>
+                  <li class="submenu__item mf-submenu__item">
+                    <a
+                      href=""
+                      class="links-general submenu__link mf-submenu__link"
+                      aria-label="poultry"
+                      >Poultry</a
+                    >
+                  </li>
+                  <li class="submenu__item mf-submenu__item">
+                    <a
+                      href=""
+                      class="links-general submenu__link mf-submenu__link"
+                      aria-label="fish"
+                      >Fish</a
+                    >
+                  </li>
+                  <li class="submenu__item mf-submenu__item">
+                    <a
+                      href=""
+                      class="links-general submenu__link mf-submenu__link"
+                      aria-label="seafood"
+                      >Seafood</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="menu__item">
+                <a href="" class="links-general menu__link" aria-label="drinks"
+                  >Drinks
+                  <svg class="menu__icon">
+                    <use href="./images/icons.svg#icon-green-arrow-down"></use>
+                  </svg>
+                </a>
+                <ul
+                  class="list-general submenu drinks-submenu"
+                  aria-label="drinks"
+                  aria-expanded="false"
+                >
+                  <li class="submenu__item drinks-submenu__item">
+                    <a
+                      href=""
+                      class="links-general submenu__link drinks-submenu__link"
+                      aria-label="juices"
+                      >Juices</a
+                    >
+                  </li>
+                  <li class="submenu__item drinks-submenu__item">
+                    <a
+                      href=""
+                      class="links-general submenu__link drinks-submenu__link"
+                      aria-label="tea"
+                      >Tea</a
+                    >
+                  </li>
+                  <li class="submenu__item drinks-submenu__item">
+                    <a
+                      href=""
+                      class="links-general submenu__link drinks-submenu__link"
+                      aria-label="coffee"
+                      >Coffee</a
+                    >
+                  </li>
+                  <li class="submenu__item drinks-submenu__item">
+                    <a
+                      href=""
+                      class="links-general submenu__link drinks-submenu__link"
+                      aria-label="hot chocolate"
+                      >Hot chocolate</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="menu__item">
+                <a href="" class="links-general menu__link" aria-label="kitchen"
+                  >Kitchen
+                  <svg class="menu__icon">
+                    <use href="./images/icons.svg#icon-green-arrow-down"></use>
+                  </svg>
+                </a>
+                <ul
+                  class="list-general submenu kitchen-submenu"
+                  aria-label="kitchen"
+                  aria-expanded="false"
+                >
+                  <li
+                    class="submenu__item kitchen-submenu__item"
+                    aria-label="frozen food"
+                  >
+                    <a
+                      href=""
+                      class="links-general submenu__link kitchen-submenu__link"
+                      >Frozen products</a
+                    >
+                  </li>
+                  <li class="submenu__item kitchen-submenu__item">
+                    <a
+                      href=""
+                      class="links-general submenu__link kitchen-submenu__link"
+                      aria-label="ready to eat"
+                      >Ready to eat</a
+                    >
+                  </li>
+                  <li class="submenu__item kitchen-submenu__item">
+                    <a
+                      href=""
+                      class="links-general submenu__link kitchen-submenu__link"
+                      aria-label="natural honey"
+                      >Natural honey</a
+                    >
+                  </li>
+                  <li class="submenu__item kitchen-submenu__item">
+                    <a
+                      href=""
+                      class="links-general submenu__link kitchen-submenu__link"
+                      aria-label="spices and souces"
+                      >Spices and souces</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="menu__item">
+                <a
+                  href=""
+                  class="links-general menu__link"
+                  aria-label="special nutrition"
+                  >Special nutrition
+                  <svg class="menu__icon">
+                    <use href="./images/icons.svg#icon-green-arrow-down"></use>
+                  </svg>
+                </a>
+                <ul
+                  class="list-general submenu sn-submenu"
+                  aria-label="special nutrition"
+                  aria-expanded="false"
+                >
+                  <li class="submenu__item sn-submenu__item">
+                    <a
+                      href=""
+                      class="links-general submenu__link sn-submenu__link"
+                      aria-label="kosher"
+                      >Kosher products</a
+                    >
+                  </li>
+                  <li class="submenu__item sn-submenu__item">
+                    <a
+                      href=""
+                      class="links-general submenu__link sn-submenu__link"
+                      aria-label="halal"
+                      >Halal products</a
+                    >
+                  </li>
+                  <li class="submenu__item sn-submenu__item">
+                    <a
+                      href=""
+                      class="links-general submenu__link sn-submenu__link"
+                      aria-label="vegan"
+                      >Vegan products</a
+                    >
+                  </li>
+                  <li class="submenu__item sn-submenu__item">
+                    <a
+                      href=""
+                      class="links-general submenu__link sn-submenu__link"
+                      aria-label="sugar free"
+                      >Sugar-free products</a
+                    >
+                  </li>
+                  <li class="submenu__item sn-submenu__item">
+                    <a
+                      href=""
+                      class="links-general submenu__link sn-submenu__link"
+                      aria-label="low fat"
+                      >Low-fat products</a
+                    >
+                  </li>
+                  <li class="submenu__item sn-submenu__item">
+                    <a
+                      href=""
+                      class="links-general submenu__link sn-submenu__link"
+                      aria-label="lactose free"
+                      >Lactose-free products</a
+                    >
+                  </li>
+                  <li class="submenu__item sn-submenu__item">
+                    <a
+                      href=""
+                      class="links-general submenu__link sn-submenu__link"
+                      aria-label="gluten free"
+                      >Gluten-free products</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="menu__item">
+                <a
+                  href=""
+                  class="links-general menu__link"
+                  aria-label="baby products"
+                  >Baby
+                  <svg class="menu__icon">
+                    <use href="./images/icons.svg#icon-green-arrow-down"></use>
+                  </svg>
+                </a>
+                <ul
+                  class="list-general submenu baby-submenu"
+                  aria-label="baby products"
+                  aria-expanded="false"
+                >
+                  <li class="submenu__item baby-submenu__item">
+                    <a
+                      href=""
+                      class="links-general submenu__link baby-submenu__link"
+                      aria-label="purees"
+                      >Purees</a
+                    >
+                  </li>
+                  <li class="submenu__item baby-submenu__item">
+                    <a
+                      href=""
+                      class="links-general submenu__link baby-submenu__link"
+                      aria-label="baby cereal"
+                      >Baby cereal</a
+                    >
+                  </li>
+                  <li class="submenu__item baby-submenu__item">
+                    <a
+                      href=""
+                      class="links-general submenu__link baby-submenu__link"
+                      aria-label="powder formulas"
+                      >Powder formulas</a
+                    >
+                  </li>
+                  <li class="submenu__item baby-submenu__item">
+                    <a
+                      href=""
+                      class="links-general submenu__link baby-submenu__link"
+                      aria-label="snacks"
+                      >Snacks</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="menu__item">
+                <a
+                  href=""
+                  class="links-general menu__link"
+                  aria-label="pharmacy"
+                  >Pharmacy
+                  <svg class="menu__icon">
+                    <use href="./images/icons.svg#icon-green-arrow-down"></use>
+                  </svg>
+                </a>
+                <ul
+                  class="list-general submenu pharm-submenu"
+                  aria-label="pharmacy"
+                  aria-expanded="false"
+                >
+                  <li class="submenu__item pharm-submenu__item">
+                    <a
+                      href=""
+                      class="links-general submenu__link pharm-submenu__link"
+                      aria-label="dietary supplements"
+                      >Dietary supplements</a
+                    >
+                  </li>
+                  <li class="submenu__item pharm-submenu__item">
+                    <a
+                      href=""
+                      class="links-general submenu__link pharm-submenu__link"
+                      aria-label="vitamins"
+                      >Vitamins</a
+                    >
+                  </li>
+                  <li class="submenu__item pharm-submenu__item">
+                    <a
+                      href=""
+                      class="links-general submenu__link pharm-submenu__link"
+                      aria-label="fish oil"
+                      >Fish oil</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </li>
+    </ul>
+  </div>
+</header>

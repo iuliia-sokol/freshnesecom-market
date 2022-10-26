@@ -1,3 +1,5 @@
+// ANOTHER WAY TO HANDLE DATA FOR MARKUP
+
 // import { productsData } from './data/items-data';
 
 function generateId(products) {

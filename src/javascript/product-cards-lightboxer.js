@@ -127,6 +127,12 @@ function onBuyBtnClick(event) {
   );
   instance.show();
 
+  // // ADJUST SIZE OF MODAL WINDOW
+  // const basicLightboxContainerEl = document.querySelector(
+  //   '.basicLightbox__placeholder'
+  // );
+  // basicLightboxContainerEl.classList.add('basicLightbox__placeholder--modal');
+
   //  ADDING EXTRA ELEMENTS FOR PRODUCTS ON SALE
 
   const discount = document.querySelector('.lightbox-modal__discount');

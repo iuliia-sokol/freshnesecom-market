@@ -56,4 +56,6 @@ class Product {
 }
 
 export const allProducts = productsData.map(item => new Product(item));
-// console.dir(newArr);
+
+// console.table(allProducts);
+// console.table(productsData);
