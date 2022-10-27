@@ -161,6 +161,7 @@
   </button>
   <p class="basket-modal__title">Shopping cart</p>
   <div class="basket-modal__card-wrapper basket-card">
+    
     <div class="basket-card__img-wrapper">
       <img
         class="image-display basket-card__image"
@@ -219,9 +220,47 @@
         <svg class="basket-card__data-rating-icon">
           <use href="./images/icons.svg#star"></use>
         </svg>
+        <svg class="basket-card__data-rating-icon">
+          <use href="./images/icons.svg#star"></use>
+        </svg>
+        <svg class="basket-card__data-rating-icon">
+          <use href="./images/icons.svg#star"></use>
+        </svg>
+        <svg class="basket-card__data-rating-icon">
+          <use href="./images/icons.svg#star"></use>
+        </svg>
+        <svg class="basket-card__data-rating-icon">
+          <use href="./images/icons.svg#star"></use>
+        </svg>
+      </div>
+      <div class="basket-card__price-wrapper">
+        <div class="basket-card__price">
+          <p class="basket-card__new-price">36.99 USD</p>
+          <p class="basket-card__old-price">40 USD</p>
+        </div>
+        <div class="basket-card__input-wrapper">
+          <input autocomplete="off" type="number" required max="20" min="1" maxlength="2" name="item-quantity" placeholder="" class="basket-card__input" value="">
+        <div class="basket-card__select-wrapper">
+                    <select
+                    name="categories"
+                    class="basket-card__select"
+                  >
+                    <option
+                      value="1"
+                      selected
+                      class="basket-card__select-option"
+                    >
+                      Pcs
+                    </option>
+                    <option value="2" class="basket-card__select-option">
+                      Rack
+                    </option>
+      </div>
       </div>
     </div>
   </div>
+  </div>
+
   <div class="basket-modal__bottom-data-wrapper">
     <div class="basket-modal__total-wrapper">
       <p class="basket-modal__subtotal">Subtotal</p>
@@ -232,4 +271,3 @@
       <button type="button" class="buy-btn">Go to Checkout</button>
     </div>
   </div>
-</div>
