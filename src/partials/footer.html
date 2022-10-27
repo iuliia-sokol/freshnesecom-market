@@ -151,7 +151,7 @@
   </div>
 </footer>
 
-<div class="basket-modal is-hidden">
+<div class="basket-modal">
   <button
     data-map-close
     class="basket-modal__close-btn"
@@ -174,14 +174,52 @@
           <button class="basket-card__controls-btn">
             <svg
               class="basket-card__controls-icon"
-              aria-label="forward to your customer account"
+              aria-label="add to favourite items"
             >
               <use href="./images/icons.svg#heart"></use>
             </svg>
             Wishlist
           </button>
         </li>
+        <li class="list-general basket-card__controls-item">
+          <button class="basket-card__controls-btn">
+            <svg
+              class="basket-card__controls-icon"
+              aria-label="compare with other items"
+            >
+              <use href="./images/icons.svg#compare"></use>
+            </svg>
+            Compare
+          </button>
+        </li>
+        <li class="list-general basket-card__controls-item">
+          <button class="basket-card__controls-btn">
+            <svg
+              class="basket-card__controls-icon"
+              aria-label="remove from basket"
+            >
+              <use href="./images/icons.svg#remove"></use>
+            </svg>
+            Remove
+          </button>
+        </li>
       </ul>
+    </div>
+    <div class="basket-card__data-wrapper">
+      <p class="basket-card__data-title">Product title</p>
+      <p class="basket-card__data-property">
+        Farm:
+        <span class="basket-card__data-value data-farm">Tharamis Farm</span>
+      </p>
+      <p class="basket-card__data-property">
+        Freshness:
+        <span class="basket-card__data-value data-freshness">1 day old</span>
+      </p>
+      <div class="basket-card__data-rating">
+        <svg class="basket-card__data-rating-icon">
+          <use href="./images/icons.svg#star"></use>
+        </svg>
+      </div>
     </div>
   </div>
   <div class="basket-modal__bottom-data-wrapper">

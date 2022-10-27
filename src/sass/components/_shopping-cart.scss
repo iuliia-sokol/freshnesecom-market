@@ -71,12 +71,18 @@
 
 .basket-card {
   display: flex;
+  column-gap: 16px;
+  align-items: center;
+  //   justify-content: space-between;
   flex-direction: row;
   &__image {
     width: 100px;
     height: 67px;
     border-radius: 12px;
     margin-bottom: 12px;
+  }
+  &__controls-item {
+    // position: relative;
   }
   &__controls-btn {
     display: flex;
@@ -89,6 +95,11 @@
     font-size: 12px;
     line-height: 1.5;
     color: $text-pale-grey;
+
+    &:hover,
+    &:focus {
+      transform: scale(1.1);
+    }
   }
   &__controls-icon {
     position: absolute;
@@ -99,6 +110,48 @@
     height: 12px;
     fill: none;
     stroke: $main-black;
-    stroke-width: 2px;
+
+    &:hover,
+    &:focus {
+      stroke: $accent-red;
+    }
+
+    .basket-card__controls-btn:hover &,
+    .basket-card__controls-btn:focus & {
+      stroke: $accent-red;
+    }
   }
+
+  &__data-title {
+    display: block;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 1.47;
+  }
+  &__data-property {
+    display: block;
+    font-family: 'Open Sans';
+    font-size: 12px;
+    line-height: 1.5;
+    color: $text-pale-grey;
+  }
+
+  &__data-value {
+    color: $main-black;
+  }
+  &____data-rating {
+    display: flex;
+    column-gap: 2px;
+  }
+  &__data-rating-icon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.data-farm {
+  margin-left: 41px;
+}
+.data-freshness {
+  margin-left: 14px;
 }
