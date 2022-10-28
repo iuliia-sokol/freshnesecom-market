@@ -15,6 +15,11 @@ export const productsData = [
     category: 'fruits-vegetables',
     isOnSale: true,
     isBestSeller: false,
+    quantity: 1,
+    isInStock: true,
+    inStockCount: 50,
+    freshness: 2,
+    farm: 'Tharamis Farm',
   },
 
   {
@@ -33,6 +38,9 @@ export const productsData = [
     category: 'fruits-vegetables',
     isOnSale: true,
     isBestSeller: false,
+    quantity: 1,
+    isInStock: true,
+    inStockCount: 50,
   },
 
   {
@@ -51,6 +59,9 @@ export const productsData = [
     category: 'fruits-vegetables',
     isOnSale: true,
     isBestSeller: false,
+    quantity: 1,
+    isInStock: true,
+    inStockCount: 50,
   },
   {
     id: '',
@@ -68,6 +79,9 @@ export const productsData = [
     category: 'fruits-vegetables',
     isOnSale: true,
     isBestSeller: false,
+    quantity: 1,
+    isInStock: true,
+    inStockCount: 50,
   },
 
   {
@@ -86,6 +100,9 @@ export const productsData = [
     category: 'fruits-vegetables',
     isOnSale: false,
     isBestSeller: false,
+    quantity: 1,
+    isInStock: true,
+    inStockCount: 50,
   },
 
   {
@@ -104,6 +121,9 @@ export const productsData = [
     category: 'meat-fish',
     isOnSale: true,
     isBestSeller: false,
+    quantity: 1,
+    isInStock: true,
+    inStockCount: 50,
   },
 
   {
@@ -122,6 +142,9 @@ export const productsData = [
     category: 'meat-fish',
     isOnSale: true,
     isBestSeller: false,
+    quantity: 1,
+    isInStock: true,
+    inStockCount: 50,
   },
 
   {
@@ -140,6 +163,9 @@ export const productsData = [
     category: 'fruits-vegetables',
     isOnSale: false,
     isBestSeller: true,
+    quantity: 1,
+    isInStock: true,
+    inStockCount: 50,
   },
 
   {
@@ -164,6 +190,9 @@ export const productsData = [
     category: 'fruits-vegetables',
     isOnSale: false,
     isBestSeller: true,
+    quantity: 1,
+    isInStock: true,
+    inStockCount: 50,
   },
 
   {
@@ -182,6 +211,9 @@ export const productsData = [
     category: 'meat-fish',
     isOnSale: true,
     isBestSeller: true,
+    quantity: 1,
+    isInStock: true,
+    inStockCount: 50,
   },
 
   {
@@ -200,6 +232,9 @@ export const productsData = [
     category: 'fruits-vegetables',
     isOnSale: false,
     isBestSeller: true,
+    quantity: 1,
+    isInStock: true,
+    inStockCount: 3,
   },
 
   {
@@ -218,6 +253,9 @@ export const productsData = [
     category: 'fruits-vegetables',
     isOnSale: true,
     isBestSeller: true,
+    quantity: 1,
+    isInStock: true,
+    inStockCount: 70,
   },
 
   {
@@ -236,6 +274,9 @@ export const productsData = [
     category: 'fruits-vegetables',
     isOnSale: true,
     isBestSeller: false,
+    quantity: 1,
+    isInStock: true,
+    inStockCount: 10,
   },
 ];
 

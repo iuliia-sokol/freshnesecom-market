@@ -1,12 +1,23 @@
 import * as basicLightbox from 'basiclightbox';
+import { allProducts } from './product-class-creator';
+import { shoppingCart } from './shopping-cart';
+import { addItemToShoppingCart } from './shopping-cart';
 
 const lightboxedCard = document.querySelectorAll('.product');
 lightboxedCard.forEach(product =>
   product.addEventListener('click', openLightbox)
 );
 
+function getSelectedItem(event) {
+  const selectedProduct = allProducts.find(
+    item => item.id === event.currentTarget.dataset.id
+  );
+  return selectedProduct;
+}
+
 function openLightbox(event) {
   event.preventDefault();
+
   if (event.target.nodeName !== 'IMG' && event.target.nodeName !== 'BUTTON') {
     return;
   }
@@ -19,7 +30,11 @@ function openLightbox(event) {
   }
 }
 
+// ON IMAGE CLICK
+
 function onProductImageClick(event) {
+  const selectedProduct = getSelectedItem(event);
+
   //  CREATE IMAGE SHOW WINDOW
   const instance = basicLightbox.create(
     `
@@ -32,15 +47,15 @@ function onProductImageClick(event) {
     </button>
 <div class="lightbox-image__img-wrapper">
  <img class="image-display lightbox-image__image"
-  srcset="${event.currentTarget.dataset.srcset}"
-  src="${event.currentTarget.dataset.img}"
-  data-source="${event.currentTarget.dataset.img}"
+  srcset="${selectedProduct.srcset}"
+  src="${selectedProduct.img}"
+  data-source="${selectedProduct.img}"
   loading="lazy"
   rel="noopener noreferrer nofollow"
-  alt="${event.currentTarget.dataset.title}"
+  alt="${selectedProduct.title}"
   width="566"
   height="377" />
- <h3 class="lightbox-image__title">${event.currentTarget.dataset.title}</h3>
+ <h3 class="lightbox-image__title">${selectedProduct.title}</h3>
 </div>
 </div>`,
     {
@@ -66,8 +81,13 @@ function onProductImageClick(event) {
   basicLightboxContainerEl.classList.add('basicLightbox__placeholder--image');
 }
 
+// ON BUY BTN CLICK
+
 function onBuyBtnClick(event) {
+  const selectedProduct = getSelectedItem(event);
+
   //  CREATE MODAL
+
   const instance = basicLightbox.create(
     `
    <div class="lightbox-modal">
@@ -80,26 +100,26 @@ function onBuyBtnClick(event) {
 <div class="lightbox-modal__data">
 <div class="lightbox-modal__img-wrapper">
 <span class="lightbox-modal__discount"
->${event.currentTarget.dataset.discount}</span>
+>${selectedProduct.discount}</span>
  <img class="image-display lightbox-modal__image"
-  srcset="${event.currentTarget.dataset.srcset}"
-  src="${event.currentTarget.dataset.img}"
-  data-source="${event.currentTarget.dataset.img}"
+  srcset="${selectedProduct.srcset}"
+  src="${selectedProduct.img}"
+  data-source="${selectedProduct.img}"
   loading="lazy"
   rel="noopener noreferrer nofollow"
-  alt="${event.currentTarget.dataset.title}"
+  alt="${selectedProduct.title}"
   width="237"
   height="180" />
 </div>
-<a href="${event.currentTarget.dataset.link}" class="links-general lightbox-modal__link">
- <h3 class="lightbox-modal__title">${event.currentTarget.dataset.title}</h3>
-<p class="lightbox-modal__description">${event.currentTarget.dataset.description}</p>
+<a href="${selectedProduct.link}" class="links-general lightbox-modal__link">
+ <h3 class="lightbox-modal__title">${selectedProduct.title}</h3>
+<p class="lightbox-modal__description">${selectedProduct.description}</p>
 </a>
 </div>
 <div class="lightbox-modal__price-tag">
 <div class="lightbox-modal__price-wrapper">
-<p class="lightbox-modal__new-price" data-price="${event.currentTarget.dataset.newPrice}">${event.currentTarget.dataset.newPrice}</p>
-<p class="lightbox-modal__old-price" data-price="${event.currentTarget.dataset.oldPrice}">${event.currentTarget.dataset.oldPrice}</p>
+<p class="lightbox-modal__new-price">${selectedProduct.newPrice}</p>
+<p class="lightbox-modal__old-price">${selectedProduct.oldPrice}</p>
 </div>
    <div class="lightbox-modal__counter">
       <button type="button" class="lightbox-modal__counter-btn lightbox-modal__counter-decrement">-1</button>
@@ -107,16 +127,8 @@ function onBuyBtnClick(event) {
       <button type="button" class="lightbox-modal__counter-btn lightbox-modal__counter-increment">+1</button>
     </div>
 <button type="button" class="buy-btn  add-to-cart-btn "
-data-id="${event.currentTarget.dataset.id}"
-data-img="${event.currentTarget.dataset.img}" 
-data-srcset="${event.currentTarget.dataset.srcset}" 
-data-title="${event.currentTarget.dataset.title}" 
-data-description="${event.currentTarget.dataset.description}" 
-data-old-price="${event.currentTarget.dataset.oldPrice}"
-data-new-price="${event.currentTarget.dataset.newPrice}"
-data-discount="${event.currentTarget.dataset.discount}"
-data-link="${event.currentTarget.dataset.link}"
-data-quantity="1" data-saved-money="">Add to cart</button>
+data-id="${selectedProduct.id}"
+data-quantity=1 data-saved-money="">Add to cart</button>
 </div>
 </div>`,
     {
@@ -132,6 +144,9 @@ data-quantity="1" data-saved-money="">Add to cart</button>
       },
       onClose: instance => {
         counterValue.value = 1;
+          incrementBtn.removeEventListener('click', onIncrementClick);
+          decrementBtn.removeEventListener('click', onDecrementClick);
+          addToCartBtnEl.removeEventListener('click', onAddToCartBtnClick);
       },
     }
   );
@@ -142,21 +157,23 @@ data-quantity="1" data-saved-money="">Add to cart</button>
   const discount = document.querySelector('.lightbox-modal__discount');
   const discountImg = document.querySelector('.lightbox-modal__img-wrapper');
   if (discount.textContent !== '') {
+
     // ADD TEASER
+
     const discountTeaser = document.createElement('span');
     discountTeaser.classList.add('lightbox-modal__teaser');
     discountTeaser.textContent = `Hurry up! Hot offer!`;
     discountImg.appendChild(discountTeaser);
 
     // COUNT SAVED MONEY
-    const oldPriceEl = document.querySelector('.lightbox-modal__old-price');
-    const newPriceEl = document.querySelector('.lightbox-modal__new-price');
+
     const moneySaved = (
-      parseFloat(oldPriceEl.dataset.price) -
-      parseFloat(newPriceEl.dataset.price)
+      parseFloat(selectedProduct.oldPrice) -
+      parseFloat(selectedProduct.newPrice)
     ).toFixed(2);
 
     // ADD SAVED MONEY TEASER
+
     const savedMoneyTeaser = document.createElement('p');
     savedMoneyTeaser.classList.add('lightbox-modal__money-teaser');
     savedMoneyTeaser.innerHTML =
@@ -168,17 +185,8 @@ data-quantity="1" data-saved-money="">Add to cart</button>
     savedMoneyAmount.textContent = ` ${moneySaved}`;
   }
 
-  // ADD TO CART BTN SET
-  const addToCartBtnEl = document.querySelector('.add-to-cart-btn');
-  addToCartBtnEl.addEventListener('click', onAddToCartBtnClick);
-  function onAddToCartBtnClick(event) {
-    this.dataset.savedMoney = (
-      parseFloat(this.dataset.oldPrice) - parseFloat(this.dataset.newPrice)
-    ).toFixed(2);
-    console.log(this.dataset.quantity);
-  }
-
   // SET COUNTER
+
   const counterEl = document.querySelector('.lightbox-modal__counter-value');
   const decrementBtn = document.querySelector(
     '.lightbox-modal__counter-decrement'
@@ -190,36 +198,96 @@ data-quantity="1" data-saved-money="">Add to cart</button>
   incrementBtn.addEventListener('click', onIncrementClick);
   decrementBtn.addEventListener('click', onDecrementClick);
 
-  function onIncrementClick(event) {
+  function onIncrementClick() {
     counterValue.increment();
-    counterEl.textContent = counterValue.value;
     decrementBtn.disabled = false;
     addToCartBtnEl.disabled = false;
-    addToCartBtnEl.dataset.quantity = counterValue.value;
+    selectedProduct.quantity = counterValue.value;
+    counterEl.textContent = selectedProduct.quantity;
     addToCartBtnEl.classList.remove('buy-btn--disabled');
+    selectedProduct.total = (selectedProduct.quantity* parseFloat(selectedProduct.newPrice)).toFixed(2);
   }
 
-  function onDecrementClick(event) {
+  function onDecrementClick() {
     counterValue.decrement();
-    counterEl.textContent = counterValue.value;
-    addToCartBtnEl.dataset.quantity = counterValue.value;
+    selectedProduct.quantity = counterValue.value;
+    counterEl.textContent = selectedProduct.quantity;
+    selectedProduct.total = (selectedProduct.quantity* parseFloat(selectedProduct.newPrice)).toFixed(2);
     if (counterValue.value <= 0) {
       decrementBtn.disabled = true;
       addToCartBtnEl.disabled = true;
       addToCartBtnEl.classList.add('buy-btn--disabled');
     }
   }
+
+  const counterValue = {
+    value: 1,
+    increment() {
+      this.value += 1;
+    },
+    decrement() {
+      if (this.value <= 0) {
+        return;
+      }
+      this.value -= 1;
+    },
+  };
+
+  // CHECK SHOPPING CART
+
+  if (shoppingCart.includes(selectedProduct)) {
+    counterEl.textContent = selectedProduct.quantity;
+    counterValue.value = selectedProduct.quantity;
+  }
+
+  // ADD PRODUCTS TO SHOPPING CART
+
+  const addToCartBtnEl = document.querySelector('.add-to-cart-btn');
+  addToCartBtnEl.addEventListener('click', onAddToCartBtnClick);
+
+  const quantityInput = document.querySelectorAll('.basket-card__input');
+  const itemTotal = document.querySelectorAll('.basket-card__new-price')
+
+  function onAddToCartBtnClick() {
+  selectedProduct.total = (selectedProduct.quantity * parseFloat(selectedProduct.newPrice)).toFixed(2);
+    
+    if (shoppingCart.includes(selectedProduct)) {
+      console.log('this item is in cart');
+      counterEl.textContent = counterValue.value;
+      
+      quantityInput.forEach(input => {
+        if (input.dataset.id === selectedProduct.id) {
+          input.value = selectedProduct.quantity;
+        }
+      });
+
+      
+       itemTotal.forEach(value => {
+         if (value.dataset.id === selectedProduct.id) {
+          let total= selectedProduct.total
+          value.textContent = `${total} USD`;
+           console.log(total)
+        }
+      });
+
+      return;
+    } 
+    // for (let item of itemTotal) {
+    // if (item.dataset.id === selectedProduct.id) {
+    //  let total= selectedProduct.total
+    //       item.textContent = `${total} USD`;
+    //        console.log(total)
+    //     }
+      // };
+    shoppingCart.push(selectedProduct);
+    addItemToShoppingCart(selectedProduct);
+   
+      return;
 }
 
-const counterValue = {
-  value: 1,
-  increment() {
-    this.value += 1;
-  },
-  decrement() {
-    if (this.value <= 0) {
-      return;
-    }
-    this.value -= 1;
-  },
-};
+console.table(shoppingCart);
+    // this.dataset.savedMoney = (
+    //   parseFloat(selectedProduct.oldPrice) -
+    //   parseFloat(selectedProduct.newPrice)
+    // ).toFixed(2);
+  

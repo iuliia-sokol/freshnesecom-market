@@ -59,15 +59,7 @@ function createGallery(items) {
         return `
 <li class="cards__item">
 <article class="product"
-data-id="${id}"
-data-img="${img}" 
-data-srcset="${srcset}" 
-data-title="${title}" 
-data-description="${description}" 
-data-old-price="${oldPrice}"
-data-new-price="${newPrice}"
-data-discount="${discount}"
-data-link="${link}">
+data-id="${id}">
 <div class="product__thumb">
 <div class="product__img-wrapper">
 <span class="product__discount animate__animated animate__heartBeat"

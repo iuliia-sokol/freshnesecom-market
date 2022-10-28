@@ -15,6 +15,12 @@ class Product {
     category = '',
     isOnSale = false,
     isBestSeller = false,
+    quantity = 1,
+    isInStock = true,
+    inStockCount = 50,
+    freshness = 1,
+    farm = '',
+    total,
   }) {
     this.id = this.generateId(title);
     this.title = title;
@@ -29,6 +35,12 @@ class Product {
     this.category = category;
     this.isOnSale = isOnSale;
     this.isBestSeller = isBestSeller;
+    this.quantity = quantity;
+    this.isInStock = this.checkInStock(inStockCount);
+    this.inStockCount = inStockCount;
+    this.freshness = freshness;
+    this.farm = farm;
+    this.total = this.countPrice();
   }
 
   generateId(string) {
@@ -53,9 +65,72 @@ class Product {
     }
     return '';
   }
+
+  checkInStock(inStockCount) {
+    if (inStockCount > 0) {
+      return true;
+    }
+    return false;
+  }
+  countPrice() {
+    let newPrice = parseFloat(this.newPrice);
+    let quality = this.quantity;
+    let total = newPrice * quality;
+    return total;
+  }
 }
 
 export const allProducts = productsData.map(item => new Product(item));
 
-// console.table(allProducts);
+// console.dir(allProducts);
 // console.table(productsData);
+
+// class ProductToBuy {
+//   constructor({
+//     id = 0,
+//     title = 'Product title',
+//     description = 'Space for a small product description',
+//     newPrice,
+//     oldPrice,
+//     discount,
+//     link = '#',
+//     img = '#',
+//     srcset = '#',
+//     tags = [],
+//     category = '',
+//     isOnSale = false,
+//     isBestSeller = false,
+//     quantity = 1,
+//     isInStock = true,
+//     inStockCount = 50,
+//     freshness = 1,
+//     farm = '',
+//   }) {
+//     this.id = id;
+//     this.title = title;
+//     this.description = description;
+//     this.newPrice = newPrice;
+//     this.oldPrice = oldPrice;
+//     this.discount = discount;
+//     this.link = link;
+//     this.img = img;
+//     this.srcset = srcset;
+//     this.tags = tags;
+//     this.category = category;
+//     this.isOnSale = isOnSale;
+//     this.isBestSeller = isBestSeller;
+//     this.quantity = quantity;
+//     this.isInStock = inStockCount;
+//     this.inStockCount = inStockCount;
+//     this.freshness = freshness;
+//     this.farm = farm;
+//     this.total = this.countPrice();
+//   }
+
+//   countPrice() {
+//     let newPrice = parseFloat(this.newPrice);
+//     let quality = this.quantity;
+//     let total = newPrice * quality;
+//     return total;
+//   }
+// }

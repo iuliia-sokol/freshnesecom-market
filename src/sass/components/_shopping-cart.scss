@@ -44,6 +44,13 @@
     font-size: 26px;
     line-height: 1.5;
   }
+  &__card-list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+    max-height: 340px;
+    overflow-y: scroll;
+  }
 
   &__card-wrapper {
     flex-grow: 2;
@@ -100,7 +107,7 @@
 
     &:hover,
     &:focus {
-      transform: scale(1.1);
+      transform: translateX(4px) scale(1.1);
     }
   }
   &__controls-icon {
@@ -111,6 +118,7 @@
     width: 12px;
     height: 12px;
     fill: none;
+    z-index: 20000;
     stroke: $main-black;
 
     &:hover,
@@ -121,6 +129,7 @@
     .basket-card__controls-btn:hover &,
     .basket-card__controls-btn:focus & {
       stroke: $accent-red;
+      transform: translateY(-50%) scale(1);
     }
   }
 
