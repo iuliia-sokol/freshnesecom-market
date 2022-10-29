@@ -5,13 +5,14 @@ import { addItemToShoppingCart } from './shopping-cart';
 import { setShoppingCart } from './shopping-cart';
 import { basketEl } from './shopping-cart';
 import { basketIndicatorEl } from './shopping-cart';
+// import { quantityInput } from './shopping-cart';
 
 const lightboxedCard = document.querySelectorAll('.product');
 lightboxedCard.forEach(product =>
   product.addEventListener('click', openLightbox)
 );
 
-function getSelectedItem(event) {
+export function getSelectedItem(event) {
   const selectedProduct = allProducts.find(
     item => item.id === event.currentTarget.dataset.id
   );
@@ -244,7 +245,7 @@ data-quantity=1 data-saved-money="">Add to cart</button>
 
   if (shoppingCart.items.includes(selectedProduct)) {
     counterEl.textContent = selectedProduct.quantity;
-    counterValue.value = selectedProduct.quantity;
+    counterValue.value = +selectedProduct.quantity;
   }
 
   // ADD PRODUCTS TO SHOPPING CART

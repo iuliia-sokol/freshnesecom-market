@@ -1,3 +1,5 @@
+import { getSelectedItem } from './product-cards-lightboxer';
+
 export const basketEl = document.querySelector('.basket-modal');
 export const shoppingCart = {
   items: [],
@@ -23,7 +25,10 @@ const savedData = localStorage.getItem(STORAGE_KEY);
 // const savedDataObject = JSON.parse(savedData);
 // console.log(savedData);
 
+const emptyTextEl = basketEl.querySelector('.basket-modal__empty');
+
 export function addItemToShoppingCart(item) {
+  emptyTextEl.classList.add('visually-hidden');
   const basketCardMarkUp = createShoppingCart(item);
   const shoppingCartCardsEl = document.querySelector(
     '.basket-modal__card-list'
@@ -31,6 +36,46 @@ export function addItemToShoppingCart(item) {
   shoppingCartCardsEl.insertAdjacentHTML('beforeend', basketCardMarkUp);
   shoppingCart.items.push(item);
   //   console.dir(shoppingCart);
+  const quantityInputEl = document.querySelectorAll('.basket-card__input');
+  console.log(quantityInputEl);
+
+  quantityInputEl.forEach(input =>
+    input.addEventListener('change', onQuantityInputChange)
+  );
+
+  function onQuantityInputChange(event) {
+    const selectedProduct = getSelectedItem(event);
+    console.log(event.target);
+    if (event.target.dataset.id === selectedProduct.id) {
+      console.log(selectedProduct);
+      selectedProduct.quantity = event.target.value;
+      selectedProduct.total = (
+        selectedProduct.quantity * parseFloat(selectedProduct.newPrice)
+      ).toFixed(2);
+      const itemTotal = document.querySelectorAll('.basket-card__new-price');
+      const itemOldTotal = document.querySelectorAll('.basket-card__old-price');
+      const displayCartTotal = document.querySelector('.basket-modal__value');
+
+      itemTotal.forEach(value => {
+        if (value.dataset.id === selectedProduct.id) {
+          let total = selectedProduct.total;
+          value.textContent = `${total} USD`;
+        }
+      });
+
+      itemOldTotal.forEach(value => {
+        if (value.dataset.id === selectedProduct.id) {
+          let totalWithoutDiscount = selectedProduct.oldTotal;
+          if (totalWithoutDiscount) {
+            value.textContent = `${totalWithoutDiscount}`;
+          } else {
+            value.textContent = '';
+          }
+        }
+      });
+      displayCartTotal.textContent = shoppingCart.countTotal() + ' ' + 'USD';
+    }
+  }
 }
 
 // const basketCardsMarkUp = createShoppingCart(shoppingCart);
@@ -127,12 +172,12 @@ Remove
 const shoppingCartBtnEl = document.querySelector('.basket');
 shoppingCartBtnEl.addEventListener('click', onShoppingCardBtnClick);
 
+const basketCloseBtnEl = basketEl.querySelector('.basket-modal__close-btn');
+basketCloseBtnEl.addEventListener('click', onBasketCloseBtnClick);
+
 function onShoppingCardBtnClick(event) {
   basketEl.classList.remove('is-hidden');
 }
-
-const basketCloseBtnEl = document.querySelector('.basket-modal__close-btn');
-basketCloseBtnEl.addEventListener('click', onBasketCloseBtnClick);
 
 function onBasketCloseBtnClick() {
   basketEl.classList.add('is-hidden');
@@ -140,3 +185,13 @@ function onBasketCloseBtnClick() {
 
 export const basketIndicatorEl = document.querySelector('.controls__indicator');
 basketIndicatorEl.textContent = shoppingCart.items.length;
+
+const continueShoppingBtnEl = basketEl.querySelector(
+  '.basket-modal__continue-btn'
+);
+
+continueShoppingBtnEl.addEventListener('click', onContinueBtnClick);
+
+function onContinueBtnClick() {
+  basketEl.classList.add('is-hidden');
+}
