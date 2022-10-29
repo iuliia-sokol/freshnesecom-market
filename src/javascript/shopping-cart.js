@@ -22,11 +22,13 @@ function createShoppingCart({
   discount,
   link,
   img,
-  srcset,
   freshness,
   farm,
   quantity,
   total,
+  oldTotal,
+  measure,
+  rating,
 }) {
   return `<li class="basket-modal__card-wrapper basket-card">
 <div class="basket-card__img-wrapper">
@@ -83,7 +85,7 @@ Remove
 <div class="basket-card__price-wrapper">
 <div class="basket-card__price">
 <p class="basket-card__new-price" data-id="${id}">${total} USD</p>
-<p class="basket-card__old-price">${oldPrice}</p>
+<p class="basket-card__old-price" data-id="${id}">${oldTotal}</p>
 </div>
 <div class="basket-card__input-wrapper">
 <input autocomplete="off" type="number" required max="20" min="1" maxlength="2" name="item-quantity" placeholder="" class="basket-card__input" data-id="${id}" value="${quantity}">

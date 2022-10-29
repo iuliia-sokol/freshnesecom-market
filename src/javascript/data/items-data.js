@@ -20,6 +20,8 @@ export const productsData = [
     inStockCount: 50,
     freshness: 2,
     farm: 'Tharamis Farm',
+    measure: 'kilo',
+    rating: 4,
   },
 
   {
@@ -41,6 +43,10 @@ export const productsData = [
     quantity: 1,
     isInStock: true,
     inStockCount: 50,
+    freshness: 2,
+    farm: 'Tharamis Farm',
+    measure: 'kilo',
+    rating: 4,
   },
 
   {
@@ -62,6 +68,10 @@ export const productsData = [
     quantity: 1,
     isInStock: true,
     inStockCount: 50,
+    freshness: 2,
+    farm: 'Green Forest',
+    measure: 'kilo',
+    rating: 4,
   },
   {
     id: '',
@@ -82,6 +92,10 @@ export const productsData = [
     quantity: 1,
     isInStock: true,
     inStockCount: 50,
+    freshness: 2,
+    farm: 'Green Forest',
+    measure: 'kilo',
+    rating: 3,
   },
 
   {
@@ -103,6 +117,10 @@ export const productsData = [
     quantity: 1,
     isInStock: true,
     inStockCount: 50,
+    freshness: 2,
+    farm: 'Green Forest',
+    measure: 'kilo',
+    rating: 4,
   },
 
   {
@@ -124,6 +142,10 @@ export const productsData = [
     quantity: 1,
     isInStock: true,
     inStockCount: 50,
+    freshness: 1,
+    farm: 'Marney & Sons',
+    measure: 'kilo',
+    rating: 4,
   },
 
   {
@@ -145,6 +167,10 @@ export const productsData = [
     quantity: 1,
     isInStock: true,
     inStockCount: 50,
+    freshness: 1,
+    farm: 'Marney & Sons',
+    measure: 'kilo',
+    rating: 4,
   },
 
   {
@@ -166,6 +192,10 @@ export const productsData = [
     quantity: 1,
     isInStock: true,
     inStockCount: 50,
+    freshness: 2,
+    farm: 'Green Forest',
+    measure: 'kilo',
+    rating: 5,
   },
 
   {
@@ -193,6 +223,10 @@ export const productsData = [
     quantity: 1,
     isInStock: true,
     inStockCount: 50,
+    freshness: 2,
+    farm: 'Green Forest',
+    measure: 'kilo',
+    rating: 5,
   },
 
   {
@@ -214,6 +248,10 @@ export const productsData = [
     quantity: 1,
     isInStock: true,
     inStockCount: 50,
+    freshness: 1,
+    farm: 'Alaskan Seaman',
+    measure: 'kilo',
+    rating: 5,
   },
 
   {
@@ -235,6 +273,10 @@ export const productsData = [
     quantity: 1,
     isInStock: true,
     inStockCount: 3,
+    freshness: 1,
+    farm: 'Green Forest',
+    measure: 'basket',
+    rating: 5,
   },
 
   {
@@ -256,6 +298,10 @@ export const productsData = [
     quantity: 1,
     isInStock: true,
     inStockCount: 70,
+    freshness: 2,
+    farm: 'Green Forest',
+    measure: 'kilo',
+    rating: 5,
   },
 
   {
@@ -277,6 +323,10 @@ export const productsData = [
     quantity: 1,
     isInStock: true,
     inStockCount: 10,
+    freshness: 2,
+    farm: 'Green Forest',
+    measure: 'kilo',
+    rating: 5,
   },
 ];
 

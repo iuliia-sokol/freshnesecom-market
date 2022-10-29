@@ -10,7 +10,7 @@
   z-index: 10000;
   padding: 24px 16px;
   background-color: $main-white;
-  border-radius: 12px;
+  border-radius: 12px 0 0 12px;
   border: 1px solid $buy-btn-border-green;
   //   transform: translate(-50%, -150%);
   @include transition(transform);

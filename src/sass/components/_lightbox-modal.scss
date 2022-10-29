@@ -123,7 +123,11 @@
     line-height: 1.33;
     color: $text-secondary;
   }
-
+  &__measure {
+    margin-top: 18px;
+    font-size: 12px;
+    color: $accent-green;
+  }
   &__price-tag {
     display: flex;
     justify-content: space-between;

@@ -15,12 +15,13 @@ class Product {
     category = '',
     isOnSale = false,
     isBestSeller = false,
-    quantity = 1,
+    quantity,
     isInStock = true,
     inStockCount = 50,
     freshness = 1,
     farm = '',
-    total,
+    rating = 0,
+    measure,
   }) {
     this.id = this.generateId(title);
     this.title = title;
@@ -40,7 +41,10 @@ class Product {
     this.inStockCount = inStockCount;
     this.freshness = freshness;
     this.farm = farm;
-    this.total = this.countPrice();
+    this.oldTotal = this.countPrice(oldPrice);
+    this.total = this.countPrice(newPrice);
+    this.rating = rating;
+    this.measure = measure;
   }
 
   generateId(string) {
@@ -72,10 +76,11 @@ class Product {
     }
     return false;
   }
-  countPrice() {
-    let newPrice = parseFloat(this.newPrice);
-    let quality = this.quantity;
-    let total = newPrice * quality;
+
+  countPrice(price) {
+    let priceToCount = parseFloat(price);
+    let quantity = this.quantity;
+    let total = priceToCount * quantity;
     return total;
   }
 }

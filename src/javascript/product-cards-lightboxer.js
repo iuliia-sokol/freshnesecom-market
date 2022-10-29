@@ -114,6 +114,7 @@ function onBuyBtnClick(event) {
 <a href="${selectedProduct.link}" class="links-general lightbox-modal__link">
  <h3 class="lightbox-modal__title">${selectedProduct.title}</h3>
 <p class="lightbox-modal__description">${selectedProduct.description}</p>
+<p class="lightbox-modal__measure">Price per 1 ${selectedProduct.measure}</p>
 </a>
 </div>
 <div class="lightbox-modal__price-tag">
@@ -144,9 +145,9 @@ data-quantity=1 data-saved-money="">Add to cart</button>
       },
       onClose: instance => {
         counterValue.value = 1;
-          incrementBtn.removeEventListener('click', onIncrementClick);
-          decrementBtn.removeEventListener('click', onDecrementClick);
-          addToCartBtnEl.removeEventListener('click', onAddToCartBtnClick);
+        incrementBtn.removeEventListener('click', onIncrementClick);
+        decrementBtn.removeEventListener('click', onDecrementClick);
+        addToCartBtnEl.removeEventListener('click', onAddToCartBtnClick);
       },
     }
   );
@@ -157,7 +158,6 @@ data-quantity=1 data-saved-money="">Add to cart</button>
   const discount = document.querySelector('.lightbox-modal__discount');
   const discountImg = document.querySelector('.lightbox-modal__img-wrapper');
   if (discount.textContent !== '') {
-
     // ADD TEASER
 
     const discountTeaser = document.createElement('span');
@@ -205,14 +205,18 @@ data-quantity=1 data-saved-money="">Add to cart</button>
     selectedProduct.quantity = counterValue.value;
     counterEl.textContent = selectedProduct.quantity;
     addToCartBtnEl.classList.remove('buy-btn--disabled');
-    selectedProduct.total = (selectedProduct.quantity* parseFloat(selectedProduct.newPrice)).toFixed(2);
+    selectedProduct.total = (
+      selectedProduct.quantity * parseFloat(selectedProduct.newPrice)
+    ).toFixed(2);
   }
 
   function onDecrementClick() {
     counterValue.decrement();
     selectedProduct.quantity = counterValue.value;
     counterEl.textContent = selectedProduct.quantity;
-    selectedProduct.total = (selectedProduct.quantity* parseFloat(selectedProduct.newPrice)).toFixed(2);
+    selectedProduct.total = (
+      selectedProduct.quantity * parseFloat(selectedProduct.newPrice)
+    ).toFixed(2);
     if (counterValue.value <= 0) {
       decrementBtn.disabled = true;
       addToCartBtnEl.disabled = true;
@@ -246,48 +250,59 @@ data-quantity=1 data-saved-money="">Add to cart</button>
   addToCartBtnEl.addEventListener('click', onAddToCartBtnClick);
 
   const quantityInput = document.querySelectorAll('.basket-card__input');
-  const itemTotal = document.querySelectorAll('.basket-card__new-price')
+  const itemTotal = document.querySelectorAll('.basket-card__new-price');
+  const itemOldTotal = document.querySelectorAll('.basket-card__old-price');
 
   function onAddToCartBtnClick() {
-  selectedProduct.total = (selectedProduct.quantity * parseFloat(selectedProduct.newPrice)).toFixed(2);
-    
+    selectedProduct.total = (
+      selectedProduct.quantity * parseFloat(selectedProduct.newPrice)
+    ).toFixed(2);
+    if (selectedProduct.oldPrice) {
+      selectedProduct.oldTotal =
+        (
+          selectedProduct.quantity * parseFloat(selectedProduct.oldPrice)
+        ).toFixed(2) +
+        ' ' +
+        'USD';
+    } else {
+      selectedProduct.oldTotal = '';
+    }
+
     if (shoppingCart.includes(selectedProduct)) {
       console.log('this item is in cart');
       counterEl.textContent = counterValue.value;
-      
+
       quantityInput.forEach(input => {
         if (input.dataset.id === selectedProduct.id) {
           input.value = selectedProduct.quantity;
         }
       });
 
-      
-       itemTotal.forEach(value => {
-         if (value.dataset.id === selectedProduct.id) {
-          let total= selectedProduct.total
+      itemTotal.forEach(value => {
+        if (value.dataset.id === selectedProduct.id) {
+          let total = selectedProduct.total;
           value.textContent = `${total} USD`;
-           console.log(total)
+        }
+      });
+
+      itemOldTotal.forEach(value => {
+        if (value.dataset.id === selectedProduct.id) {
+          let totalWithoutDiscount = selectedProduct.oldTotal;
+          if (totalWithoutDiscount) {
+            value.textContent = `${totalWithoutDiscount}`;
+          } else {
+            value.textContent = '';
+          }
         }
       });
 
       return;
-    } 
-    // for (let item of itemTotal) {
-    // if (item.dataset.id === selectedProduct.id) {
-    //  let total= selectedProduct.total
-    //       item.textContent = `${total} USD`;
-    //        console.log(total)
-    //     }
-      // };
+    }
+
     shoppingCart.push(selectedProduct);
     addItemToShoppingCart(selectedProduct);
-   
-      return;
+    console.table(shoppingCart);
+    instance.close();
+    return;
+  }
 }
-
-console.table(shoppingCart);
-    // this.dataset.savedMoney = (
-    //   parseFloat(selectedProduct.oldPrice) -
-    //   parseFloat(selectedProduct.newPrice)
-    // ).toFixed(2);
-  
