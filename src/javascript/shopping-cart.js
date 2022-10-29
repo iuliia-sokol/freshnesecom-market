@@ -25,10 +25,24 @@ const savedData = localStorage.getItem(STORAGE_KEY);
 // const savedDataObject = JSON.parse(savedData);
 // console.log(savedData);
 
+const goToCheckOutBtnEl = basketEl.querySelector(
+  '.basket-modal__to-payment-btn'
+);
+
+if (shoppingCart.items.length <= 0) {
+  goToCheckOutBtnEl.classList.add('buy-btn--disabled');
+  goToCheckOutBtnEl.disabled = true;
+} else {
+  goToCheckOutBtnEl.classList.remove('buy-btn--disabled');
+  goToCheckOutBtnEl.disabled = false;
+}
+
 const emptyTextEl = basketEl.querySelector('.basket-modal__empty');
 
 export function addItemToShoppingCart(item) {
   emptyTextEl.classList.add('visually-hidden');
+  goToCheckOutBtnEl.classList.remove('buy-btn--disabled');
+  goToCheckOutBtnEl.disabled = false;
   const basketCardMarkUp = createShoppingCart(item);
   const shoppingCartCardsEl = document.querySelector(
     '.basket-modal__card-list'
