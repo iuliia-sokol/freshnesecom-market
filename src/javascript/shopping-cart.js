@@ -1,5 +1,27 @@
 // import * as basicLightbox from 'basiclightbox';
-export const shoppingCart = [];
+export const shoppingCart = {
+  items: [],
+  total: 0,
+
+  countTotal() {
+    const shoppingCartItemsTotal = this.items.map(item => +item.total);
+    this.total = shoppingCartItemsTotal
+      .reduce((acc, currentValue) => acc + currentValue)
+      .toFixed(2);
+    return this.total;
+  },
+};
+
+// console.dir(shoppingCart);
+
+export const STORAGE_KEY = 'shopping-cart';
+export const setShoppingCart = obj => {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(obj));
+};
+
+const savedData = localStorage.getItem(STORAGE_KEY);
+// const savedDataObject = JSON.parse(savedData);
+// console.log(savedData);
 
 export function addItemToShoppingCart(item) {
   const basketCardMarkUp = createShoppingCart(item);
@@ -7,6 +29,8 @@ export function addItemToShoppingCart(item) {
     '.basket-modal__card-list'
   );
   shoppingCartCardsEl.insertAdjacentHTML('beforeend', basketCardMarkUp);
+  shoppingCart.items.push(item);
+  //   console.dir(shoppingCart);
 }
 
 // const basketCardsMarkUp = createShoppingCart(shoppingCart);

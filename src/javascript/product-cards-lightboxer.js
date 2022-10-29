@@ -2,6 +2,7 @@ import * as basicLightbox from 'basiclightbox';
 import { allProducts } from './product-class-creator';
 import { shoppingCart } from './shopping-cart';
 import { addItemToShoppingCart } from './shopping-cart';
+import { setShoppingCart } from './shopping-cart';
 
 const lightboxedCard = document.querySelectorAll('.product');
 lightboxedCard.forEach(product =>
@@ -239,7 +240,7 @@ data-quantity=1 data-saved-money="">Add to cart</button>
 
   // CHECK SHOPPING CART
 
-  if (shoppingCart.includes(selectedProduct)) {
+  if (shoppingCart.items.includes(selectedProduct)) {
     counterEl.textContent = selectedProduct.quantity;
     counterValue.value = selectedProduct.quantity;
   }
@@ -252,11 +253,13 @@ data-quantity=1 data-saved-money="">Add to cart</button>
   const quantityInput = document.querySelectorAll('.basket-card__input');
   const itemTotal = document.querySelectorAll('.basket-card__new-price');
   const itemOldTotal = document.querySelectorAll('.basket-card__old-price');
+  const displayCartTotal = document.querySelector('.basket-modal__value');
 
   function onAddToCartBtnClick() {
     selectedProduct.total = (
       selectedProduct.quantity * parseFloat(selectedProduct.newPrice)
     ).toFixed(2);
+
     if (selectedProduct.oldPrice) {
       selectedProduct.oldTotal =
         (
@@ -268,7 +271,7 @@ data-quantity=1 data-saved-money="">Add to cart</button>
       selectedProduct.oldTotal = '';
     }
 
-    if (shoppingCart.includes(selectedProduct)) {
+    if (shoppingCart.items.includes(selectedProduct)) {
       console.log('this item is in cart');
       counterEl.textContent = counterValue.value;
 
@@ -295,14 +298,18 @@ data-quantity=1 data-saved-money="">Add to cart</button>
           }
         }
       });
-
+      displayCartTotal.textContent = shoppingCart.countTotal() + ' ' + 'USD';
+      instance.close();
       return;
     }
 
-    shoppingCart.push(selectedProduct);
     addItemToShoppingCart(selectedProduct);
-    console.table(shoppingCart);
+
+    displayCartTotal.textContent = shoppingCart.countTotal() + ' ' + 'USD';
+
+    console.dir(shoppingCart);
+    setShoppingCart(shoppingCart);
     instance.close();
-    return;
+    return shoppingCart;
   }
 }
