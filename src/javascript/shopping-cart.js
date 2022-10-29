@@ -39,19 +39,35 @@ if (shoppingCart.items.length <= 0) {
 
 const emptyTextEl = basketEl.querySelector('.basket-modal__empty');
 
+// const ratingEl = document.querySelectorAll('.basket-card__data-rating-icon');
+// function showRating(item) {
+//   for (let i = 0; i < item.rating; i++) {
+//     ratingEl[i].classList.add('basket-card__data-rating-icon--active');
+//   }
+// }
+
 export function addItemToShoppingCart(item) {
   emptyTextEl.classList.add('visually-hidden');
   goToCheckOutBtnEl.classList.remove('buy-btn--disabled');
   goToCheckOutBtnEl.disabled = false;
+
   const basketCardMarkUp = createShoppingCart(item);
+
   const shoppingCartCardsEl = document.querySelector(
     '.basket-modal__card-list'
   );
   shoppingCartCardsEl.insertAdjacentHTML('beforeend', basketCardMarkUp);
   shoppingCart.items.push(item);
-  //   console.dir(shoppingCart);
+
+  //   showRating(item);
+
+  //   for (let icon of ratingEl) {
+  //     if (ratingEl.indexOf(icon) <= item.rating - 1) {
+  //       this.icon.classList.add('basket-card__data-rating-icon--active');
+  //     }
+  //   }
+
   const quantityInputEl = document.querySelectorAll('.basket-card__input');
-  console.log(quantityInputEl);
 
   quantityInputEl.forEach(input =>
     input.addEventListener('change', onQuantityInputChange)
@@ -59,9 +75,8 @@ export function addItemToShoppingCart(item) {
 
   function onQuantityInputChange(event) {
     const selectedProduct = getSelectedItem(event);
-    console.log(event.target);
+
     if (event.target.dataset.id === selectedProduct.id) {
-      console.log(selectedProduct);
       selectedProduct.quantity = event.target.value;
       selectedProduct.total = (
         selectedProduct.quantity * parseFloat(selectedProduct.newPrice)
@@ -148,23 +163,33 @@ Remove
 <p class="basket-card__data-title">${title}</p>
 <p class="basket-card__data-property">Farm:<span class="basket-card__data-value data-farm">${farm}</span></p>
 <p class="basket-card__data-property">Freshness:<span class="basket-card__data-value data-freshness">${freshness} day(s) old</span></p>
-<div class="basket-card__data-rating">
-<svg class="basket-card__data-rating-icon"viewBox="0 0 34 32">
+<ul class="list-general basket-card__data-rating">
+<li>
+<svg class="basket-card__data-rating-icon" viewBox="0 0 34 32" data-id="${id}">
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3" d="M15.668 4.254c0.19-0.588 0.733-1.006 1.373-1.006s1.183 0.418 1.37 0.996l0.003 0.010 2.48 7.626h8c0.016-0.001 0.034-0.001 0.052-0.001 0.803 0 1.454 0.651 1.454 1.454 0 0.504-0.257 0.949-0.647 1.21l-0.005 0.003-6.494 4.708 2.48 7.64c0.047 0.136 0.075 0.294 0.075 0.457 0 0.795-0.645 1.44-1.44 1.44-0.324 0-0.624-0.107-0.864-0.288l0.004 0.003-6.506-4.76-6.494 4.72c-0.237 0.178-0.536 0.285-0.861 0.285-0.795 0-1.44-0.645-1.44-1.44 0-0.164 0.027-0.321 0.078-0.468l-0.003 0.010 2.48-7.64-6.494-4.708c-0.395-0.264-0.652-0.709-0.652-1.213 0-0.803 0.651-1.454 1.454-1.454 0.018 0 0.037 0 0.055 0.001l-0.003-0h8l2.546-7.586z"></path>
 </svg>
-<svg class="basket-card__data-rating-icon"viewBox="0 0 34 32">
+</li>
+<li>
+<svg class="basket-card__data-rating-icon" viewBox="0 0 34 32" data-id="${id}">
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3" d="M15.668 4.254c0.19-0.588 0.733-1.006 1.373-1.006s1.183 0.418 1.37 0.996l0.003 0.010 2.48 7.626h8c0.016-0.001 0.034-0.001 0.052-0.001 0.803 0 1.454 0.651 1.454 1.454 0 0.504-0.257 0.949-0.647 1.21l-0.005 0.003-6.494 4.708 2.48 7.64c0.047 0.136 0.075 0.294 0.075 0.457 0 0.795-0.645 1.44-1.44 1.44-0.324 0-0.624-0.107-0.864-0.288l0.004 0.003-6.506-4.76-6.494 4.72c-0.237 0.178-0.536 0.285-0.861 0.285-0.795 0-1.44-0.645-1.44-1.44 0-0.164 0.027-0.321 0.078-0.468l-0.003 0.010 2.48-7.64-6.494-4.708c-0.395-0.264-0.652-0.709-0.652-1.213 0-0.803 0.651-1.454 1.454-1.454 0.018 0 0.037 0 0.055 0.001l-0.003-0h8l2.546-7.586z"></path>
 </svg>
-<svg class="basket-card__data-rating-icon"viewBox="0 0 34 32">
+</li>
+<li>
+<svg class="basket-card__data-rating-icon" viewBox="0 0 34 32" data-id="${id}">
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3" d="M15.668 4.254c0.19-0.588 0.733-1.006 1.373-1.006s1.183 0.418 1.37 0.996l0.003 0.010 2.48 7.626h8c0.016-0.001 0.034-0.001 0.052-0.001 0.803 0 1.454 0.651 1.454 1.454 0 0.504-0.257 0.949-0.647 1.21l-0.005 0.003-6.494 4.708 2.48 7.64c0.047 0.136 0.075 0.294 0.075 0.457 0 0.795-0.645 1.44-1.44 1.44-0.324 0-0.624-0.107-0.864-0.288l0.004 0.003-6.506-4.76-6.494 4.72c-0.237 0.178-0.536 0.285-0.861 0.285-0.795 0-1.44-0.645-1.44-1.44 0-0.164 0.027-0.321 0.078-0.468l-0.003 0.010 2.48-7.64-6.494-4.708c-0.395-0.264-0.652-0.709-0.652-1.213 0-0.803 0.651-1.454 1.454-1.454 0.018 0 0.037 0 0.055 0.001l-0.003-0h8l2.546-7.586z"></path>
 </svg>
-<svg class="basket-card__data-rating-icon"viewBox="0 0 34 32">
+</li>
+<li>
+<svg class="basket-card__data-rating-icon" viewBox="0 0 34 32" data-id="${id}">
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3" d="M15.668 4.254c0.19-0.588 0.733-1.006 1.373-1.006s1.183 0.418 1.37 0.996l0.003 0.010 2.48 7.626h8c0.016-0.001 0.034-0.001 0.052-0.001 0.803 0 1.454 0.651 1.454 1.454 0 0.504-0.257 0.949-0.647 1.21l-0.005 0.003-6.494 4.708 2.48 7.64c0.047 0.136 0.075 0.294 0.075 0.457 0 0.795-0.645 1.44-1.44 1.44-0.324 0-0.624-0.107-0.864-0.288l0.004 0.003-6.506-4.76-6.494 4.72c-0.237 0.178-0.536 0.285-0.861 0.285-0.795 0-1.44-0.645-1.44-1.44 0-0.164 0.027-0.321 0.078-0.468l-0.003 0.010 2.48-7.64-6.494-4.708c-0.395-0.264-0.652-0.709-0.652-1.213 0-0.803 0.651-1.454 1.454-1.454 0.018 0 0.037 0 0.055 0.001l-0.003-0h8l2.546-7.586z"></path>
 </svg>
-<svg class="basket-card__data-rating-icon"viewBox="0 0 34 32">
+</li>
+<li>
+<svg class="basket-card__data-rating-icon" viewBox="0 0 34 32" data-id="${id}">
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3" d="M15.668 4.254c0.19-0.588 0.733-1.006 1.373-1.006s1.183 0.418 1.37 0.996l0.003 0.010 2.48 7.626h8c0.016-0.001 0.034-0.001 0.052-0.001 0.803 0 1.454 0.651 1.454 1.454 0 0.504-0.257 0.949-0.647 1.21l-0.005 0.003-6.494 4.708 2.48 7.64c0.047 0.136 0.075 0.294 0.075 0.457 0 0.795-0.645 1.44-1.44 1.44-0.324 0-0.624-0.107-0.864-0.288l0.004 0.003-6.506-4.76-6.494 4.72c-0.237 0.178-0.536 0.285-0.861 0.285-0.795 0-1.44-0.645-1.44-1.44 0-0.164 0.027-0.321 0.078-0.468l-0.003 0.010 2.48-7.64-6.494-4.708c-0.395-0.264-0.652-0.709-0.652-1.213 0-0.803 0.651-1.454 1.454-1.454 0.018 0 0.037 0 0.055 0.001l-0.003-0h8l2.546-7.586z"></path>
 </svg>
-</div>
+</li>
+</ul>
 <div class="basket-card__price-wrapper">
 <div class="basket-card__price">
 <p class="basket-card__new-price" data-id="${id}">${total} USD</p>

@@ -288,7 +288,7 @@ export const productsData = [
     oldPrice: '5.20',
     discount: '',
     link: '#',
-    img: 'https://cdn.pixabay.com/photo/2014/08/06/20/32/potatoes-411975_960_720.jpg',
+    img: 'https://cdn.pixabay.com/photo/2018/09/24/20/12/bananas-3700718_960_720.jpg',
     srcset:
       'https://cdn.pixabay.com/photo/2018/09/24/20/12/bananas-3700718_960_720.jpg 1x, https://cdn.pixabay.com/photo/2018/09/24/20/12/bananas-3700718_1280.jpg 2x',
     tags: ['fruits-vegetables', 'bananas', 'fresh-food'],

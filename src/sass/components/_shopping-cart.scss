@@ -171,6 +171,11 @@
     height: 16px;
     stroke: $divider-grey;
     fill: transparent;
+
+    &--active {
+      fill: $main-black;
+      stroke: none;
+    }
   }
 
   &__price-wrapper {

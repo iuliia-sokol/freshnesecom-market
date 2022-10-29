@@ -311,10 +311,27 @@ data-quantity=1 data-saved-money="">Add to cart</button>
 
     addItemToShoppingCart(selectedProduct);
 
+    // const ratingEl = document.querySelectorAll(
+    //   '.basket-card__data-rating-icon'
+    // );
+    // ratingEl.forEach(el => {
+    //   if (el.dataset.id === selectedProduct.id) {
+    //     console.dir(ratingEl);
+    //   }
+    // });
+
+    // console.dir(ratingEl);
+
+    // const thisRating = ratingEl.filter(
+    //   el => el.dataset.id === selectedProduct.id
+    // );
+
+    // console.log(thisRating);
+
     displayCartTotal.textContent = shoppingCart.countTotal() + ' ' + 'USD';
     basketIndicatorEl.textContent = shoppingCart.items.length;
 
-    console.dir(shoppingCart);
+    // console.dir(shoppingCart);
     setShoppingCart(shoppingCart);
     instance.close();
     return shoppingCart;
