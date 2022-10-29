@@ -1,4 +1,4 @@
-// import * as basicLightbox from 'basiclightbox';
+export const basketEl = document.querySelector('.basket-modal');
 export const shoppingCart = {
   items: [],
   total: 0,
@@ -115,8 +115,8 @@ Remove
 <input autocomplete="off" type="number" required max="20" min="1" maxlength="2" name="item-quantity" placeholder="" class="basket-card__input" data-id="${id}" value="${quantity}">
 <div class="basket-card__select-wrapper">
 <select name="categories" class="basket-card__select">
-<option value="1" selected class="basket-card__select-option">Pcs</option>
-<option value="2" class="basket-card__select-option">Rack</option>
+<option value="pcs" selected class="basket-card__select-option">Pcs</option>
+<option value="rack" disabled class="basket-card__select-option">Rack</option>
 </div>
 </div>
 </div>
@@ -125,7 +125,18 @@ Remove
 }
 
 const shoppingCartBtnEl = document.querySelector('.basket');
-
 shoppingCartBtnEl.addEventListener('click', onShoppingCardBtnClick);
 
-function onShoppingCardBtnClick(event) {}
+function onShoppingCardBtnClick(event) {
+  basketEl.classList.remove('is-hidden');
+}
+
+const basketCloseBtnEl = document.querySelector('.basket-modal__close-btn');
+basketCloseBtnEl.addEventListener('click', onBasketCloseBtnClick);
+
+function onBasketCloseBtnClick() {
+  basketEl.classList.add('is-hidden');
+}
+
+export const basketIndicatorEl = document.querySelector('.controls__indicator');
+basketIndicatorEl.textContent = shoppingCart.items.length;

@@ -3,6 +3,8 @@ import { allProducts } from './product-class-creator';
 import { shoppingCart } from './shopping-cart';
 import { addItemToShoppingCart } from './shopping-cart';
 import { setShoppingCart } from './shopping-cart';
+import { basketEl } from './shopping-cart';
+import { basketIndicatorEl } from './shopping-cart';
 
 const lightboxedCard = document.querySelectorAll('.product');
 lightboxedCard.forEach(product =>
@@ -256,6 +258,8 @@ data-quantity=1 data-saved-money="">Add to cart</button>
   const displayCartTotal = document.querySelector('.basket-modal__value');
 
   function onAddToCartBtnClick() {
+    basketEl.classList.remove('is-hidden');
+
     selectedProduct.total = (
       selectedProduct.quantity * parseFloat(selectedProduct.newPrice)
     ).toFixed(2);
@@ -299,6 +303,7 @@ data-quantity=1 data-saved-money="">Add to cart</button>
         }
       });
       displayCartTotal.textContent = shoppingCart.countTotal() + ' ' + 'USD';
+      basketIndicatorEl.textContent = shoppingCart.items.length;
       instance.close();
       return;
     }
@@ -306,6 +311,7 @@ data-quantity=1 data-saved-money="">Add to cart</button>
     addItemToShoppingCart(selectedProduct);
 
     displayCartTotal.textContent = shoppingCart.countTotal() + ' ' + 'USD';
+    basketIndicatorEl.textContent = shoppingCart.items.length;
 
     console.dir(shoppingCart);
     setShoppingCart(shoppingCart);
