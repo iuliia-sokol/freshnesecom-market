@@ -87,6 +87,13 @@ class Product {
 
 export const allProducts = productsData.map(item => new Product(item));
 
+export function getSelectedItem(event, array) {
+  const selectedProduct = array.find(
+    item => item.id === event.currentTarget.dataset.id
+  );
+  return selectedProduct;
+}
+
 // console.dir(allProducts);
 // console.table(productsData);
 

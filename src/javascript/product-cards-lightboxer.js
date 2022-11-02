@@ -1,23 +1,14 @@
 import * as basicLightbox from 'basiclightbox';
 import { allProducts } from './product-class-creator';
+import { getSelectedItem } from './product-class-creator';
 import { shoppingCart } from './shopping-cart';
-import { addItemToShoppingCart } from './shopping-cart';
 import { setShoppingCart } from './shopping-cart';
-import { basketEl } from './shopping-cart';
-import { basketIndicatorEl } from './shopping-cart';
-// import { quantityInput } from './shopping-cart';
+import { refs } from './shopping-cart';
 
 const lightboxedCard = document.querySelectorAll('.product');
 lightboxedCard.forEach(product =>
   product.addEventListener('click', openLightbox)
 );
-
-export function getSelectedItem(event) {
-  const selectedProduct = allProducts.find(
-    item => item.id === event.currentTarget.dataset.id
-  );
-  return selectedProduct;
-}
 
 function openLightbox(event) {
   event.preventDefault();
@@ -37,7 +28,7 @@ function openLightbox(event) {
 // ON IMAGE CLICK
 
 function onProductImageClick(event) {
-  const selectedProduct = getSelectedItem(event);
+  const selectedProduct = getSelectedItem(event, allProducts);
 
   //  CREATE IMAGE SHOW WINDOW
   const instance = basicLightbox.create(
@@ -88,7 +79,7 @@ function onProductImageClick(event) {
 // ON BUY BTN CLICK
 
 function onBuyBtnClick(event) {
-  const selectedProduct = getSelectedItem(event);
+  const selectedProduct = getSelectedItem(event, allProducts);
 
   //  CREATE MODAL
 
@@ -163,21 +154,18 @@ data-quantity=1 data-saved-money="">Add to cart</button>
   const discountImg = document.querySelector('.lightbox-modal__img-wrapper');
   if (discount.textContent !== '') {
     // ADD TEASER
-
     const discountTeaser = document.createElement('span');
     discountTeaser.classList.add('lightbox-modal__teaser');
     discountTeaser.textContent = `Hurry up! Hot offer!`;
     discountImg.appendChild(discountTeaser);
 
     // COUNT SAVED MONEY
-
     const moneySaved = (
       parseFloat(selectedProduct.oldPrice) -
       parseFloat(selectedProduct.newPrice)
     ).toFixed(2);
 
     // ADD SAVED MONEY TEASER
-
     const savedMoneyTeaser = document.createElement('p');
     savedMoneyTeaser.classList.add('lightbox-modal__money-teaser');
     savedMoneyTeaser.innerHTML =
@@ -190,7 +178,6 @@ data-quantity=1 data-saved-money="">Add to cart</button>
   }
 
   // SET COUNTER
-
   const counterEl = document.querySelector('.lightbox-modal__counter-value');
   const decrementBtn = document.querySelector(
     '.lightbox-modal__counter-decrement'
@@ -254,30 +241,12 @@ data-quantity=1 data-saved-money="">Add to cart</button>
   addToCartBtnEl.addEventListener('click', onAddToCartBtnClick);
 
   const quantityInput = document.querySelectorAll('.basket-card__input');
-  const itemTotal = document.querySelectorAll('.basket-card__new-price');
-  const itemOldTotal = document.querySelectorAll('.basket-card__old-price');
-  const displayCartTotal = document.querySelector('.basket-modal__value');
 
   function onAddToCartBtnClick() {
-    basketEl.classList.remove('is-hidden');
-
-    selectedProduct.total = (
-      selectedProduct.quantity * parseFloat(selectedProduct.newPrice)
-    ).toFixed(2);
-
-    if (selectedProduct.oldPrice) {
-      selectedProduct.oldTotal =
-        (
-          selectedProduct.quantity * parseFloat(selectedProduct.oldPrice)
-        ).toFixed(2) +
-        ' ' +
-        'USD';
-    } else {
-      selectedProduct.oldTotal = '';
-    }
+    refs.basketEl.classList.remove('is-hidden');
+    shoppingCart.countSelectedItemTotal(selectedProduct);
 
     if (shoppingCart.items.includes(selectedProduct)) {
-      console.log('this item is in cart');
       counterEl.textContent = counterValue.value;
 
       quantityInput.forEach(input => {
@@ -285,55 +254,35 @@ data-quantity=1 data-saved-money="">Add to cart</button>
           input.value = selectedProduct.quantity;
         }
       });
-
-      itemTotal.forEach(value => {
-        if (value.dataset.id === selectedProduct.id) {
-          let total = selectedProduct.total;
-          value.textContent = `${total} USD`;
-        }
-      });
-
-      itemOldTotal.forEach(value => {
-        if (value.dataset.id === selectedProduct.id) {
-          let totalWithoutDiscount = selectedProduct.oldTotal;
-          if (totalWithoutDiscount) {
-            value.textContent = `${totalWithoutDiscount}`;
-          } else {
-            value.textContent = '';
-          }
-        }
-      });
-      displayCartTotal.textContent = shoppingCart.countTotal() + ' ' + 'USD';
-      basketIndicatorEl.textContent = shoppingCart.items.length;
+      shoppingCart.displayPrice(selectedProduct);
       instance.close();
       return;
     }
 
-    addItemToShoppingCart(selectedProduct);
+    shoppingCart.addItemToShoppingCart(selectedProduct);
 
-    // const ratingEl = document.querySelectorAll(
-    //   '.basket-card__data-rating-icon'
-    // );
-    // ratingEl.forEach(el => {
-    //   if (el.dataset.id === selectedProduct.id) {
-    //     console.dir(ratingEl);
-    //   }
-    // });
+    refs.displayCartTotal.textContent = shoppingCart.countTotal() + ' ' + 'USD';
 
-    // console.dir(ratingEl);
-
-    // const thisRating = ratingEl.filter(
-    //   el => el.dataset.id === selectedProduct.id
-    // );
-
-    // console.log(thisRating);
-
-    displayCartTotal.textContent = shoppingCart.countTotal() + ' ' + 'USD';
-    basketIndicatorEl.textContent = shoppingCart.items.length;
-
-    // console.dir(shoppingCart);
-    setShoppingCart(shoppingCart);
+    shoppingCart.setShoppingCart(shoppingCart);
     instance.close();
+
     return shoppingCart;
   }
 }
+
+// const ratingEl = document.querySelectorAll(
+//   '.basket-card__data-rating-icon'
+// );
+// ratingEl.forEach(el => {
+//   if (el.dataset.id === selectedProduct.id) {
+//     console.dir(ratingEl);
+//   }
+// });
+
+// console.dir(ratingEl);
+
+// const thisRating = ratingEl.filter(
+//   el => el.dataset.id === selectedProduct.id
+// );
+
+// console.log(thisRating);

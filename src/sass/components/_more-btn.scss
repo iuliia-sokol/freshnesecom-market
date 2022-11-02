@@ -9,6 +9,8 @@
   font-weight: 700;
   font-size: 15px;
   line-height: 1.47;
+  // animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+  // box-shadow: 0 0 0 0 rgb(48 182 221 / 70%);
   @include transition(transform, box-shadow);
 
   &__icon {

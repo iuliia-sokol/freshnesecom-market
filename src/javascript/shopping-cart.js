@@ -1,134 +1,36 @@
-import { getSelectedItem } from './product-cards-lightboxer';
+import { allProducts, getSelectedItem } from './product-class-creator';
 
-export const basketEl = document.querySelector('.basket-modal');
+// export const basketEl = document.querySelector('.basket-modal');
+// const emptyTextEl = basketEl.querySelector('.basket-modal__empty');
+
+export const refs = {
+  shoppingCartBtnEl: document.querySelector('.basket'),
+  basketEl: document.querySelector('.basket-modal'),
+  emptyTextEl: document.querySelector('.basket-modal__empty'),
+  shoppingCartCardsEl: document.querySelector('.basket-modal__card-list'),
+  goToCheckOutBtnEl: document.querySelector('.basket-modal__to-payment-btn'),
+  continueShoppingBtnEl: document.querySelector('.basket-modal__continue-btn'),
+  basketCloseBtnEl: document.querySelector('.basket-modal__close-btn'),
+  basketIndicatorEl: document.querySelector('.controls__indicator'),
+  displayCartTotal: document.querySelector('.basket-modal__value'),
+};
+
 export const shoppingCart = {
   items: [],
   total: 0,
+  _STORAGE_KEY: 'shopping-cart',
 
-  countTotal() {
-    const shoppingCartItemsTotal = this.items.map(item => +item.total);
-    this.total = shoppingCartItemsTotal
-      .reduce((acc, currentValue) => acc + currentValue)
-      .toFixed(2);
-    return this.total;
-  },
-};
-
-// console.dir(shoppingCart);
-
-export const STORAGE_KEY = 'shopping-cart';
-export const setShoppingCart = obj => {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(obj));
-};
-
-const savedData = localStorage.getItem(STORAGE_KEY);
-// const savedDataObject = JSON.parse(savedData);
-// console.log(savedData);
-
-const goToCheckOutBtnEl = basketEl.querySelector(
-  '.basket-modal__to-payment-btn'
-);
-
-if (shoppingCart.items.length <= 0) {
-  goToCheckOutBtnEl.classList.add('buy-btn--disabled');
-  goToCheckOutBtnEl.disabled = true;
-} else {
-  goToCheckOutBtnEl.classList.remove('buy-btn--disabled');
-  goToCheckOutBtnEl.disabled = false;
-}
-
-const emptyTextEl = basketEl.querySelector('.basket-modal__empty');
-
-// const ratingEl = document.querySelectorAll('.basket-card__data-rating-icon');
-// function showRating(item) {
-//   for (let i = 0; i < item.rating; i++) {
-//     ratingEl[i].classList.add('basket-card__data-rating-icon--active');
-//   }
-// }
-
-export function addItemToShoppingCart(item) {
-  emptyTextEl.classList.add('visually-hidden');
-  goToCheckOutBtnEl.classList.remove('buy-btn--disabled');
-  goToCheckOutBtnEl.disabled = false;
-
-  const basketCardMarkUp = createShoppingCart(item);
-
-  const shoppingCartCardsEl = document.querySelector(
-    '.basket-modal__card-list'
-  );
-  shoppingCartCardsEl.insertAdjacentHTML('beforeend', basketCardMarkUp);
-  shoppingCart.items.push(item);
-
-  //   showRating(item);
-
-  //   for (let icon of ratingEl) {
-  //     if (ratingEl.indexOf(icon) <= item.rating - 1) {
-  //       this.icon.classList.add('basket-card__data-rating-icon--active');
-  //     }
-  //   }
-
-  const quantityInputEl = document.querySelectorAll('.basket-card__input');
-
-  quantityInputEl.forEach(input =>
-    input.addEventListener('change', onQuantityInputChange)
-  );
-
-  function onQuantityInputChange(event) {
-    const selectedProduct = getSelectedItem(event);
-
-    if (event.target.dataset.id === selectedProduct.id) {
-      selectedProduct.quantity = event.target.value;
-      selectedProduct.total = (
-        selectedProduct.quantity * parseFloat(selectedProduct.newPrice)
-      ).toFixed(2);
-      const itemTotal = document.querySelectorAll('.basket-card__new-price');
-      const itemOldTotal = document.querySelectorAll('.basket-card__old-price');
-      const displayCartTotal = document.querySelector('.basket-modal__value');
-
-      itemTotal.forEach(value => {
-        if (value.dataset.id === selectedProduct.id) {
-          let total = selectedProduct.total;
-          value.textContent = `${total} USD`;
-        }
-      });
-
-      itemOldTotal.forEach(value => {
-        if (value.dataset.id === selectedProduct.id) {
-          let totalWithoutDiscount = selectedProduct.oldTotal;
-          if (totalWithoutDiscount) {
-            value.textContent = `${totalWithoutDiscount}`;
-          } else {
-            value.textContent = '';
-          }
-        }
-      });
-      displayCartTotal.textContent = shoppingCart.countTotal() + ' ' + 'USD';
-    }
-  }
-}
-
-// const basketCardsMarkUp = createShoppingCart(shoppingCart);
-// const shoppingCartCardsEl = document.querySelector('.basket-modal__card-list');
-// shoppingCartCardsEl.insertAdjacentHTML('afterbegin', basketCardsMarkUp);
-
-function createShoppingCart({
-  id,
-  title,
-  description,
-  oldPrice,
-  newPrice,
-  discount,
-  link,
-  img,
-  freshness,
-  farm,
-  quantity,
-  total,
-  oldTotal,
-  measure,
-  rating,
-}) {
-  return `<li class="basket-modal__card-wrapper basket-card">
+  createShoppingCartItemMarkUp({
+    id,
+    title,
+    img,
+    freshness,
+    farm,
+    quantity,
+    total,
+    oldTotal,
+  }) {
+    return `<li class="basket-modal__card-wrapper basket-card">
 <div class="basket-card__img-wrapper">
 <img class="image-display basket-card__image" src="${img}" alt="${title}" width="100" height="67"/>
 <ul class="list-general basket-card__controls-list">
@@ -206,31 +108,146 @@ Remove
 </div>
 </div>
 </li>`;
-}
+  },
 
-const shoppingCartBtnEl = document.querySelector('.basket');
-shoppingCartBtnEl.addEventListener('click', onShoppingCardBtnClick);
+  insertItemToShoppingCart(markUp) {
+    refs.shoppingCartCardsEl.insertAdjacentHTML('beforeend', markUp);
+  },
 
-const basketCloseBtnEl = basketEl.querySelector('.basket-modal__close-btn');
-basketCloseBtnEl.addEventListener('click', onBasketCloseBtnClick);
+  goToCheckOutBtnCheck() {
+    if (shoppingCart.items.length <= 0) {
+      refs.goToCheckOutBtnEl.classList.add('buy-btn--disabled');
+      refs.goToCheckOutBtnEl.disabled = true;
+    } else {
+      refs.goToCheckOutBtnEl.classList.remove('buy-btn--disabled');
+      refs.goToCheckOutBtnEl.disabled = false;
+    }
+  },
+
+  addItemToShoppingCart(item) {
+    refs.emptyTextEl.classList.add('visually-hidden');
+    refs.goToCheckOutBtnEl.classList.remove('buy-btn--disabled');
+    refs.goToCheckOutBtnEl.disabled = false;
+
+    const basketCardMarkUp = shoppingCart.createShoppingCartItemMarkUp(item);
+    this.insertItemToShoppingCart(basketCardMarkUp);
+    this.items.push(item);
+
+    // console.dir(shoppingCart);
+
+    //   showRating(item);
+
+    //   for (let icon of ratingEl) {
+    //     if (ratingEl.indexOf(icon) <= item.rating - 1) {
+    //       this.icon.classList.add('basket-card__data-rating-icon--active');
+    //     }
+    //   }
+
+    const quantityInputEl = document.querySelectorAll('.basket-card__input');
+    quantityInputEl.forEach(input =>
+      input.addEventListener('change', shoppingCart.onQuantityInputChange)
+    );
+
+    refs.basketIndicatorEl.textContent = shoppingCart.items.length;
+    refs.displayCartTotal.textContent = shoppingCart.countTotal() + ' ' + 'USD';
+  },
+
+  displayPrice(selectedProduct) {
+    const itemTotal = document.querySelectorAll('.basket-card__new-price');
+    const itemOldTotal = document.querySelectorAll('.basket-card__old-price');
+
+    itemTotal.forEach(value => {
+      if (value.dataset.id === selectedProduct.id) {
+        let total = selectedProduct.total;
+        value.textContent = `${total} USD`;
+      }
+    });
+
+    itemOldTotal.forEach(value => {
+      if (value.dataset.id === selectedProduct.id) {
+        let totalWithoutDiscount = selectedProduct.oldTotal;
+        if (totalWithoutDiscount) {
+          value.textContent = `${totalWithoutDiscount}`;
+        } else {
+          value.textContent = '';
+        }
+      }
+    });
+  },
+
+  countSelectedItemTotal(selectedProduct) {
+    selectedProduct.total = (
+      selectedProduct.quantity * parseFloat(selectedProduct.newPrice)
+    ).toFixed(2);
+
+    if (selectedProduct.oldPrice) {
+      selectedProduct.oldTotal =
+        (
+          selectedProduct.quantity * parseFloat(selectedProduct.oldPrice)
+        ).toFixed(2) +
+        ' ' +
+        'USD';
+    } else {
+      selectedProduct.oldTotal = '';
+    }
+  },
+
+  onQuantityInputChange(event) {
+    const selectedProduct = getSelectedItem(event, allProducts);
+    if (event.target.dataset.id === selectedProduct.id) {
+      selectedProduct.quantity = event.target.value;
+      shoppingCart.countSelectedItemTotal(selectedProduct);
+      shoppingCart.displayPrice(selectedProduct);
+    }
+    refs.displayCartTotal.textContent = shoppingCart.countTotal() + ' ' + 'USD';
+  },
+
+  countTotal() {
+    const shoppingCartItemsTotal = this.items.map(item => +item.total);
+    this.total = shoppingCartItemsTotal
+      .reduce((acc, currentValue) => acc + currentValue)
+      .toFixed(2);
+    return this.total;
+  },
+
+  setShoppingCart(obj) {
+    {
+      localStorage.setItem(this._STORAGE_KEY, JSON.stringify(obj));
+    }
+  },
+};
+
+shoppingCart.goToCheckOutBtnCheck();
+
+// console.dir(shoppingCart);
+
+// const savedData = localStorage.getItem(STORAGE_KEY);
+// const savedDataObject = JSON.parse(savedData);
+// console.log(savedData);
+
+// const ratingEl = document.querySelectorAll('.basket-card__data-rating-icon');
+// function showRating(item) {
+//   for (let i = 0; i < item.rating; i++) {
+//     ratingEl[i].classList.add('basket-card__data-rating-icon--active');
+//   }
+// }
+
+refs.shoppingCartBtnEl.addEventListener('click', onShoppingCardBtnClick);
+refs.basketCloseBtnEl.addEventListener('click', onBasketCloseBtnClick);
+refs.continueShoppingBtnEl.addEventListener('click', onContinueBtnClick);
 
 function onShoppingCardBtnClick(event) {
-  basketEl.classList.remove('is-hidden');
+  refs.basketEl.classList.remove('is-hidden');
 }
 
 function onBasketCloseBtnClick() {
-  basketEl.classList.add('is-hidden');
+  refs.basketEl.classList.add('is-hidden');
 }
-
-export const basketIndicatorEl = document.querySelector('.controls__indicator');
-basketIndicatorEl.textContent = shoppingCart.items.length;
-
-const continueShoppingBtnEl = basketEl.querySelector(
-  '.basket-modal__continue-btn'
-);
-
-continueShoppingBtnEl.addEventListener('click', onContinueBtnClick);
 
 function onContinueBtnClick() {
-  basketEl.classList.add('is-hidden');
+  refs.basketEl.classList.add('is-hidden');
 }
+
+// const basketCardsMarkUp = createShoppingCart(shoppingCart);
+// const shoppingCartCardsEl = document.querySelector('.basket-modal__card-list');
+// shoppingCartCardsEl.insertAdjacentHTML('afterbegin', basketCardsMarkUp);
