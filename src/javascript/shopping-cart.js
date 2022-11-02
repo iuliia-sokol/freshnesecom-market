@@ -1,8 +1,5 @@
 import { allProducts, getSelectedItem } from './product-class-creator';
 
-// export const basketEl = document.querySelector('.basket-modal');
-// const emptyTextEl = basketEl.querySelector('.basket-modal__empty');
-
 export const refs = {
   shoppingCartBtnEl: document.querySelector('.basket'),
   basketEl: document.querySelector('.basket-modal'),
@@ -18,6 +15,7 @@ export const refs = {
 export const shoppingCart = {
   items: [],
   total: 0,
+
   _STORAGE_KEY: 'shopping-cart',
 
   createShoppingCartItemMarkUp({
@@ -133,15 +131,7 @@ Remove
     this.insertItemToShoppingCart(basketCardMarkUp);
     this.items.push(item);
 
-    // console.dir(shoppingCart);
-
-    //   showRating(item);
-
-    //   for (let icon of ratingEl) {
-    //     if (ratingEl.indexOf(icon) <= item.rating - 1) {
-    //       this.icon.classList.add('basket-card__data-rating-icon--active');
-    //     }
-    //   }
+    this.displayRating(item);
 
     const quantityInputEl = document.querySelectorAll('.basket-card__input');
     quantityInputEl.forEach(input =>
@@ -150,6 +140,26 @@ Remove
 
     refs.basketIndicatorEl.textContent = shoppingCart.items.length;
     refs.displayCartTotal.textContent = shoppingCart.countTotal() + ' ' + 'USD';
+  },
+
+  displayRating(item) {
+    const ratingEl = document.querySelectorAll(
+      '.basket-card__data-rating-icon'
+    );
+    let rating = +item.rating;
+
+    let ratingNodelistArray = [...ratingEl].map(item => item);
+
+    let selectedItemRatingEls = ratingNodelistArray.filter(
+      el => el.dataset.id === item.id
+    );
+
+    for (let i = 0; i < rating; i++) {
+      selectedItemRatingEls[i].classList.add(
+        'basket-card__data-rating-icon--active'
+      );
+    }
+    return;
   },
 
   displayPrice(selectedProduct) {
@@ -224,13 +234,6 @@ shoppingCart.goToCheckOutBtnCheck();
 // const savedData = localStorage.getItem(STORAGE_KEY);
 // const savedDataObject = JSON.parse(savedData);
 // console.log(savedData);
-
-// const ratingEl = document.querySelectorAll('.basket-card__data-rating-icon');
-// function showRating(item) {
-//   for (let i = 0; i < item.rating; i++) {
-//     ratingEl[i].classList.add('basket-card__data-rating-icon--active');
-//   }
-// }
 
 refs.shoppingCartBtnEl.addEventListener('click', onShoppingCardBtnClick);
 refs.basketCloseBtnEl.addEventListener('click', onBasketCloseBtnClick);

@@ -2,7 +2,6 @@ import * as basicLightbox from 'basiclightbox';
 import { allProducts } from './product-class-creator';
 import { getSelectedItem } from './product-class-creator';
 import { shoppingCart } from './shopping-cart';
-import { setShoppingCart } from './shopping-cart';
 import { refs } from './shopping-cart';
 
 const lightboxedCard = document.querySelectorAll('.product');
@@ -255,6 +254,8 @@ data-quantity=1 data-saved-money="">Add to cart</button>
         }
       });
       shoppingCart.displayPrice(selectedProduct);
+      refs.displayCartTotal.textContent =
+        shoppingCart.countTotal() + ' ' + 'USD';
       instance.close();
       return;
     }
@@ -269,20 +270,3 @@ data-quantity=1 data-saved-money="">Add to cart</button>
     return shoppingCart;
   }
 }
-
-// const ratingEl = document.querySelectorAll(
-//   '.basket-card__data-rating-icon'
-// );
-// ratingEl.forEach(el => {
-//   if (el.dataset.id === selectedProduct.id) {
-//     console.dir(ratingEl);
-//   }
-// });
-
-// console.dir(ratingEl);
-
-// const thisRating = ratingEl.filter(
-//   el => el.dataset.id === selectedProduct.id
-// );
-
-// console.log(thisRating);
