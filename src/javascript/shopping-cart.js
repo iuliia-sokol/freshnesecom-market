@@ -28,12 +28,12 @@ export const shoppingCart = {
     total,
     oldTotal,
   }) {
-    return `<li class="basket-modal__card-wrapper basket-card">
+    return `<li class="basket-modal__card-wrapper basket-card" data-id="${id}">
 <div class="basket-card__img-wrapper">
 <img class="image-display basket-card__image" src="${img}" alt="${title}" width="100" height="67"/>
 <ul class="list-general basket-card__controls-list">
 <li class="list-general basket-card__controls-item">
-<button class="basket-card__controls-btn">
+<button class="basket-card__controls-btn" data-id="${id}">
 <svg class="basket-card__controls-icon"  aria-label="add to favourite items" viewBox="0 0 35 32">
 <path stroke-linejoin="bevel" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M19.083 6.52c1.237-1.281 2.969-2.076 4.887-2.076 3.75 0 6.789 3.040 6.789 6.789 0 1.918-0.795 3.65-2.074 4.885l-0.002 0.002-1.749 1.747-9.6 9.6-11.347-11.347c-1.177-1.219-1.903-2.882-1.903-4.713 0-3.75 3.040-6.789 6.789-6.789 1.832 0 3.494 0.725 4.715 1.904l-0.002-0.002 1.747 1.747 1.747-1.747z"></path>
 </svg>
@@ -41,7 +41,7 @@ Wishlist
 </button>
 </li>
 <li class="list-general basket-card__controls-item">
-<button class="basket-card__controls-btn">
+<button class="basket-card__controls-btn" data-id="${id}">
 <svg class="basket-card__controls-icon"  aria-label="compare with other items"  viewBox="0 0 35 32">
 <title>compare</title>
 <path stroke-linejoin="bevel" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M14 2.667h-5.333c-1.473 0-2.667 1.194-2.667 2.667v0 5.333c0 1.473 1.194 2.667 2.667 2.667v0h5.333c1.473 0 2.667-1.194 2.667-2.667v0-5.333c0-1.473-1.194-2.667-2.667-2.667v0zM14 18.667h-5.333c-1.473 0-2.667 1.194-2.667 2.667v0 5.333c0 1.473 1.194 2.667 2.667 2.667v0h5.333c1.473 0 2.667-1.194 2.667-2.667v0-5.333c0-1.473-1.194-2.667-2.667-2.667v0zM28.667 21.333h-8M26 26.667h-5.333M26 10.667h-5.333M28.667 5.333h-8"></path>
@@ -50,7 +50,7 @@ Compare
 </button>
 </li>
 <li class="list-general basket-card__controls-item">
-<button class="basket-card__controls-btn">
+<button class="basket-card__controls-btn remove-btn" data-id="${id}">
 <svg class="basket-card__controls-icon" aria-label="remove from basket" viewBox="0 0 35 32">
 <path stroke-linejoin="bevel" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667"  d="M25.813 24.48l-16.96-16.96M25.813 7.52l-16.96 16.96"></path>
 </svg>
@@ -133,6 +133,8 @@ Remove
 
     this.displayRating(item);
 
+    this.removeItemFromShoppingCart(item);
+
     const quantityInputEl = document.querySelectorAll('.basket-card__input');
     quantityInputEl.forEach(input =>
       input.addEventListener('change', shoppingCart.onQuantityInputChange)
@@ -140,6 +142,29 @@ Remove
 
     refs.basketIndicatorEl.textContent = shoppingCart.items.length;
     refs.displayCartTotal.textContent = shoppingCart.countTotal() + ' ' + 'USD';
+  },
+
+  removeItemFromShoppingCart(item) {
+    const removeBtnEl = document.querySelectorAll('.remove-btn');
+    const basketItemsEl = document.querySelectorAll('.basket-card');
+    removeBtnEl.forEach(btn => {
+      btn.addEventListener('click', event => {
+        if (event.currentTarget.dataset.id === item.id) {
+          let itemIndex = this.items.indexOf(item);
+          let itemsNodelistArray = [...basketItemsEl].map(el => el);
+          let itemToRemoveEl = itemsNodelistArray.find(
+            el => el.dataset.id === item.id
+          );
+          itemToRemoveEl.remove();
+          this.items.splice(itemIndex, 1);
+          item.quantity = 1;
+          refs.basketIndicatorEl.textContent = this.items.length;
+          refs.displayCartTotal.textContent = this.countTotal() + ' ' + 'USD';
+          this.setShoppingCart(shoppingCart);
+          return shoppingCart;
+        }
+      });
+    });
   },
 
   displayRating(item) {
@@ -214,6 +239,11 @@ Remove
 
   countTotal() {
     const shoppingCartItemsTotal = this.items.map(item => +item.total);
+    if (this.items.length <= 0) {
+      refs.emptyTextEl.classList.toggle('visually-hidden');
+      this.total = 0;
+      return this.total;
+    }
     this.total = shoppingCartItemsTotal
       .reduce((acc, currentValue) => acc + currentValue)
       .toFixed(2);
