@@ -133,7 +133,7 @@ Remove
 
     this.displayRating(item);
     this.addItemToWishList(item);
-
+    this.addToCompareList(item);
     this.removeItemFromShoppingCart(item);
 
     const quantityInputEl = document.querySelectorAll('.basket-card__input');
@@ -155,9 +155,25 @@ Remove
         }
         if (favIcon.classList.contains('basket-card__controls-icon--active')) {
           favIcon.nextSibling.textContent = '\nIn wishlist\n';
-          // console.dir(favIcon.nextSibling);
         } else {
           favIcon.nextSibling.textContent = '\nWishlist\n';
+        }
+      });
+    });
+  },
+
+  addToCompareList(item) {
+    const addToFavsBtnEl = document.querySelectorAll('.compare-btn');
+    addToFavsBtnEl.forEach(btn => {
+      btn.addEventListener('click', event => {
+        let favIcon = event.currentTarget.children[0];
+        if (event.currentTarget.dataset.id === item.id) {
+          favIcon.classList.toggle('basket-card__controls-icon--active');
+        }
+        if (favIcon.classList.contains('basket-card__controls-icon--active')) {
+          favIcon.nextSibling.textContent = '\nCompared\n';
+        } else {
+          favIcon.nextSibling.textContent = '\nCompare\n';
         }
       });
     });
@@ -278,12 +294,6 @@ Remove
 
 shoppingCart.goToCheckOutBtnCheck();
 
-// console.dir(shoppingCart);
-
-// const savedData = localStorage.getItem(STORAGE_KEY);
-// const savedDataObject = JSON.parse(savedData);
-// console.log(savedData);
-
 refs.shoppingCartBtnEl.addEventListener('click', onShoppingCardBtnClick);
 refs.basketCloseBtnEl.addEventListener('click', onBasketCloseBtnClick);
 refs.continueShoppingBtnEl.addEventListener('click', onContinueBtnClick);
@@ -299,6 +309,10 @@ function onBasketCloseBtnClick() {
 function onContinueBtnClick() {
   refs.basketEl.classList.add('is-hidden');
 }
+
+// const savedData = localStorage.getItem(STORAGE_KEY);
+// const savedDataObject = JSON.parse(savedData);
+// console.log(savedData);
 
 // const basketCardsMarkUp = createShoppingCart(shoppingCart);
 // const shoppingCartCardsEl = document.querySelector('.basket-modal__card-list');
