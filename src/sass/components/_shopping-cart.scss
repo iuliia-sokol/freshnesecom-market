@@ -126,13 +126,20 @@
     z-index: 20000;
     stroke: $main-black;
 
+    &--active {
+      stroke: $accent-red;
+      fill: $accent-red;
+    }
+
     &:hover,
     &:focus {
       stroke: $accent-red;
     }
 
     .basket-card__controls-btn:hover &,
-    .basket-card__controls-btn:focus & {
+    .basket-card__controls-btn:focus &,
+    .basket-card__controls-btn:hover &--active,
+    .basket-card__controls-btn:hover &--active {
       stroke: $accent-red;
       transform: translateY(-50%) scale(1);
     }

@@ -33,7 +33,7 @@ export const shoppingCart = {
 <img class="image-display basket-card__image" src="${img}" alt="${title}" width="100" height="67"/>
 <ul class="list-general basket-card__controls-list">
 <li class="list-general basket-card__controls-item">
-<button class="basket-card__controls-btn" data-id="${id}">
+<button class="basket-card__controls-btn add-to-favs-btn" data-id="${id}">
 <svg class="basket-card__controls-icon"  aria-label="add to favourite items" viewBox="0 0 35 32">
 <path stroke-linejoin="bevel" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M19.083 6.52c1.237-1.281 2.969-2.076 4.887-2.076 3.75 0 6.789 3.040 6.789 6.789 0 1.918-0.795 3.65-2.074 4.885l-0.002 0.002-1.749 1.747-9.6 9.6-11.347-11.347c-1.177-1.219-1.903-2.882-1.903-4.713 0-3.75 3.040-6.789 6.789-6.789 1.832 0 3.494 0.725 4.715 1.904l-0.002-0.002 1.747 1.747 1.747-1.747z"></path>
 </svg>
@@ -41,7 +41,7 @@ Wishlist
 </button>
 </li>
 <li class="list-general basket-card__controls-item">
-<button class="basket-card__controls-btn" data-id="${id}">
+<button class="basket-card__controls-btn compare-btn" data-id="${id}">
 <svg class="basket-card__controls-icon"  aria-label="compare with other items"  viewBox="0 0 35 32">
 <title>compare</title>
 <path stroke-linejoin="bevel" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M14 2.667h-5.333c-1.473 0-2.667 1.194-2.667 2.667v0 5.333c0 1.473 1.194 2.667 2.667 2.667v0h5.333c1.473 0 2.667-1.194 2.667-2.667v0-5.333c0-1.473-1.194-2.667-2.667-2.667v0zM14 18.667h-5.333c-1.473 0-2.667 1.194-2.667 2.667v0 5.333c0 1.473 1.194 2.667 2.667 2.667v0h5.333c1.473 0 2.667-1.194 2.667-2.667v0-5.333c0-1.473-1.194-2.667-2.667-2.667v0zM28.667 21.333h-8M26 26.667h-5.333M26 10.667h-5.333M28.667 5.333h-8"></path>
@@ -132,6 +132,7 @@ Remove
     this.items.push(item);
 
     this.displayRating(item);
+    this.addItemToWishList(item);
 
     this.removeItemFromShoppingCart(item);
 
@@ -142,6 +143,24 @@ Remove
 
     refs.basketIndicatorEl.textContent = shoppingCart.items.length;
     refs.displayCartTotal.textContent = shoppingCart.countTotal() + ' ' + 'USD';
+  },
+
+  addItemToWishList(item) {
+    const addToFavsBtnEl = document.querySelectorAll('.add-to-favs-btn');
+    addToFavsBtnEl.forEach(btn => {
+      btn.addEventListener('click', event => {
+        let favIcon = event.currentTarget.children[0];
+        if (event.currentTarget.dataset.id === item.id) {
+          favIcon.classList.toggle('basket-card__controls-icon--active');
+        }
+        if (favIcon.classList.contains('basket-card__controls-icon--active')) {
+          favIcon.nextSibling.textContent = '\nIn wishlist\n';
+          // console.dir(favIcon.nextSibling);
+        } else {
+          favIcon.nextSibling.textContent = '\nWishlist\n';
+        }
+      });
+    });
   },
 
   removeItemFromShoppingCart(item) {
