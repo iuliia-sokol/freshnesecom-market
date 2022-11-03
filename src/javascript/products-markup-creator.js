@@ -19,7 +19,7 @@ function shiftItems(event) {
 }
 
 const onSaleCardsMarkUp = createGallery(
-  allProducts.filter(item => item.isOnSale)
+  allProducts.filter(item => parseInt(item.discount) * -1 >= 20)
 );
 
 const farmProductsCardsMarkUp = createGallery(

@@ -437,6 +437,56 @@ export const productsData = [
 
   {
     id: '',
+    title: 'Frozen raw head-shell on black tiger prawns',
+    description:
+      'Prawn is very nutritious. It’s fairly low in calories and provides a high amount of protein and healthy fats, as well as a variety of vitamins and minerals. It is also one of the best food sources of iodine, that many people are deficient in.',
+    newPrice: '24.80',
+    oldPrice: '30.40',
+    discount: '',
+    link: '#',
+    img: 'https://cdn.pixabay.com/photo/2018/11/12/15/26/tiger-prawns-3811130_960_720.jpg',
+    srcset:
+      'https://cdn.pixabay.com/photo/2018/11/12/15/26/tiger-prawns-3811130_960_720.jpg 1x, https://cdn.pixabay.com/photo/2018/11/12/15/26/tiger-prawns-3811130_1280.jpg 2x',
+    tags: ['meat-fish', 'seafood', 'fresh-food', 'shrimps', 'prawns'],
+    category: 'meat-fish',
+    isOnSale: true,
+    isBestSeller: true,
+    quantity: 1,
+    isInStock: true,
+    inStockCount: 50,
+    freshness: 1,
+    farm: 'Alaskan Seaman',
+    measure: 'kilo',
+    rating: 5,
+  },
+
+  {
+    id: '',
+    title: 'Frozen raw headless black tiger prawns',
+    description:
+      'Prawn is low in calories and provides a high amount of protein and healthy fats, variety of vitamins and minerals. It contains an antioxidant called astaxanthin, which has been studied for its role in promoting brain and heart health.',
+    newPrice: '29.90',
+    oldPrice: '30.40',
+    discount: '',
+    link: '#',
+    img: 'https://cdn.pixabay.com/photo/2016/03/05/19/46/calories-1238508_960_720.jpg',
+    srcset:
+      'https://cdn.pixabay.com/photo/2016/03/05/19/46/calories-1238508_960_720.jpg 1x, https://cdn.pixabay.com/photo/2016/03/05/19/46/calories-1238508_1280.jpg 2x',
+    tags: ['meat-fish', 'seafood', 'fresh-food', 'shrimps', 'prawns'],
+    category: 'meat-fish',
+    isOnSale: true,
+    isBestSeller: true,
+    quantity: 1,
+    isInStock: true,
+    inStockCount: 50,
+    freshness: 1,
+    farm: 'Alaskan Seaman',
+    measure: 'kilo',
+    rating: 4,
+  },
+
+  {
+    id: '',
     title: 'Assorted fruit basket (medium)',
     description:
       'Shop our premium selection of mixed fruit gift basket delivered right to your door.',
